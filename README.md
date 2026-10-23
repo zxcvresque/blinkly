@@ -4,7 +4,7 @@
   <p><strong>A small pause for your eyes.</strong></p>
   <p>Every 20 minutes, look 20 feet away for 20 seconds.<br>Quiet reminders, gentle motion, and a voice that knows when to stop.</p>
   <p>
-    <img alt="Version 2.6.2" src="https://img.shields.io/badge/version-2.6.2-e9bad8?style=flat-square&amp;labelColor=262626">
+    <img alt="Version 2.6.3" src="https://img.shields.io/badge/version-2.6.3-e9bad8?style=flat-square&amp;labelColor=262626">
     <img alt="Chromium and Firefox" src="https://img.shields.io/badge/browsers-Chromium_%2B_Firefox-a4dfe2?style=flat-square&amp;labelColor=262626">
     <img alt="230 offline recordings" src="https://img.shields.io/badge/offline-230_recordings-f0dfa8?style=flat-square&amp;labelColor=262626">
   </p>
@@ -51,7 +51,7 @@ Window light moves across a textured wall while you work. When it is time to res
 1. [Download the Chromium ZIP](blinkly-chromium.zip?raw=true), extract it, and keep the `blinkly-chromium` folder somewhere permanent.
 2. Open your browser's extensions page, such as `chrome://extensions` or `helium://extensions`.
 3. Enable **Developer mode**, choose **Load unpacked**, and select the folder containing `manifest.json`.
-4. Refresh existing webpages. Click a webpage once to allow audio playback, then pin Blinkly for its countdown badge.
+4. Refresh existing webpages, then pin Blinkly for its countdown badge.
 
 Open **Settings** from the popup to show the panel on your current webpage. Browser settings pages, new-tab pages, and extension stores do not allow the panel; use an ordinary website. Disable duplicate installations so only one copy sends reminders.
 
@@ -80,6 +80,8 @@ Replace the files in the same unpacked folder, reload the extension, and refresh
 
 **Tint now** applies warmth immediately, even outside the night schedule. If warmth is set to zero, it starts at 15%. Switching it off restores the night-only schedule when enabled; otherwise the tint turns off.
 
+One shared timer follows you between tabs and browser windows. Pausing, snoozing, restarting, or starting a rest updates every tab and the toolbar countdown together. Only the foreground tab contributes screen time.
+
 Custom timer positions are saved relative to the viewport, shared across tabs, and kept inside the screen when you resize. Your last settings tab, library filters, paused state, statistics, and voice rotation are also remembered locally.
 
 Keyboard shortcuts: **Alt+Shift+E** opens settings, **Alt+Shift+B** starts a break, and **Alt+Shift+P** pauses or resumes.
@@ -92,9 +94,9 @@ Balanced guidance uses two prompts, roughly ten seconds apart in a 20-second res
 
 **Speaking to** changes how the same narrator addresses you. **Flirty lines** is optional and off by default. When enabled, alerts and rest openings prefer spoken pet names; later guidance keeps the same name or uses neutral wording. Recordings rotate before repeating; favorites are preferred within a matching context, and muted clips stay out of automatic guidance. If every matching clip is muted, that context stays silent. Every recording remains available for manual preview, with only one preview playing at a time.
 
-Click the webpage once to enable sound there, or use **Test voice**. Browser audio restrictions can keep a newly opened page silent until you interact with it; Blinkly waits instead of attempting blocked playback.
+Voices play through Blinkly's own audio player, so websites cannot block them through their autoplay or media policies. Use **Test voice** to check the selected volume. Switching tabs or leaving the browser stops the current recording; recordings never overlap across tabs.
 
-Quiet hours pause automatic reminders while allowing manual breaks and previews. The chime is a separate setting under Comfort.
+Quiet hours pause automatic reminders while allowing manual breaks and previews. The chime is a separate setting under Comfort. Desktop notifications are sent by Blinkly through its extension permission; enabling them never asks the current website for notification access.
 
 ## Local by design
 

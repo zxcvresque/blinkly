@@ -11,7 +11,7 @@ root = Path(__file__).resolve().parents[1]
 pack = json.loads((root / 'audio/manifest.json').read_text())
 assert pack['complete'] and len(pack['clips']) == pack['expectedCount']
 manifest = json.loads((root / 'manifest.json').read_text())
-files = ['manifest.json', 'background.js', 'popup.html', 'popup.js', 'options.html', 'sleep-schedule.js', 'reminder-preferences.js', 'voice-data/pet-clips.js', 'voice-lines.js', 'blinkly-scenes.js', 'widget-placement.js', 'voice-cadence.js', 'audio-activation.js', 'blinkly.user.js', 'README.md', 'audio/manifest.json']
+files = ['manifest.json', 'background.js', 'popup.html', 'popup.js', 'options.html', 'sleep-schedule.js', 'reminder-preferences.js', 'voice-data/pet-clips.js', 'voice-lines.js', 'blinkly-scenes.js', 'widget-placement.js', 'voice-cadence.js', 'audio-activation.js', 'blinkly.user.js', 'README.md', 'audio/manifest.json', 'extension-audio.js', 'audio-player.js', 'audio-player.html', 'timer-service.js', 'audio/chime-start.wav', 'audio/chime-end.wav']
 files += [f'icons/icon{size}.png' for size in [16, 32, 48, 128]]
 files += ['assets/blinkly-logo.png', 'assets/blinkly-logo-prompt.txt', 'design/previews/popup.png', 'design/previews/mist-end.png']
 files += [clip['file'] for clip in pack['clips'].values()]
@@ -48,7 +48,8 @@ def build(name, firefox=False):
         shutil.copy2(root / file, target)
     release_manifest = dict(manifest)
     if firefox:
-        release_manifest['background'] = {'scripts': ['sleep-schedule.js', 'reminder-preferences.js', 'voice-cadence.js', 'background.js']}
+        release_manifest['permissions'] = [permission for permission in manifest['permissions'] if permission != 'offscreen']
+        release_manifest['background'] = {'scripts': ['sleep-schedule.js', 'reminder-preferences.js', 'voice-cadence.js', 'timer-service.js', 'audio-player.js', 'extension-audio.js', 'background.js']}
         release_manifest['host_permissions'] = ['http://*/*', 'https://*/*']
         release_manifest['browser_specific_settings'] = {'gecko': {
             'id': 'blinkly@local.extension', 'strict_min_version': '140.0',

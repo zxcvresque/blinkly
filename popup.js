@@ -71,37 +71,20 @@ function render() {
 }
 
 async function load() {
-  const r = await chrome.storage.local.get(['state', 'cfg']);
-  S = r.state || {}; C = normalizeConfig(r.cfg); render();
+  const [r, reply] = await Promise.all([chrome.storage.local.get(['cfg']),
+    chrome.runtime.sendMessage({ type: 'blinkly-timer', action: 'snapshot' })]);
+  S = reply?.state || {}; C = normalizeConfig(r.cfg); render();
 }
-async function patch(fn) {
-  const r = await chrome.storage.local.get(['state', 'cfg']);
-  const st = { phase: 'work', elapsed: 0, paused: false, lastAct: Date.now(), days: {}, ...(r.state || {}) };
-  fn(st, normalizeConfig(r.cfg)); st.w = 'popup';
-  await chrome.storage.local.set({ state: st }); S = st; render();
+async function command(action, extra = {}) {
+  const reply = await chrome.runtime.sendMessage({ type: 'blinkly-timer', action, ...extra });
+  if (!reply?.ok) throw new Error(reply?.error || 'Blinkly timer is unavailable');
+  if ((reply.state.revision || 0) >= (S.revision || 0)) S = reply.state;
+  render();
 }
 
-$('b-now').onclick = () => patch((s, c) => { s.phase = 'break'; s.manualBreak = true; s.breakLen = c.breakSec; s.breakEnd = Date.now() + c.breakSec * 1000; s.res = ''; });
-function voiceEvent(s, type) {
-  const at = Date.now();
-  s.voiceEvent = { id: `${at}-${crypto.randomUUID()}`, type, at };
-}
-$('b-pause').onclick = () => patch(s => {
-  s.paused = !s.paused; voiceEvent(s, s.paused ? 'pause' : 'resume');
-});
-$('b-snooze').onclick = () => patch((s, c) => {
-  if (c.strict) return;
-  const sessionId = s.phase === 'break' ? String(s.breakEnd) : null;
-  if (s.phase === 'break') {
-    const key = new Date().toLocaleDateString('en-CA');
-    const day = s.days[key] ||= { d: 0, s: 0, a: 0 };
-    day.s++;
-  }
-  s.phase = 'work'; s.elapsed = Math.max(0, Sleep.effectiveWorkMin(c) * 60 - 300);
-  s.snoozeCount = (Number(s.snoozeCount) || 0) + 1;
-  voiceEvent(s, 'snooze');
-  if (sessionId) s.voiceEvent.sessionId = sessionId;
-});
+$('b-now').onclick = () => command('start', { manual: true });
+$('b-pause').onclick = () => command('pause');
+$('b-snooze').onclick = () => command('snooze');
 $('b-set').onclick = async () => {
   const status = $('settings-status');
   status.textContent = ''; status.hidden = true;
@@ -119,7 +102,7 @@ $('b-set').onclick = async () => {
 
 chrome.storage.onChanged.addListener((ch, area) => {
   if (area !== 'local') return;
-  if (ch.state) S = ch.state.newValue || {};
+  if (ch.state?.newValue?.timerSchema === 1 && (ch.state.newValue.revision || 0) >= (S.revision || 0)) S = ch.state.newValue;
   if (ch.cfg) C = normalizeConfig(ch.cfg.newValue);
   render();
 });

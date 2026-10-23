@@ -49,7 +49,11 @@
     function unlock(event) {
       const trustedGesture = event?.isTrusted === true && GESTURES.has(event.type);
       const state = activation();
-      if (!state.active && (state.supported || !trustedGesture)) return Promise.resolve(null);
+      // In extension isolated worlds the page activation flag can lag behind a
+      // genuine click. Resume within that trusted click's synchronous stack.
+      const trustedClick = event?.isTrusted === true && event.type === 'click' && (event.button === undefined || event.button === 0);
+      const existingPermission = authorized && context && context.state !== 'closed';
+      if (!state.active && !trustedClick && !existingPermission && (state.supported || !trustedGesture)) return Promise.resolve(null);
       authorized = true;
       if (pending) return pending;
       const current = get();

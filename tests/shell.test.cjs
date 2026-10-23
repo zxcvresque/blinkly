@@ -42,6 +42,10 @@ function background(pack, browser = {}, stored = {}, now) {
     }
   };
   if (now) context.Date = clockAt(now);
+  context.chrome.notifications = {
+    getPermissionLevel: async () => browser.notificationPermission || 'granted',
+    create: async (id, options) => { (actions.notifications ||= []).push({ id, ...JSON.parse(JSON.stringify(options)) }); return id; }
+  };
   context.chrome.action = {
     setIcon() { throw new Error('The packaged toolbar icon must be preserved'); },
     setBadgeText(value) { actions.badge = value.text; },
@@ -58,8 +62,8 @@ function background(pack, browser = {}, stored = {}, now) {
   } };
   vm.createContext(context);
   context.importScripts = file => {
-    assert.ok(['sleep-schedule.js', 'reminder-preferences.js', 'voice-cadence.js'].includes(file));
-    vm.runInContext(file === 'sleep-schedule.js' ? sleepSource : file === 'voice-cadence.js' ? cadenceSource : preferencesSource, context);
+    assert.ok(['sleep-schedule.js', 'reminder-preferences.js', 'voice-cadence.js', 'timer-service.js', 'extension-audio.js'].includes(file));
+    vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context);
   };
   vm.runInContext(fs.readFileSync(path.join(root, 'background.js'), 'utf8'), context);
   return { fetched, actions, ready: () => new Promise(resolve => setImmediate(resolve)), request: (message, sender = {}) => new Promise(resolve => {
@@ -182,6 +186,17 @@ test('speech gate denies inactive tabs, background windows, absent senders and A
     const response = await bg.request({ type: 'blinkly-can-speak' }, sender);
     assert.deepEqual(JSON.parse(JSON.stringify(response)), { ok: true, allowed: false });
     assert.equal(bg.fetched.length, 0);
+  }
+});
+test('worker timer advances only for the active tab of a focused browser window', async () => {
+  const now = '2026-10-23T12:00:00Z', at = new Date(now).getTime();
+  for (const browser of [{}, { window: { focused: false } }, { tabs: [{ id: 99 }] }, { windowError: true }]) {
+    const stored = { state: { elapsed: 10, lastAct: at }, cfg: { sleepEnabled: false } };
+    const bg = background({ clips: {} }, browser, stored, now);
+    const reply = await bg.request({ type: 'blinkly-timer', action: 'tick' }, { tab: { id: 42 } });
+    assert.equal(reply.ok, true);
+    assert.equal(reply.state.elapsed, Object.keys(browser).length ? 10 : 11);
+    assert.equal(stored.timerState.elapsed, reply.state.elapsed);
   }
 });
 
@@ -395,6 +410,10 @@ function popup(state = {}, cfg = {}, now, browser = {}) {
   vm.createContext(context);
   vm.runInContext(sleepSource, context);
   vm.runInContext(preferencesSource, context);
+  vm.runInContext(fs.readFileSync(path.join(root, 'timer-service.js'), 'utf8'), context);
+  const timer = context.BlinklyTimerService.create({ storage: context.chrome.storage.local,
+    sleep: context.BlinklySleep, preferences: context.BlinklyPreferences, now: () => context.Date.now() });
+  context.chrome.runtime.sendMessage = message => timer.request(message, {});
   vm.runInContext(fs.readFileSync(path.join(root, 'popup.js'), 'utf8'), context);
   return { calls, element, read: () => saved, ready: () => new Promise(resolve => setImmediate(resolve)) };
 }
@@ -479,14 +498,14 @@ test('strict popup hides and rejects snooze; break now keeps existing semantics'
   assert.equal(ui.element('b-snooze').parentElement.style.gridTemplateColumns, 'repeat(2,1fr)');
   await ui.element('b-snooze').onclick();
   assert.equal(ui.read().state.elapsed, 100);
-  assert.equal(ui.read().state.snoozeCount, undefined);
+  assert.equal(ui.read().state.snoozeCount, 0);
   await ui.element('b-now').onclick();
   const state = ui.read().state;
   assert.equal(state.phase, 'break');
   assert.equal(state.manualBreak, true);
   assert.equal(state.breakLen, 30);
   assert.ok(state.breakEnd > Date.now());
-  assert.equal(state.voiceEvent, undefined);
+  assert.equal(state.voiceEvent, null);
 });
 
 test('options loads shared lines before the runtime and all icons are restored', () => {
@@ -736,4 +755,37 @@ test('hardcoded recorded pet names cannot change during a longer rest', async ()
   await request(bg, 0, ['vo_a0'], '1700000000200');
   assert.equal((await request(bg, 2, ['vo_a2','vo_b2'], '1700000000200')).key, 'vo_b2');
   assert.equal(stored.voiceRotation.sessions.at(-1).pet, 'daddy');
+});
+
+test('notifications belong to the extension and only one is sent for an unfocused active break', async () => {
+  const id = String(Date.now() + 20000);
+  const stored = { cfg: { notify: true }, state: { phase: 'break', breakEnd: Number(id), breakLen: 20 } };
+  const bg = background({ clips: {} }, { window: { focused: false } }, stored);
+  const message = { type: 'blinkly-break-notification', sessionId: id };
+  const replies = await Promise.all([bg.request(message, { tab: { id: 42 } }), bg.request(message, { tab: { id: 43 } })]);
+  assert.equal(replies.filter(reply => reply.sent).length, 1);
+  assert.equal(bg.actions.notifications.length, 1);
+  assert.equal(bg.actions.notifications[0].title, 'Blinkly — time for an eye break');
+  assert.equal(bg.actions.notifications[0].iconUrl, 'chrome-extension://local/icons/icon128.png');
+  assert.match(bg.actions.notifications[0].message, /20 seconds/);
+  assert.equal(stored.lastBreakNotification, id);
+});
+test('notifications stay silent when focused, disabled, blocked, stale, or not for the current break', async () => {
+  const id = String(Date.now() + 20000), message = { type: 'blinkly-break-notification', sessionId: id };
+  for (const options of [{ focused: true }, { notify: false }, { permission: 'denied' }, { phase: 'work' }, { wrong: true }, { expired: true }]) {
+    const stored = { cfg: { notify: options.notify !== false }, state: { phase: options.phase || 'break',
+      breakEnd: options.expired ? Date.now() - 1 : options.wrong ? Number(id) + 1 : Number(id), breakLen: 20 } };
+    const bg = background({ clips: {} }, { window: { focused: !!options.focused }, notificationPermission: options.permission }, stored);
+    assert.equal((await bg.request(message, { tab: { id: 42 } })).sent, false, JSON.stringify(options));
+    assert.equal(bg.actions.notifications, undefined);
+  }
+});
+test('notification permission status uses the extension API and rejects invalid break requests', async () => {
+  const bg = background({ clips: {} }, { notificationPermission: 'denied' });
+  assert.equal((await bg.request({ type: 'blinkly-notification-status' })).permission, 'denied');
+  assert.equal((await bg.request({ type: 'blinkly-break-notification', sessionId: '../bad' }, { tab: { id: 42 } })).ok, false);
+  assert.equal((await bg.request({ type: 'blinkly-break-notification', sessionId: '123' })).ok, false);
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json')));
+  assert.ok(manifest.permissions.includes('notifications'));
+  assert.doesNotMatch(fs.readFileSync(path.join(root, 'blinkly.user.js'), 'utf8'), /Notification\.requestPermission|new Notification\(/);
 });

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Blinkly: 20-20-20 eye care
 // @namespace    https://blinkly.local
-// @version      2.6.2
+// @version      2.6.3
 // @description  Blinkly extension runtime: window light, misty mountains, guided eye breaks, cross-tab sync, and bundled offline ElevenLabs guidance.
 // @match        *://*/*
 // @noframes
@@ -25,26 +25,41 @@
   const hasGM = typeof GM_getValue === 'function';
   const hasCR = typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local;
   const cache = {}, subs = [];
+  const copy = value => value && typeof value === 'object' ? JSON.parse(JSON.stringify(value)) : value;
   const Store = {
+    coordinated: !!(hasCR && !hasGM && chrome.runtime?.id),
     async init() {
       if (!hasCR || hasGM) return;
       try {
-        Object.assign(cache, await chrome.storage.local.get(['cfg', 'state']));
+        const changed = new Set();
+        // Subscribe before the async read: another tab may advance while this
+        // document starts. Never replace that newer event with an older snapshot.
         chrome.storage.onChanged.addListener((ch, area) => {
           if (area !== 'local') return;
-          for (const k in ch) { if (k !== 'cfg' && k !== 'state') continue; cache[k] = ch[k].newValue; subs.forEach(f => f(k, ch[k].newValue)); }
+          for (const k in ch) { if (k !== 'cfg' && k !== 'state') continue; changed.add(k); cache[k] = copy(ch[k].newValue); subs.forEach(f => f(k, copy(ch[k].newValue))); }
         });
+        const stored = await chrome.storage.local.get(['cfg', 'state']);
+        for (const k of ['cfg', 'state']) if (!changed.has(k) && k in stored) cache[k] = copy(stored[k]);
+        if (this.coordinated) {
+          const reply = await this.command('snapshot');
+          if (!cache.state || (reply.state.revision || 0) >= (cache.state.revision || 0)) cache.state = copy(reply.state);
+        }
       } catch {}
+    },
+    async command(action, details = {}) {
+      const reply = await chrome.runtime.sendMessage({ type: 'blinkly-timer', action, ...details });
+      if (!reply?.ok || !reply.state) throw new Error(reply?.error || 'Blinkly timer is unavailable. Refresh this tab after updating the extension.');
+      return reply;
     },
     get(k, d) {
       if (hasGM) return GM_getValue(k, d);
-      if (hasCR) return k in cache ? cache[k] : d;
+      if (hasCR) return k in cache ? copy(cache[k]) : d;
       try { const v = localStorage.getItem('ev_' + k); return v == null ? d : JSON.parse(v); } catch { return d; }
     },
     set(k, v) {
       try {
         if (hasGM) GM_setValue(k, v);
-        else if (hasCR) { cache[k] = v; chrome.storage.local.set({ [k]: v }); }
+        else if (hasCR) { cache[k] = copy(v); chrome.storage.local.set({ [k]: copy(v) }); }
         else localStorage.setItem('ev_' + k, JSON.stringify(v));
       } catch {}
     },
@@ -84,7 +99,21 @@
 
   if (!PAGE && cfg.blocklist.split(/[\s,]+/).filter(Boolean).some(h => location.hostname === h || location.hostname.endsWith('.' + h))) return;
 
-  const save = () => { S.w = ME; Store.set('state', S); };
+  const save = () => {
+    if (Store.coordinated) {
+      // Playback can extend the visible Rested state; it cannot replace timer
+      // fields using a content script's potentially stale local snapshot.
+      return sharedCommand('presentation', { sessionId: String(S.breakEnd), resAt: S.resAt, resUntil: S.resUntil });
+    }
+    S.w = ME; Store.set('state', S);
+  };
+  async function sharedCommand(action, details = {}) {
+    try {
+      const reply = await Store.command(action, details);
+      receiveState(reply.state);
+      return reply;
+    } catch (error) { console.warn('Blinkly:', error.message); return null; }
+  }
   const dayKey = () => new Date().toLocaleDateString('en-CA');
   const day = () => {
     const k = dayKey();
@@ -106,6 +135,15 @@
   }
   async function chime(kind) {
     if (!cfg.sound || document.visibilityState !== 'visible') return;
+    if (extensionPlayback) {
+      const token = `${ME}:chime:${++playbackSequence}`;
+      vCur = { remote: true, token, force: false, context: null };
+      try { await packMessage({ type: 'blinkly-audio-play', chime: kind, token, volume: cfg.volume,
+        event: S.phase === 'break' ? 'step' : 'done', sessionId: String(S.breakEnd), actionId: S.voiceEvent?.id }); }
+      catch (error) { vstat(error.message); }
+      finally { if (vCur?.token === token) vCur = null; }
+      return;
+    }
     const phase = S.phase, end = S.breakEnd;
     try {
       const ac = await playbackContext();
@@ -240,7 +278,7 @@ input[type=range]::-moz-range-thumb{width:10px;height:10px;border-radius:50%;bac
 .sw input{position:absolute;opacity:0}
 .sw i{display:block;width:38px;height:22px;border-radius:99px;background:rgba(255,255,255,.16);position:relative;transition:background .3s;cursor:pointer}
 .sw i::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .35s var(--ease)}
-.sw input:checked+i{background:var(--ac)}.sw input:checked+i::after{transform:translateX(16px)}
+.sw input:checked+i{background:var(--ac)}.sw input:checked+i::after{transform:translateX(16px);background:var(--toggle-thumb,#171717)}
 .sw input:focus-visible+i{outline:2px solid var(--ac);outline-offset:2px}
 .seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
 .seg button{padding:6px 12px;color:var(--mute);transition:background .2s,color .2s}.seg button+button{border-left:1px solid var(--line)}
@@ -285,7 +323,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
 .sw input{appearance:none;-webkit-appearance:none;position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;z-index:1}
 .sw i{position:relative;display:block;flex:none;width:42px;height:26px;border:0;border-radius:999px;background:#404043;box-shadow:inset 0 0 0 1px #ffffff14;pointer-events:none}
 .sw i::after{top:3px;left:3px;width:20px;height:20px;border-radius:50%;box-shadow:0 1px 2px #0002;transform:translateX(0);transition:transform .18s ease}
-.sw input:checked+i{background:var(--ac)}.sw input:checked+i::after{transform:translateX(16px)}
+.sw input:checked+i{background:var(--ac)}.sw input:checked+i::after{transform:translateX(16px);background:var(--toggle-thumb,#171717)}
 .sw input:focus-visible+i{outline:2px solid var(--ac);outline-offset:3px}
 .seg{border-radius:999px;background:#272727;border-color:#ffffff12;flex-shrink:0}.seg button{padding:6px 11px;color:#b6b6bc;font-size:11.5px}.seg button.on{background:#414141;color:#fff}.seg button+button{border-color:#ffffff0d}
 .sws{gap:9px;flex-shrink:0}.sws button{width:19px;height:19px}.sws button.on{box-shadow:0 0 0 2px #1d1d1d,0 0 0 3px #e6e6e6}
@@ -342,7 +380,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
         ${row('Custom accent', 'Choose a color or enter its hex code', `<div class="custom-accent"><input type="color" data-k="accent" aria-label="Custom accent color"><input class="field hex" type="text" data-k="accent" aria-label="Accent hex code" maxlength="7" spellcheck="false"></div>`)}
         ${row('Chime', '', tog('sound'))}
         ${row('Chime volume', '', rng('volume', 0, 1, 0.05, ''))}
-        ${row('Desktop notification', 'When a break starts while you are in another window', tog('notify'))}
+        ${row('Desktop notification', 'When a break starts while you are in another window', tog('notify'))}<p class="hint" id="notification-status" role="status"></p>
       </section>
       <section class="tab" data-t="smart">
         ${row('Pause when away', 'Minutes without input. Coming back after this restarts the timer.', rng('idleMin', 1, 10, 1, ' min'))}
@@ -450,6 +488,9 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   const dec = new Map();
   let vCur = null, vPending = null, vBusy = false, vEpoch = 0, vDelay, previewKey = null, previewRequest = null;
   let libraryClips = [], libraryPromise, blockedVoice = null;
+  // Packaged voices play in the extension, independent of page autoplay/CSP.
+  const extensionPlayback = !!(hasCR && chrome.runtime?.id);
+  let playbackSequence = 0;
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   async function packMessage(message) {
     if (!hasCR || !chrome.runtime?.id) throw new Error('Load the complete Blinkly extension folder to use its saved voice pack.');
@@ -503,7 +544,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     const clips = await loadLibrary(), clip = clips.find(item => item.key === key);
     if (epoch !== vEpoch) return;
     if (!clip) { previewRequest = null; return; }
-    const context = await playbackContext();
+    const context = extensionPlayback || await playbackContext();
     if (epoch !== vEpoch) return;
     previewRequest = null;
     if (!context) { vstat('Click Test voice or Play to enable sound on this page.'); return; }
@@ -521,7 +562,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   async function voiceTest() {
     stopVoice();
     const epoch = vEpoch; previewRequest = epoch;
-    const context = await playbackContext();
+    const context = extensionPlayback || await playbackContext();
     if (epoch !== vEpoch) return;
     previewRequest = null;
     if (!context) { vstat('Click Test voice to enable sound on this page.'); return; }
@@ -584,6 +625,10 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
         try {
           if (!force && (!voiceAllowed(context) || !(await packMessage({ type: 'blinkly-can-speak' })).allowed)) continue;
           if (epoch !== vEpoch) continue;
+          if (extensionPlayback) {
+            await playPackagedVoice(text, epoch, force, context);
+            continue;
+          }
           const c = await playbackContext();
           if (epoch !== vEpoch) continue;
           if (!c) {
@@ -608,6 +653,30 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       }
     } finally { vBusy = false; }
   }
+  async function playPackagedVoice(text, epoch, force, context) {
+    if (epoch !== vEpoch) return;
+    const token = `${ME}:${epoch}:${++playbackSequence}`;
+    vCur = { remote: true, token, force, context };
+    vstat('Playing a saved recording…');
+    if (context?.event === 'done') { S.resUntil = Date.now() + 10000; save(); render(); }
+    try {
+      const result = await packMessage({ type: 'blinkly-audio-play', key: Voice.key(text), token,
+        volume: cfg.voiceVol, preview: force,
+        event: context?.event || (S.phase === 'break' ? 'step' : 'warn'),
+        sessionId: String(S.breakEnd), actionId: context?.actionId });
+      if (result.error) throw new Error(result.error);
+      if (result.started) vstat('Voice ready.');
+    } catch (error) { vstat(`Voice playback: ${error.message}`); }
+    finally {
+      if (vCur?.token === token) {
+        vCur = null; previewKey = null; renderLibrary();
+        if (context?.event === 'done' && S.voiceEvent?.id === context.actionId) {
+          S.resUntil = Date.now() + 250; save(); render();
+        }
+        if (context?.event === 'snooze' && S.voiceEvent?.id === context.actionId) hideToast();
+      }
+    }
+  }
   function say(text, force = false, context = null) {
     // Only the foreground page speaks; other visible windows still render the break.
     if (!force && !voiceAllowed(context)) return;
@@ -620,6 +689,10 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     if (previewKey) { previewKey = null; renderLibrary(); }
     if (!vCur) return;
     const previous = vCur; vCur = null;
+    if (previous.remote) {
+      void packMessage({ type: 'blinkly-audio-stop', token: previous.token }).catch(() => {});
+      return;
+    }
     try {
       const t = audio.peek().currentTime;
       previous.g.gain.setValueAtTime(previous.g.gain.value, t);
@@ -637,7 +710,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     if (reaction && !context.actionId || !voiceAllowed(context)) return;
     const epoch = vEpoch;
     const sessionId = String(S.breakEnd);
-    if (!(await playbackContext())) {
+    if (!extensionPlayback && !(await playbackContext())) {
       // Do not consume a rotation entry until this page can actually play it.
       if (epoch === vEpoch && voiceAllowed(context) && !(event === 'step' && step === 2 && blockedVoice?.event === 'step' && blockedVoice.sessionId === sessionId))
         blockedVoice = { event, step, action, epoch, sessionId, context };
@@ -706,18 +779,28 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   }
 
   /* ───────────── actions ───────────── */
-  function startBreak(source = 'manual') {
+  function startBreak(source = 'manual', gesture = null) {
+    // Dismiss settings even when a break is already running behind the panel.
+    togglePanel(false);
+    if (gesture?.isTrusted) void enableAudio(gesture);
     if (S.phase === 'break') return;
     stopVoice();
+    if (Store.coordinated) { hideToast(); return sharedCommand('start', { manual: source !== 'automatic' }); }
     S.manualBreak = source !== 'automatic';
     S.phase = 'break'; S.breakLen = cfg.breakSec; S.breakEnd = Date.now() + cfg.breakSec * 1000; S.res = '';
     save(); chime('start'); hideToast();
-    if (cfg.notify && !document.hasFocus() && window.Notification && Notification.permission === 'granted')
-      try { new Notification('Time for an eye break', { body: `Look at something 20 feet away for ${cfg.breakSec} seconds.`, silent: true }); } catch {}
+    if (cfg.notify && !document.hasFocus())
+      void packMessage({ type: 'blinkly-break-notification', sessionId: String(S.breakEnd) }).catch(error => {
+        const note = $('#notification-status'); if (note) note.textContent = error.message;
+      });
     render();
   }
   function endBreak(kind) {
     if (S.phase !== 'break') return;
+    if (Store.coordinated) {
+      stopVoice(); hideToast();
+      return sharedCommand(kind === 'skip' ? 'skip' : 'finish', { sessionId: String(S.breakEnd) });
+    }
     const d = day(), stale = Date.now() - S.breakEnd > 60000;
     stopVoice(); hideToast();
     S.phase = 'work'; S.elapsed = 0; S.snoozeCount = 0; S.mediaNotified = false; warned = false;
@@ -732,6 +815,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   }
   const snooze = () => {
     if (cfg.strict) return;
+    if (Store.coordinated) { stopVoice(); hideToast(); return sharedCommand('snooze'); }
     const sessionId = S.phase === 'break' ? String(S.breakEnd) : null;
     stopVoice(); if (S.phase === 'break') { S.phase = 'work'; day().s++; }
     S.snoozeCount = (S.snoozeCount || 0) + 1; S.elapsed = Math.max(0, limit() - 300); S.res = ''; warned = false;
@@ -739,8 +823,8 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     S.voiceEvent = { id: `snooze:${Date.now()}:${ME}`, type: 'snooze', at: Date.now(), ...(sessionId ? { sessionId } : {}) };
     save(); render(); externalVoiceEvent();
   };
-  const togglePause = () => { stopVoice(); S.paused = !S.paused; save(); render(); };
-  const restart = () => { stopVoice(); S.phase = 'work'; S.elapsed = 0; S.snoozeCount = 0; S.mediaNotified = false; S.res = ''; warned = false; hideToast(); save(); render(); };
+  const togglePause = () => { stopVoice(); if (Store.coordinated) return sharedCommand('pause'); S.paused = !S.paused; save(); render(); };
+  const restart = () => { stopVoice(); if (Store.coordinated) { hideToast(); return sharedCommand('restart'); } S.phase = 'work'; S.elapsed = 0; S.snoozeCount = 0; S.mediaNotified = false; S.res = ''; warned = false; hideToast(); save(); render(); };
   const togglePanel = open => { if (PAGE) return; panel.classList.toggle('on', open); if (!open && (previewKey || previewRequest !== null)) stopVoice(); if (open) { renderStats(); requestAnimationFrame(moveInd); voiceStatus(); } };
 
   function showToast(title, sub, plain, duration) {
@@ -765,10 +849,20 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     return false;
   };
   const isIdle = () => Date.now() - S.lastAct > cfg.idleMin * 60000;
+  let sharedTickPending = false, lastInputSent = 0;
 
   function tick() {
     const now = Date.now();
     if (panel.classList.contains('on')) renderSleepInfo();
+    if (Store.coordinated) {
+      if (Prefs.quietNow(cfg) && !(S.manualBreak && (S.phase === 'break' || restedVisible()))) hideToast();
+      if (!sharedTickPending) {
+        sharedTickPending = true;
+        void sharedCommand('tick', { mediaPlaying: cfg.deferMedia && mediaPlaying() })
+          .finally(() => { sharedTickPending = false; render(); });
+      }
+      render(); return;
+    }
     if (Prefs.quietNow(cfg) && !(S.phase === 'break' && S.manualBreak)) {
       if (S.phase === 'break') { stopVoice(); S.phase = 'work'; S.breakEnd = 0; S.res = ''; save(); }
       hideToast(); render(); return;
@@ -796,6 +890,15 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
 
   function onInput() {
     const now = Date.now();
+    if (Store.coordinated) {
+      if (now - lastInputSent > 5000) {
+        lastInputSent = now;
+        void sharedCommand('activity').then(reply => {
+          if (reply?.resetAfterIdle) showToast('Welcome back', 'Your timer was restarted.', true);
+        });
+      }
+      return;
+    }
     if (now - S.lastAct > 5000) {
       if (now - S.lastAct > cfg.idleMin * 60000 && S.phase === 'work' && !S.paused && S.elapsed > 0) {
         S.elapsed = 0; S.snoozeCount = 0; S.mediaNotified = false; warned = false; showToast('Welcome back', 'Your timer was restarted.', true);
@@ -836,7 +939,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       ov.classList.toggle('blink', i === 2);
       if (i !== lastStep) {
         const first = lastStep === -1; lastStep = i;
-        voiceStep(i, first); els.ttl.textContent = STEPS[i][0]; els.sub.textContent = STEPS[i][1];
+        voiceStep(first ? 0 : i, first); els.ttl.textContent = STEPS[i][0]; els.sub.textContent = STEPS[i][1];
         [els.ttl, els.sub].forEach(e => { e.classList.toggle('first', first); e.style.animation = 'none'; void e.offsetWidth; e.style.animation = ''; });
       }
       els.btns.style.display = cfg.strict ? 'none' : '';
@@ -887,8 +990,17 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       else if (el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || ['text', 'password', 'color', 'time'].includes(el.type)) el.value = v ?? '';
     });
   }
+  function accentThumb(accent) {
+    const hex = /^#[0-9a-f]{6}$/i.test(accent) ? accent.slice(1) : 'ef5b78';
+    const linear = value => { const c = value / 255; return c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4; };
+    const luminance = [0, 2, 4].map(i => linear(parseInt(hex.slice(i, i + 2), 16)))
+      .reduce((sum, value, i) => sum + value * [.2126, .7152, .0722][i], 0);
+    const dark = linear(23);
+    return (luminance + .05) / (dark + .05) > 1.05 / (luminance + .05) ? '#171717' : '#ffffff';
+  }
   function applyCfg() {
     wrap.style.setProperty('--ac', cfg.accent);
+    wrap.style.setProperty('--toggle-thumb', accentThumb(cfg.accent));
     W.classList.remove('tl', 'tr', 'bl', 'br', 'custom', 'label-right');
     W.classList.add(cfg.corner);
     positionWidget();
@@ -932,11 +1044,17 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     cfg = readConfig({ ...cfg, ...extra, [k]: v }); Store.set('cfg', cfg); applyCfg(); outLabel(k); render();
     if (['warmNow', 'warm'].includes(k)) syncControls();
     if (['voiceOn','voiceSnooze','voiceDone'].includes(k) && !v || ['recipientGender', 'flirty'].includes(k)) stopVoice();
-    if (k === 'voiceVol' && vCur) vCur.g.gain.value = v;
+    if (k === 'voiceVol' && vCur?.g) vCur.g.gain.value = v;
     if (k === 'workMin') voiceStatus();
     if (['favoriteClips','mutedClips'].includes(k)) renderLibrary();
     if (k === 'accent') root.querySelectorAll('[data-k="accent"]').forEach(el => { if (el.tagName === 'INPUT') el.value = cfg.accent; });
-    if (k === 'notify' && v && window.Notification && Notification.permission === 'default') Notification.requestPermission();
+    if (k === 'notify') {
+      const note = $('#notification-status'); note.textContent = '';
+      if (v) void packMessage({ type: 'blinkly-notification-status' }).then(reply => {
+        if (cfg.notify) note.textContent = reply.permission === 'granted' ? 'Desktop notifications enabled.'
+          : 'Notifications are blocked for Blinkly. Allow them in your browser or system settings.';
+      }).catch(error => { note.textContent = error.message; });
+    }
   }
   function moveInd() {
     const b = root.querySelector('#tabs button.on'); if (!b) return;
@@ -999,7 +1117,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     if (preview) { void previewClip(preview.dataset.preview); return; }
     const a = e.target.closest('[data-a]')?.dataset.a;
     if (a) {
-      ({ close: () => togglePanel(false), now: startBreak, skip: () => endBreak('skip'), snooze, pause: togglePause, restart, vtest: voiceTest, vstatus: voiceStatus, vstop: stopVoice,
+      ({ close: () => togglePanel(false), now: () => startBreak('manual', e), skip: () => endBreak('skip'), snooze, pause: togglePause, restart, vtest: voiceTest, vstatus: voiceStatus, vstop: stopVoice,
          reset: () => { cfg = readConfig({}); Store.set('cfg', cfg); applyCfg(); syncControls(); render(); } })[a]?.();
       e.stopPropagation(); return;
     }
@@ -1057,10 +1175,31 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       });
   } catch {}
 
+  function receiveState(value) {
+    if (!value || value.w === ME) return;
+    if (Store.coordinated && (value.timerSchema !== 1 || (value.revision || 0) <= (S.revision || 0))) return;
+    const endedRest = S.phase === 'break' && value.phase !== 'break';
+    const beganRest = S.phase !== 'break' && value.phase === 'break';
+    S = { ...freshState(), ...value };
+    if (endedRest) stopVoice();
+    if (beganRest) {
+      togglePanel(false); hideToast(); if (!PAGE) void chime('start');
+      if (!PAGE && cfg.notify && !document.hasFocus())
+        void packMessage({ type: 'blinkly-break-notification', sessionId: String(S.breakEnd) }).catch(() => {});
+    }
+    externalVoiceEvent(); render();
+    if (endedRest && S.res === 'done' && (!cfg.voiceOn || !cfg.voiceDone)) void chime('end');
+  }
   Store.on((k, v) => {
-    if (k === 'state' && v) { if (v.w === ME) return; const endedRest = S.phase === 'break' && v.phase !== 'break'; S = { ...freshState(), ...v }; if (endedRest) stopVoice(); externalVoiceEvent(); render(); }
+    if (k === 'state' && v) receiveState(v);
     if (k === 'cfg' && v) { const previous = cfg; cfg = readConfig(v); if (previous.flirty !== cfg.flirty || previous.recipientGender !== cfg.recipientGender) stopVoice(); if (!cfg.voiceOn || vCur?.context?.event === 'snooze' && !cfg.voiceSnooze || vCur?.context?.event === 'done' && !cfg.voiceDone) stopVoice(); applyCfg(); syncControls(); restoreSettingsTab(); if (libraryClips.length) { $('#library-search').value = cfg.librarySearch || ''; $('#library-category').value = cfg.libraryCategory || ''; $('#library-preference').value = cfg.libraryPreference || 'all'; renderLibrary(); } render(); }
   });
+  if (!PAGE && Store.coordinated) {
+    addEventListener('focus', () => { void sharedCommand('snapshot'); });
+    addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') void sharedCommand('snapshot');
+    });
+  }
 
   applyCfg(); syncControls(); restoreSettingsTab(); render();
   if (PAGE) { panel.classList.add('on', 'page'); renderStats(); requestAnimationFrame(moveInd); setInterval(() => { render(); renderSleepInfo(); }, 1000); voiceStatus(); }
@@ -1071,6 +1210,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       void voiceEvent(pending.event, pending.step, pending.action);
   }
   async function enableAudio(event) {
+    if (extensionPlayback) return;
     if (await audio.unlock(event)) resumeBlockedVoice();
   }
   // Real interaction grants audio permission; timers only reuse that permission.

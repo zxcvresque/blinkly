@@ -148,3 +148,19 @@ test('onReady is optional and does not fire for an already-running constructor w
   await optional.gate.unlock(trusted);
   assert.doesNotThrow(() => optional.instances[0].transition('running'));
 });
+test('a genuine primary click unlocks audio even when isolated-world activation flags lag', async () => {
+  const { gate, calls } = fixture(undefined, { getActivation: () => ({ hasBeenActive: false, isActive: false }) });
+  assert.equal(await gate.unlock({ type: 'click', button: 0, isTrusted: false }), null);
+  const result = gate.unlock({ type: 'click', button: 0, isTrusted: true });
+  assert.deepEqual(calls, { constructed: 1, resumed: 1 });
+  const context = await result; assert.equal(context.state, 'running');
+  context.state = 'suspended';
+  assert.equal(await gate.unlock(), context, 'scheduled playback can resume the already-authorized context');
+  assert.equal(calls.resumed, 2);
+});
+test('right clicks and synthetic clicks cannot authorize an inactive document', async () => {
+  const { gate, calls } = fixture(undefined, { getActivation: () => ({ hasBeenActive: false, isActive: false }) });
+  for (const event of [{ type: 'click', button: 2, isTrusted: true }, { type: 'click', button: 0, isTrusted: false }])
+    assert.equal(await gate.unlock(event), null);
+  assert.deepEqual(calls, { constructed: 0, resumed: 0 });
+});

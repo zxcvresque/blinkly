@@ -2,9 +2,18 @@
 if (typeof importScripts === 'function' && !globalThis.BlinklySleep) importScripts('sleep-schedule.js');
 if (typeof importScripts === 'function' && !globalThis.BlinklyPreferences) importScripts('reminder-preferences.js');
 if (typeof importScripts === 'function' && !globalThis.BlinklyVoiceCadence) importScripts('voice-cadence.js');
+if (typeof importScripts === 'function' && !globalThis.BlinklyExtensionAudio) importScripts('extension-audio.js');
+if (typeof importScripts === 'function' && !globalThis.BlinklyTimerService) importScripts('timer-service.js');
 const Sleep = globalThis.BlinklySleep;
 const Preferences = globalThis.BlinklyPreferences;
 const Cadence = globalThis.BlinklyVoiceCadence;
+const timer = globalThis.BlinklyTimerService.create({ storage: chrome.storage.local, sleep: Sleep, preferences: Preferences,
+  activeTab: async () => {
+    try {
+      const [tabs, window] = await Promise.all([chrome.tabs.query({ active: true, lastFocusedWindow: true }), chrome.windows.getLastFocused()]);
+      return window?.focused === true ? tabs[0]?.id : null;
+    } catch { return null; }
+  } });
 const ACCENT = '#ef5b78', BREAK = '#7dd3c0';
 let lastKey = '';
 
@@ -73,6 +82,33 @@ async function canSpeak(sender) {
     return window?.focused === true && tabs[0]?.id === tabId;
   } catch { return false; }
 }
+
+async function allowAudio(sender, message) {
+  const settingsPage = !sender?.tab && sender?.url === chrome.runtime.getURL('options.html');
+  if (!settingsPage && !(await canSpeak(sender))) return false;
+  if (message.preview === true) return true;
+  if (settingsPage) return false;
+  const stored = await chrome.storage.local.get(['cfg', 'state', 'timerState']);
+  const config = { ...Sleep.defaults, ...Preferences.defaults, voiceOn: true, voiceSnooze: true, voiceDone: true, sound: true, ...(stored.cfg || {}) };
+  const state = stored.timerState || stored.state || {}, now = Date.now();
+  if (message.chime ? !config.sound : !config.voiceOn) return false;
+  if (message.event === 'step') return state.phase === 'break' && String(state.breakEnd) === message.sessionId
+    && state.breakEnd > now && (!Preferences.quietNow(config) || state.manualBreak);
+  if (message.event === 'done') return (message.chime || config.voiceDone) && state.res === 'done'
+    && now < (state.resUntil || state.resAt + 3400) && state.voiceEvent?.id === message.actionId
+    && (!Preferences.quietNow(config) || state.manualBreak);
+  if (message.event === 'snooze') return config.voiceSnooze && state.phase === 'work'
+    && state.voiceEvent?.id === message.actionId && now - state.voiceEvent.at < 11000;
+  return message.event === 'warn' && state.phase === 'work' && state.voiceEvent?.type === 'warn'
+    && now - state.voiceEvent.at < 12000 && !Preferences.quietNow(config);
+}
+const extensionAudio = globalThis.BlinklyExtensionAudio.create({ api: chrome, canSpeak: allowAudio,
+  getClip: async key => {
+    const pack = await readPack();
+    return Object.hasOwn(pack.clips, key) ? pack.clips[key] : null;
+  }
+});
+extensionAudio.attach();
 
 const ROTATION_GROUP = /^(day|night|drunk):(?:(?:warn|step):[0-3]|(?:snooze|done):0)$/;
 const SESSION_ID = /^\d{1,16}$/;
@@ -207,7 +243,52 @@ async function selectClip(message, sender) {
   await chrome.storage.local.set({ voiceRotation: rotation });
   return { ok: true, key };
 }
+let notificationQueue = Promise.resolve();
+async function breakNotification(message, sender) {
+  if (typeof message.sessionId !== 'string' || !SESSION_ID.test(message.sessionId) || !Number.isInteger(sender?.tab?.id))
+    throw new Error('Invalid break notification');
+  if (!chrome.notifications) throw new Error('Reload Blinkly to enable extension notifications.');
+  if (await canSpeak(sender)) return { ok: true, sent: false };
+  const permission = await chrome.notifications.getPermissionLevel();
+  if (permission !== 'granted') return { ok: true, sent: false, permission };
+  const stored = await chrome.storage.local.get(['cfg', 'state', 'timerState', 'lastBreakNotification']);
+  const state = stored.timerState || stored.state || {};
+  if (!stored.cfg?.notify || state.phase !== 'break' || String(state.breakEnd) !== message.sessionId
+    || state.breakEnd <= Date.now() || stored.lastBreakNotification === message.sessionId)
+    return { ok: true, sent: false };
+  const seconds = Math.min(120, Math.max(10, Number(state.breakLen) || 20));
+  await chrome.notifications.create('blinkly-break', {
+    type: 'basic', iconUrl: chrome.runtime.getURL('icons/icon128.png'),
+    title: 'Blinkly — time for an eye break',
+    message: `Look at something 20 feet away for ${seconds} seconds.`, silent: true
+  });
+  await chrome.storage.local.set({ lastBreakNotification: message.sessionId });
+  return { ok: true, sent: true };
+}
 chrome.runtime.onMessage.addListener((message, _sender, respond) => {
+  // Offscreen messages are answered only by the dedicated audio document.
+  if (message?.target === 'blinkly-audio-player') return;
+  const playback = extensionAudio.handle(message, _sender);
+  if (playback) {
+    playback.then(respond).catch(error => respond({ ok: false, error: error.message }));
+    return true;
+  }
+  if (message?.type === 'blinkly-timer') {
+    timer.request(message, _sender).then(respond).catch(error => respond({ ok: false, error: error.message }));
+    return true;
+  }
+  if (message?.type === 'blinkly-notification-status') {
+    const status = chrome.notifications ? chrome.notifications.getPermissionLevel() : Promise.reject(new Error('Reload Blinkly to enable extension notifications.'));
+    status.then(permission => respond({ ok: true, permission })).catch(error => respond({ ok: false, error: error.message }));
+    return true;
+  }
+  if (message?.type === 'blinkly-break-notification') {
+    const result = notificationQueue.then(() => breakNotification(message, _sender));
+    notificationQueue = result.catch(() => {});
+    result.then(respond).catch(error => respond({ ok: false, error: error.message }));
+    return true;
+  }
+
   if (message?.type === 'blinkly-brand-icon') {
     brandIcon().then(b64 => respond({ ok: true, b64, mime: 'image/png' }))
       .catch(error => respond({ ok: false, error: error.message }));
@@ -259,8 +340,8 @@ chrome.runtime.onMessage.addListener((message, _sender, respond) => {
 });
 
 async function read() {
-  const r = await chrome.storage.local.get(['state', 'cfg']);
-  return { S: r.state || {}, C: { ...Sleep.defaults, ...Preferences.defaults, ...(r.cfg || {}) } };
+  const r = await chrome.storage.local.get(['state', 'timerState', 'cfg']);
+  return { S: r.timerState || r.state || {}, C: { ...Sleep.defaults, ...Preferences.defaults, ...(r.cfg || {}) } };
 }
 
 async function refresh() {
@@ -282,7 +363,7 @@ async function refresh() {
     title = `Blinkly: ${S.paused ? 'paused' : Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0') + ' until your next break'}`;
   }
   const dim = !brk && (S.paused || stale || quiet);
-  const key = [brk, text, Math.round(frac * 48), dim, color].join('|');
+  const key = [brk, text, Math.round(frac * 48), dim, color, title].join('|');
   if (key === lastKey) return;
   lastKey = key;
   chrome.action.setBadgeText({ text: text });
