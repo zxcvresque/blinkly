@@ -105,7 +105,7 @@ h1 .w i{display:inline-block;font-style:normal;transform:translateY(110%);animat
 .vopts{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:8px;position:relative}.vopts .seg{margin:0}
 .pills{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .pill{border:1.5px solid var(--line);background:transparent;color:var(--muted);padding:9px 12px;border-radius:999px;font:600 14px Figtree;cursor:pointer;transition:.25s;text-align:center;white-space:nowrap}
-.pill:hover{border-color:var(--muted)}.pill[aria-pressed=true]{background:var(--ink);color:#14191c;border-color:var(--ink)}
+.pill:disabled{opacity:.45;cursor:default}.pill:hover{border-color:var(--muted)}.pill[aria-pressed=true]{background:var(--ink);color:#14191c;border-color:var(--ink)}
 .vframe{position:relative;margin:44px auto 0;width:min(var(--mw,960px),100%,calc(78svh*var(--ar,1.78)));aspect-ratio:var(--ar,1.78);border-radius:30px;padding:2px;background:var(--iri);box-shadow:0 50px 120px -40px rgba(164,223,226,.3)}
 .vframe video{display:block;width:100%;height:100%;object-fit:cover;border-radius:28px;background:var(--s1)}
 .vctl{position:absolute;left:18px;bottom:18px;display:flex;gap:8px}
@@ -202,11 +202,14 @@ footer img{width:24px;height:24px;border-radius:7px;vertical-align:middle;margin
 <section id="features" style="padding-top:0"><div class="wrap">
  <h2>Thoughtful by default. Yours to adjust.</h2>
  <div class="bento">
-  <div class="tile t1"><span class="new">New in 2.6.2</span><h3>Unhurried voice guidance</h3><p>Guidance speaks during visible alerts and rests, with optional snooze and Rested replies. It stops when you skip or leave the page. Pick a moment to see how it is paced.</p>
+  <div class="tile t1"><span class="new">New in 2.6.2</span><h3>Unhurried voice guidance</h3><p>Guidance speaks during visible alerts and rests, with optional snooze and Rested replies. It stops when you skip or leave the page. Pick a moment to hear a real sample.</p>
    <div class="seg" id="mseg" role="group" aria-label="Voice moment"><button aria-pressed="true" data-m="bal">Balanced rest</button><button aria-pressed="false" data-m="snz">Snooze</button><button aria-pressed="false" data-m="rst">Rested</button></div>
    <div class="tl" id="tl"></div><p class="muted" id="vtext" style="color:var(--ink)"></p>
    <div class="vopts"><div class="seg" role="group" aria-label="Speaking to"><button data-g="male" aria-pressed="true">Male</button><button data-g="female" aria-pressed="false">Female</button></div><button class="pill" data-fl aria-pressed="false">Flirty lines</button></div>
    <p class="muted" id="vnote" style="margin-top:12px"></p>
+   <div class="vopts"><button class="pill" id="sample-replay">Play sample</button><button class="pill" id="sample-stop" disabled>Stop sample</button></div>
+   <p class="muted" id="sample-status" role="status" aria-live="polite">Click a moment to hear its sample. Balanced rest plays two spaced prompts.</p>
+   <p class="muted" id="sample-transcript" hidden></p>
    <p class="muted" style="margin-top:6px">Quiet mode and separate response toggles live under Settings → Voice.</p></div>
   <div class="tile t2"><h3>Gentle breaks</h3><p>Adjust work and rest durations, choose a full-screen scene or a corner card, and take a break whenever you need one.</p></div>
   <div class="tile t3"><h3>230 saved recordings</h3><p>Browse named recordings with transcripts and delivery tags. Preview, favorite, mute, search, or filter them.</p></div>
@@ -243,6 +246,7 @@ footer img{width:24px;height:24px;border-radius:7px;vertical-align:middle;margin
 
 <footer><div class="wrap"><span><img src="assets/blinkly-logo.png" alt="">Blinkly 2.6.2 · Created by <a href="https://github.com/zxcvresque">zxcvresque</a></span><a href="https://github.com/zxcvresque/blinkly">View on GitHub</a></div></footer>
 
+<script src="landing-voice-samples.js"></script>
 <script>
 (function(){
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return(r||document).querySelectorAll(s)};
@@ -272,19 +276,34 @@ $('#r3').oninput=function(){$('#o3').textContent=this.value+'%';$('#pvt').style.
 $('#r4').oninput=function(){var v=+this.value,H=Math.floor(v)%24,m=v%1?'30':'00',p=H>=12?'PM':'AM';$('#o4').textContent=((H+11)%12+1)+':'+m+' '+p};
 var sw=$('#sws');['#e9bad8','#a4dfe2','#f0dfa8','#d6577f','#3f7fd9'].forEach(function(c,i){var b=document.createElement('button');b.style.background=c;b.setAttribute('aria-label','Accent '+c);b.setAttribute('aria-pressed',i==1);b.onclick=function(){cs[1].style.setProperty('--c',c);$$('button',sw).forEach(function(x){x.setAttribute('aria-pressed',x===b)})};sw.appendChild(b)});
 // voice tile
+var sampleMoment='bal',samplePlayer;
 var M={bal:{t:'Balanced: two spaced prompts, keeping pet names consistent.',k:[18,66]},snz:{t:'Snooze: one short reply.',k:[30]},rst:{t:'Rested: a completion line that finishes while “Rested” stays visible.',k:[72],r:1}};
-function moment(m){var d=M[m];$('#vtext').textContent=d.t;$$('#mseg button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m==m)});$('#tl').innerHTML='<div class="trk"><i class="fl"></i>'+d.k.map(function(x){return '<b style="left:'+x+'%;--d:'+(x*.045).toFixed(2)+'s"></b>'}).join('')+(d.r?'<em>Rested</em>':'')+'</div>'}
-$$('#mseg button').forEach(function(b){b.onclick=function(){moment(b.dataset.m)}});moment('bal');
+function moment(m){sampleMoment=m;var d=M[m];$('#vtext').textContent=d.t;$$('#mseg button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m==m)});$('#tl').innerHTML='<div class="trk"><i class="fl"></i>'+d.k.map(function(x){return '<b style="left:'+x+'%;--d:'+(x*.045).toFixed(2)+'s"></b>'}).join('')+(d.r?'<em>Rested</em>':'')+'</div>'}
+$$('#mseg button').forEach(function(b){b.onclick=function(){moment(b.dataset.m);playSample()}});moment('bal');
 var G='male',FL=false;
 function note(){$('#vnote').textContent='Speaking to: '+(G=='male'?'Male':'Female')+'. '+(FL?'Flirty mode prefers pet-name openings, then keeps the same name or uses neutral wording.':'Flirty lines are off, which is the default.')}
-function setG(g){G=g;$$('[data-g]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.g==g)});note()}
-function setFl(v){FL=v;$$('[data-fl]').forEach(function(b){b.setAttribute('aria-pressed',v)});note()}
-document.addEventListener('click',function(e){var g=e.target.closest('[data-g]');if(g)return setG(g.dataset.g);var f=e.target.closest('[data-fl]');if(f)return setFl(!FL);var p=e.target.closest('.pill');if(p)p.setAttribute('aria-pressed',p.getAttribute('aria-pressed')!='true')});note();
+function setG(g){G=g;$$('[data-g]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.g==g)});note();moment('bal');playSample()}
+function setFl(v){FL=v;$$('[data-fl]').forEach(function(b){b.setAttribute('aria-pressed',v)});note();moment('bal');playSample()}
+document.addEventListener('click',function(e){var g=e.target.closest('[data-g]');if(g)return setG(g.dataset.g);var f=e.target.closest('[data-fl]');if(f)return setFl(!FL);var p=e.target.closest('.pill[aria-pressed]');if(p)p.setAttribute('aria-pressed',p.getAttribute('aria-pressed')!='true')});note();
+// Every sample starts in a click handler; page load never starts voice playback.
+samplePlayer=BlinklySamples.createPlayer({onState:function(state){
+ var busy=['loading','playing','waiting'].includes(state.phase);
+ $('#sample-stop').disabled=!busy;
+ $('#sample-replay').textContent=busy?'Restart sample':'Play again';
+ var message={loading:'Loading sample…',playing:'Playing: '+(state.clip?state.clip.title:''),waiting:'A short pause before the second prompt…',ended:'Sample finished. Click again to hear another variant.',stopped:'Sample stopped.',error:'Audio could not play. Click Play again to retry.'};
+ $('#sample-status').textContent=message[state.phase]||'';
+ if(state.clip){$('#sample-transcript').textContent=state.clip.transcript;$('#sample-transcript').hidden=false}
+}});
+function playSample(){if(vid&&!vid.paused){man=true;vid.pause()}samplePlayer.play(sampleMoment,G,FL)}
+$('#sample-replay').onclick=playSample;
+$('#sample-stop').onclick=function(){samplePlayer.stop()};
+addEventListener('pagehide',function(){samplePlayer.stop()});
+document.addEventListener('visibilitychange',function(){if(document.hidden)samplePlayer.stop()});
 // The same recorded demo keeps its actual aspect ratio on every screen.
 var vid=$('#vid'),vf=$('#vframe'),vs=$('#watch'),man=false,pp=$('#vpp'),sn=$('#vsnd');
 vid.addEventListener('loadedmetadata',function(){if(vid.videoWidth)vf.style.setProperty('--ar',vid.videoWidth/vid.videoHeight)});
 vid.onerror=function(){vs.hidden=true};
-vid.onplay=vid.onpause=function(){pp.textContent=vid.paused?'Play':'Pause'};
+vid.onplay=vid.onpause=function(){pp.textContent=vid.paused?'Play':'Pause';if(!vid.paused)samplePlayer.stop()};
 pp.onclick=function(){if(vid.paused){man=false;vid.play().catch(function(){})}else{man=true;vid.pause()}};
 sn.onclick=function(){vid.muted=!vid.muted;sn.textContent=vid.muted?'Sound on':'Sound off'};
 if(!rm)new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){if(!man)vid.play().catch(function(){})}else vid.pause()})},{threshold:.4}).observe(vf);
