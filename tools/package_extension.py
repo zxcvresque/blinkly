@@ -11,7 +11,7 @@ root = Path(__file__).resolve().parents[1]
 pack = json.loads((root / 'audio/manifest.json').read_text())
 assert pack['complete'] and len(pack['clips']) == pack['expectedCount']
 manifest = json.loads((root / 'manifest.json').read_text())
-files = ['manifest.json', 'background.js', 'popup.html', 'popup.js', 'options.html', 'sleep-schedule.js', 'reminder-preferences.js', 'voice-data/pet-clips.js', 'voice-lines.js', 'blinkly-scenes.js', 'widget-placement.js', 'voice-cadence.js', 'blinkly.user.js', 'README.md', 'audio/manifest.json']
+files = ['manifest.json', 'background.js', 'popup.html', 'popup.js', 'options.html', 'sleep-schedule.js', 'reminder-preferences.js', 'voice-data/pet-clips.js', 'voice-lines.js', 'blinkly-scenes.js', 'widget-placement.js', 'voice-cadence.js', 'audio-activation.js', 'blinkly.user.js', 'README.md', 'audio/manifest.json']
 files += [f'icons/icon{size}.png' for size in [16, 32, 48, 128]]
 files += ['assets/blinkly-logo.png', 'assets/blinkly-logo-prompt.txt', 'design/previews/popup.png', 'design/previews/mist-end.png']
 files += [clip['file'] for clip in pack['clips'].values()]

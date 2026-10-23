@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Blinkly: 20-20-20 eye care
 // @namespace    https://blinkly.local
-// @version      2.6.1
+// @version      2.6.2
 // @description  Blinkly extension runtime: window light, misty mountains, guided eye breaks, cross-tab sync, and bundled offline ElevenLabs guidance.
 // @match        *://*/*
 // @noframes
@@ -16,8 +16,8 @@
 (async () => {
   'use strict';
   const Voice = globalThis.BlinklyVoice, Sleep = globalThis.BlinklySleep, Prefs = globalThis.BlinklyPreferences;
-  const Placement = globalThis.BlinklyPlacement, Cadence = globalThis.BlinklyVoiceCadence;
-  if (!Voice || !Sleep || !Prefs || !Placement || !Cadence) { console.error('Blinkly: load the complete extension folder.'); return; }
+  const Placement = globalThis.BlinklyPlacement, Cadence = globalThis.BlinklyVoiceCadence, AudioActivation = globalThis.BlinklyAudioActivation;
+  if (!Voice || !Sleep || !Prefs || !Placement || !Cadence || !AudioActivation) { console.error('Blinkly: load the complete extension folder.'); return; }
   const PAGE = /^[a-z-]*extension:$/.test(location.protocol); // extension settings page
   if (window.top !== window.self || document.getElementById('blinkly-root')) return;
 
@@ -98,12 +98,18 @@
   const limit = () => Sleep.effectiveWorkMin(cfg) * 60;
 
   /* ───────────── sound ───────────── */
-  let ac;
-  function chime(kind) {
+  const audio = AudioActivation.create({ onReady: resumeBlockedVoice });
+  async function playbackContext() {
+    const context = await audio.ready();
+    // A prior genuine page interaction also permits recovery after suspension.
+    return context || audio.unlock();
+  }
+  async function chime(kind) {
     if (!cfg.sound || document.visibilityState !== 'visible') return;
+    const phase = S.phase, end = S.breakEnd;
     try {
-      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
-      if (ac.state === 'suspended') ac.resume();
+      const ac = await playbackContext();
+      if (!ac || phase !== S.phase || end !== S.breakEnd || document.visibilityState !== 'visible') return;
       const t = ac.currentTime, notes = kind === 'start' ? [523.25, 659.25] : [659.25, 783.99, 1046.5];
       notes.forEach((f, i) => {
         const o = ac.createOscillator(), g = ac.createGain(), s = t + i * 0.2;
@@ -366,7 +372,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
         ${row('Snooze response', 'A short response when you choose Snooze 5 min', tog('voiceSnooze'))}
         ${row('Rested response', 'A completion line while Rested is visible', tog('voiceDone'))}
         <div class="row col"><div class="lbl"><b>Speaking to</b><span>Choose how the same voice addresses you.</span></div><select class="field" data-k="recipientGender" aria-label="Speaking to"><option value="male">Male</option><option value="female">Female</option></select></div>
-        ${row('Flirty lines', 'Mix playful pet names into guidance', tog('flirty'))}
+        ${row('Flirty lines', 'Prefer playful pet names; keep one name per rest', tog('flirty'))}
         <div class="row col"><div class="lbl"><b>Spoken eye facts</b><span>Replaces the opening guidance during selected rest sessions; adds no extra speech.</span></div><select class="field" id="facts-every" data-k="factsEvery" aria-label="Spoken fact frequency"><option value="0">Off</option><option value="1">Every rest session</option><option value="2">Every 2nd rest session</option><option value="3">Every 3rd rest session</option><option value="5">Every 5th rest session</option><option value="10">Every 10th rest session</option></select></div>
         ${row('Voice volume', '', rng('voiceVol', 0, 1, 0.05, ''))}
         <div class="row"><button class="btn" data-a="vtest">Test voice</button><button class="btn" data-a="vstop">Stop preview</button></div>
@@ -441,14 +447,9 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
 
   /* ───────────── voice: local MP3 pack; no generation or API key at runtime ───────────── */
   const vstat = message => { if (els.vstat) els.vstat.textContent = message; };
-  const audioCtx = () => {
-    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
-    if (ac.state === 'suspended') ac.resume().catch(() => {});
-    return ac;
-  };
   const dec = new Map();
-  let vCur = null, vPending = null, vBusy = false, vEpoch = 0, vDelay, previewKey = null;
-  let libraryClips = [], libraryPromise;
+  let vCur = null, vPending = null, vBusy = false, vEpoch = 0, vDelay, previewKey = null, previewRequest = null;
+  let libraryClips = [], libraryPromise, blockedVoice = null;
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   async function packMessage(message) {
     if (!hasCR || !chrome.runtime?.id) throw new Error('Load the complete Blinkly extension folder to use its saved voice pack.');
@@ -497,9 +498,16 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   }
   async function previewClip(key) {
     if (previewKey === key) { stopVoice(); return; }
+    stopVoice();
+    const epoch = vEpoch; previewRequest = epoch;
     const clips = await loadLibrary(), clip = clips.find(item => item.key === key);
-    if (!clip) return;
-    stopVoice(); audioCtx(); previewKey = key; renderLibrary();
+    if (epoch !== vEpoch) return;
+    if (!clip) { previewRequest = null; return; }
+    const context = await playbackContext();
+    if (epoch !== vEpoch) return;
+    previewRequest = null;
+    if (!context) { vstat('Click Test voice or Play to enable sound on this page.'); return; }
+    previewKey = key; renderLibrary();
     const text = Voice.allTexts(20).find(line => Voice.key(line) === key);
     if (text) say(text, true);
   }
@@ -512,11 +520,19 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   let lastTestText = '';
   async function voiceTest() {
     stopVoice();
-    audioCtx(); // the button gesture unlocks browser audio
+    const epoch = vEpoch; previewRequest = epoch;
+    const context = await playbackContext();
+    if (epoch !== vEpoch) return;
+    previewRequest = null;
+    if (!context) { vstat('Click Test voice to enable sound on this page.'); return; }
     const options = { flirty: cfg.flirty, recipientGender: cfg.recipientGender, periodOverride: Sleep.period(cfg) };
-    const lines = Voice.pool('test', options), fresh = lines.filter(text => text !== lastTestText);
+    let lines = Voice.pool('test', options);
+    const named = cfg.flirty ? lines.filter(text => Voice.petName(text)) : [];
+    if (named.length) lines = named;
+    const fresh = lines.filter(text => text !== lastTestText);
     const choices = fresh.length ? fresh : lines;
     lastTestText = choices[Math.floor(Math.random() * choices.length)];
+    previewKey = Voice.key(lastTestText); renderLibrary();
     say(lastTestText, true);
   }
   const voiceSessionVisible = () => !PAGE && document.visibilityState === 'visible' && (!Prefs.quietNow(cfg) || S.phase === 'break' && S.manualBreak) && (S.phase === 'break' ? ov.classList.contains('on') : toastEl.classList.contains('on') && !toastEl.classList.contains('plain'));
@@ -532,8 +548,8 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   function playBuf(buf, epoch, force = false, context = null) {
     return new Promise(resolve => {
       if (epoch !== vEpoch) return resolve();
-      const c = audioCtx();
-      if (c.state !== 'running') {
+      const c = audio.peek();
+      if (!c || c.state !== 'running') {
         vstat('Click this page or Test voice once to allow audio playback.');
         return resolve();
       }
@@ -568,13 +584,20 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
         try {
           if (!force && (!voiceAllowed(context) || !(await packMessage({ type: 'blinkly-can-speak' })).allowed)) continue;
           if (epoch !== vEpoch) continue;
+          const c = await playbackContext();
+          if (epoch !== vEpoch) continue;
+          if (!c) {
+            if (previewKey) { previewKey = null; renderLibrary(); }
+            vstat('Click this page or Test voice once to enable sound.');
+            continue;
+          }
           const key = Voice.key(text);
           let buf = dec.get(key);
           if (!buf) {
             const { b64 } = await packMessage({ type: 'blinkly-audio', key });
             if (epoch !== vEpoch) continue;
             const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
-            buf = await audioCtx().decodeAudioData(bytes.buffer);
+            buf = await c.decodeAudioData(bytes.buffer);
             if (epoch !== vEpoch) continue;
             dec.set(key, buf);
             if (dec.size > 16) dec.delete(dec.keys().next().value);
@@ -593,12 +616,12 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     if (!vBusy) void pump();
   }
   function stopVoice() {
-    ++vEpoch; vPending = null; clearTimeout(vDelay);
+    ++vEpoch; vPending = null; blockedVoice = null; previewRequest = null; clearTimeout(vDelay);
     if (previewKey) { previewKey = null; renderLibrary(); }
     if (!vCur) return;
     const previous = vCur; vCur = null;
     try {
-      const t = audioCtx().currentTime;
+      const t = audio.peek().currentTime;
       previous.g.gain.setValueAtTime(previous.g.gain.value, t);
       previous.g.gain.linearRampToValueAtTime(0, t + 0.08);
       previous.src.stop(t + 0.1);
@@ -613,8 +636,20 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     const context = reaction ? { event, actionId: action?.id || S.voiceEvent?.id } : null;
     if (reaction && !context.actionId || !voiceAllowed(context)) return;
     const epoch = vEpoch;
+    const sessionId = String(S.breakEnd);
+    if (!(await playbackContext())) {
+      // Do not consume a rotation entry until this page can actually play it.
+      if (epoch === vEpoch && voiceAllowed(context) && !(event === 'step' && step === 2 && blockedVoice?.event === 'step' && blockedVoice.sessionId === sessionId))
+        blockedVoice = { event, step, action, epoch, sessionId, context };
+      vstat('Click this page or Test voice once to enable sound.');
+      return;
+    }
+    if (epoch !== vEpoch || !voiceAllowed(context)) return;
     const periodOverride = Sleep.period(cfg), voiceOptions = { workMin: Sleep.effectiveWorkMin(cfg), breakSec: S.breakLen || cfg.breakSec, snoozeCount: S.snoozeCount, step, flirty: cfg.flirty, recipientGender: cfg.recipientGender, periodOverride };
-    let pool = Prefs.eligible(event === 'done' ? Voice.completionPool(voiceOptions) : Voice.pool(event, voiceOptions), cfg, Voice.key);
+    const guidance = event === 'step' && step === 2
+      ? [...new Set([1, 2, 3].flatMap(index => Voice.pool('step', { ...voiceOptions, step: index })))]
+      : event === 'done' ? Voice.completionPool(voiceOptions) : Voice.pool(event, voiceOptions);
+    let pool = Prefs.eligible(guidance, cfg, Voice.key);
     const factPool = cfg.factsEvery ? Prefs.eligible(Voice.pool('fact', voiceOptions), cfg, Voice.key) : [];
     try {
       const pack = await packInfo();
@@ -629,7 +664,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     try {
       const selection = await packMessage({
         type: 'blinkly-select-clip', group: `${periodOverride}:${event}:${step}`,
-        keys: pool.map(Voice.key), factsEvery: cfg.factsEvery, duration: S.breakLen || cfg.breakSec, restGuidance: cfg.restGuidance,
+        keys: pool.map(Voice.key), preferPetNames: cfg.flirty, factsEvery: cfg.factsEvery, duration: S.breakLen || cfg.breakSec, restGuidance: cfg.restGuidance,
         ...(event === 'step' ? { sessionId: String(S.breakEnd) } : {}),
         ...(reaction ? { actionId: context.actionId, ...((action || S.voiceEvent)?.sessionId ? { sessionId: (action || S.voiceEvent).sessionId } : {}) } : {}),
         ...(event === 'step' && step === 0 ? { factKeys: factPool.map(Voice.key) } : {})
@@ -706,7 +741,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   };
   const togglePause = () => { stopVoice(); S.paused = !S.paused; save(); render(); };
   const restart = () => { stopVoice(); S.phase = 'work'; S.elapsed = 0; S.snoozeCount = 0; S.mediaNotified = false; S.res = ''; warned = false; hideToast(); save(); render(); };
-  const togglePanel = open => { if (PAGE) return; panel.classList.toggle('on', open); if (!open && previewKey) stopVoice(); if (open) { renderStats(); requestAnimationFrame(moveInd); voiceStatus(); } };
+  const togglePanel = open => { if (PAGE) return; panel.classList.toggle('on', open); if (!open && (previewKey || previewRequest !== null)) stopVoice(); if (open) { renderStats(); requestAnimationFrame(moveInd); voiceStatus(); } };
 
   function showToast(title, sub, plain, duration) {
     els.tt.textContent = title; els.ts.textContent = sub || '';
@@ -747,7 +782,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
         S.owner = ME; S.lastTick = now; S.elapsed++; day().a++;
         const left = limit() - S.elapsed;
         if (left > cfg.warnSec) warned = false;
-        else if (cfg.warnSec && left > 0 && !warned) { warned = true; voiceWarn(); showToast(`Break in ${cfg.warnSec} seconds`, 'Pick something far away to look at.'); }
+        else if (cfg.warnSec && left > 0 && !warned) { warned = true; showToast(`Break in ${cfg.warnSec} seconds`, 'Pick something far away to look at.'); voiceWarn(); }
         if (left <= 0) {
           if (cfg.deferMedia && mediaPlaying() && S.elapsed < limit() + 900) {
             S.mediaNotified = true;
@@ -827,7 +862,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     requestAnimationFrame(moveInd);
   }
   function selectSettingsTab(tab) {
-    if (tab !== 'voice' && previewKey) stopVoice();
+    if (tab !== 'voice' && (previewKey || previewRequest !== null)) stopVoice();
     cfg.settingsTab = tab; Store.set('cfg', cfg); restoreSettingsTab();
     if (tab === 'today') renderStats();
     if (tab === 'voice') { voiceStatus(); loadLibrary(); }
@@ -1024,13 +1059,23 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
 
   Store.on((k, v) => {
     if (k === 'state' && v) { if (v.w === ME) return; const endedRest = S.phase === 'break' && v.phase !== 'break'; S = { ...freshState(), ...v }; if (endedRest) stopVoice(); externalVoiceEvent(); render(); }
-    if (k === 'cfg' && v) { cfg = readConfig(v); if (!cfg.voiceOn || vCur?.context?.event === 'snooze' && !cfg.voiceSnooze || vCur?.context?.event === 'done' && !cfg.voiceDone) stopVoice(); applyCfg(); syncControls(); restoreSettingsTab(); if (libraryClips.length) { $('#library-search').value = cfg.librarySearch || ''; $('#library-category').value = cfg.libraryCategory || ''; $('#library-preference').value = cfg.libraryPreference || 'all'; renderLibrary(); } render(); }
+    if (k === 'cfg' && v) { const previous = cfg; cfg = readConfig(v); if (previous.flirty !== cfg.flirty || previous.recipientGender !== cfg.recipientGender) stopVoice(); if (!cfg.voiceOn || vCur?.context?.event === 'snooze' && !cfg.voiceSnooze || vCur?.context?.event === 'done' && !cfg.voiceDone) stopVoice(); applyCfg(); syncControls(); restoreSettingsTab(); if (libraryClips.length) { $('#library-search').value = cfg.librarySearch || ''; $('#library-category').value = cfg.libraryCategory || ''; $('#library-preference').value = cfg.libraryPreference || 'all'; renderLibrary(); } render(); }
   });
 
   applyCfg(); syncControls(); restoreSettingsTab(); render();
   if (PAGE) { panel.classList.add('on', 'page'); renderStats(); requestAnimationFrame(moveInd); setInterval(() => { render(); renderSleepInfo(); }, 1000); voiceStatus(); }
   else { setInterval(tick, 1000); setInterval(applyWarm, 60000); }
-  ['pointerdown', 'keydown'].forEach(t => addEventListener(t, () => audioCtx(), { once: true, capture: true, passive: true })); // unlock audio on first interaction
+  function resumeBlockedVoice() {
+    const pending = blockedVoice; blockedVoice = null;
+    if (pending && pending.epoch === vEpoch && pending.sessionId === String(S.breakEnd) && voiceAllowed(pending.context))
+      void voiceEvent(pending.event, pending.step, pending.action);
+  }
+  async function enableAudio(event) {
+    if (await audio.unlock(event)) resumeBlockedVoice();
+  }
+  // Real interaction grants audio permission; timers only reuse that permission.
+  ['click', 'pointerup', 'keydown'].forEach(type => addEventListener(type, enableAudio, { capture: true, passive: true }));
+  if (navigator.userActivation?.hasBeenActive) void enableAudio();
   void voiceStatus();
   void loadLibrary();
   void loadBrandIcon();

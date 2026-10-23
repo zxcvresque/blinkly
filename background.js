@@ -122,6 +122,8 @@ async function selectClip(message, sender) {
     throw new Error('Invalid voice action');
   if (message.restGuidance !== undefined && !['quiet', 'balanced'].includes(message.restGuidance))
     throw new Error('Invalid rest guidance');
+  if (message.preferPetNames !== undefined && typeof message.preferPetNames !== 'boolean')
+    throw new Error('Invalid pet-name preference');
   if (message.factKeys !== undefined && (!step || step[1] !== '0'))
     throw new Error('Facts can only replace the opening rest guidance');
   if (message.duration !== undefined && (typeof message.duration !== 'number' || !Number.isFinite(message.duration)
@@ -182,6 +184,12 @@ async function selectClip(message, sender) {
       ? clip.text.match(/\b(daddy|handsome|handshome|babeee|hot shtuff|trouble|mister|beautiful|vixen|gorgeoush?)\b/i)?.[0].toLowerCase() || '' : '';
   };
   const lastPet = typeof rotation.lastPet === 'string' ? rotation.lastPet : '';
+  // Flirty openings and alerts should audibly address the selected recipient.
+  // Later prompts and reactions retain the existing session's name instead.
+  if (message.preferPetNames && step?.[1] !== '2' && !reaction) {
+    const named = keys.filter(key => petForKey(key));
+    if (named.length) keys = named;
+  }
   const sessionConsistent = step?.[1] === '2' || reaction && !!session;
   if (sessionConsistent) {
     const pet = typeof session.pet === 'string' ? session.pet : '';

@@ -142,7 +142,7 @@ async function shadow(page) {
   const voiceSettingsCopy = await ui(function () { return this.querySelector('.tab[data-t="voice"]').textContent; });
   assert.doesNotMatch(voiceSettingsCopy, /Offline voice pack|hpp4J3VqNfWAUOO0d1Us|API key|Eleven v\d/);
   assert.match(voiceSettingsCopy, /Speaking to/);
-  assert.match(voiceSettingsCopy, /Mix playful pet names into guidance/);
+  assert.match(voiceSettingsCopy, /Prefer playful pet names; keep one name per rest/);
   for (const recipientGender of ['female', 'male']) {
     await change('[data-k="recipientGender"]', recipientGender);
     await until(async () => (await config()).recipientGender === recipientGender, `${recipientGender} recipient saves`);

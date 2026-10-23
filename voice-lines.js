@@ -210,6 +210,20 @@
   }
   const VOICE_ID = 'hpp4J3VqNfWAUOO0d1Us', MODEL = 'eleven_v4';
   const key = text => 'vo_' + hash(`${MODEL}|${VOICE_ID}|${text}`);
+  const personalByText = new Map(petClips.map(clip => [clip.text, clip]));
+  const legacyPersonalTexts = new Set([
+    ...extra.flirtyWarn, ...extra.flirtySteps.flat(),
+    ...extra.drunkFlirtyWarn, ...extra.drunkFlirtySteps.flat()
+  ]);
+  function petName(text) {
+    if (typeof text !== 'string') return '';
+    const clip = personalByText.get(text);
+    const named = clip?.memberships.find(row => typeof row.pet === 'string' && row.pet.trim());
+    if (named) return named.pet.trim().toLowerCase();
+    if (!clip && !legacyPersonalTexts.has(text)) return '';
+    // Match the worker's handling of names fixed in the recorded sentence.
+    return text.match(/\b(daddy|handsome|handshome|babeee|hot shtuff|trouble|mister|beautiful|vixen|gorgeoush?)\b/i)?.[0].toLowerCase() || '';
+  }
   const istHour = (date = new Date()) => Number(new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', hourCycle: 'h23' }).format(date));
   function period(date) {
     const hour = istHour(date);
@@ -244,7 +258,7 @@
     if (p === 'night') return [...(workMin === 20 ? [original(20).doneNight] : []), ...extra.nightDone];
     return [...(workMin === 20 ? original(20).done : []), ...extra.done.filter(text => breakSec === 20 || !text.includes('twenty seconds'))];
   }
-  const api = Object.freeze({ original, extra, petClips, allTexts, hash, key, pool, completionPool, istHour, period, VOICE_ID, MODEL });
+  const api = Object.freeze({ original, extra, petClips, allTexts, hash, key, petName, pool, completionPool, istHour, period, VOICE_ID, MODEL });
   scope.BlinklyVoice = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(globalThis);

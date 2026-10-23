@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Blinkly: 20-20-20 eye care",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "Every 20 minutes, look 20 feet away for 20 seconds. Toolbar countdown and bundled offline spoken guidance.",
   "permissions": [
     "storage",
@@ -40,6 +40,7 @@
         "blinkly-scenes.js",
         "widget-placement.js",
         "voice-cadence.js",
+        "audio-activation.js",
         "blinkly.user.js"
       ],
       "run_at": "document_idle"

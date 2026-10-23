@@ -670,6 +670,62 @@ test('muted reactions consume their action once and reaction history is bounded'
   assert.equal(stored.voiceRotation.actions[0].id, 'action:2');
 });
 
+test('pet-name preference selects named alerts, openings and scheduled facts from mixed pools', async () => {
+  const pack = rotationPack(), stored = {}, bg = background(pack, {}, stored);
+  for (const suffix of ['0', 'fact']) {
+    if (suffix === '0') { pack.clips.vo_a0.pet = 'Babe'; pack.clips.vo_b0.pet = 'Honey'; }
+    else { pack.clips.vo_facta.pet = 'Babe'; pack.clips.vo_factb.pet = 'Honey'; }
+  }
+  const request = message => bg.request({ type: 'blinkly-select-clip', preferPetNames: true, ...message }, { tab: { id: 42 } });
+  for (let round = 0; round < 9; round++) {
+    const warning = await request({ group: 'day:warn:0', keys: stepKeys(0) });
+    assert.ok(['vo_a0', 'vo_b0'].includes(warning.key));
+    const opening = await request({ group: 'day:step:0', keys: stepKeys(0), sessionId: String(1700000000000 + round),
+      factKeys: facts, factsEvery: 3, duration: 20, restGuidance: 'balanced' });
+    assert.ok((round % 3 === 2 ? ['vo_facta', 'vo_factb'] : ['vo_a0', 'vo_b0']).includes(opening.key));
+    assert.ok(pack.clips[opening.key].pet, 'selected line speaks a pet name');
+  }
+});
+
+test('pet-name preference leaves neutral pools rotating and remains optional', async () => {
+  for (const preferPetNames of [undefined, false, true]) {
+    const pack = rotationPack(), stored = {}, bg = background(pack, {}, stored), selected = [];
+    for (let round = 0; round < 3; round++) {
+      const response = await bg.request({ type: 'blinkly-select-clip', group: 'day:warn:0', keys: stepKeys(0),
+        ...(preferPetNames === undefined ? {} : { preferPetNames }) }, { tab: { id: 42 } });
+      selected.push(response.key);
+    }
+    assert.equal(new Set(selected).size, 3, 'neutral-only speech must keep its full rotation');
+  }
+  const pack = rotationPack(), stored = {}, bg = background(pack, {}, stored);
+  pack.clips.vo_a0.pet = 'Babe';
+  const keys = [];
+  for (let round = 0; round < 3; round++) keys.push((await bg.request({ type: 'blinkly-select-clip',
+    group: 'day:warn:0', keys: stepKeys(0), preferPetNames: false }, { tab: { id: 42 } })).key);
+  assert.equal(new Set(keys).size, 3, 'disabled preference does not remove neutral variants');
+});
+
+test('pet-name preference never changes the recipient name for follow-up prompts or rest reactions', async () => {
+  for (const keys of [['vo_a2', 'vo_b2', 'vo_c2'], ['vo_b2', 'vo_c2']]) {
+    const pack = rotationPack(), stored = {}, bg = background(pack, {}, stored), sessionId = '1700000000000';
+    pack.clips.vo_a0.pet = 'Babe'; pack.clips.vo_a2.pet = 'Babe'; pack.clips.vo_b2.pet = 'Honey';
+    const request = message => bg.request({ type: 'blinkly-select-clip', preferPetNames: true, ...message }, { tab: { id: 42 } });
+    assert.equal((await request({ group: 'day:step:0', keys: ['vo_a0', 'vo_c0'], sessionId, duration: 20, factsEvery: 0 })).key, 'vo_a0');
+    assert.equal((await request({ group: 'day:step:2', keys, sessionId, duration: 20 })).key,
+      keys.includes('vo_a2') ? 'vo_a2' : 'vo_c2');
+    assert.equal((await request({ group: 'day:done:0', keys: ['vo_b2', 'vo_c2'], sessionId, actionId: 'done:one' })).key, 'vo_c2');
+  }
+});
+
+test('pet-name preference requires a real boolean and rejects invalid flags before saving', async () => {
+  for (const preferPetNames of ['true', 'false', 0, 1, null, {}, []]) {
+    const stored = {}, bg = background(rotationPack(), {}, stored);
+    const response = await bg.request({ type: 'blinkly-select-clip', group: 'day:warn:0', keys: stepKeys(0), preferPetNames }, { tab: { id: 42 } });
+    assert.equal(response.ok, false); assert.match(response.error, /pet-name preference/);
+    assert.equal(stored.voiceRotation, undefined);
+  }
+});
+
 test('hardcoded recorded pet names cannot change during a longer rest', async () => {
   const pack = rotationPack(), stored = {};
   Object.assign(pack.clips.vo_a0, { text: '[softly] Daddy, look far away.', mood: 'flirty', pet: null });

@@ -4,7 +4,7 @@
   <p><strong>A small pause for your eyes.</strong></p>
   <p>Every 20 minutes, look 20 feet away for 20 seconds.<br>Quiet reminders, gentle motion, and a voice that knows when to stop.</p>
   <p>
-    <img alt="Version 2.6.1" src="https://img.shields.io/badge/version-2.6.1-e9bad8?style=flat-square&amp;labelColor=262626">
+    <img alt="Version 2.6.2" src="https://img.shields.io/badge/version-2.6.2-e9bad8?style=flat-square&amp;labelColor=262626">
     <img alt="Chromium and Firefox" src="https://img.shields.io/badge/browsers-Chromium_%2B_Firefox-a4dfe2?style=flat-square&amp;labelColor=262626">
     <img alt="230 offline recordings" src="https://img.shields.io/badge/offline-230_recordings-f0dfa8?style=flat-square&amp;labelColor=262626">
   </p>
@@ -88,7 +88,9 @@ Balanced guidance uses two prompts, roughly ten seconds apart in a 20-second res
 
 **Snooze response** gives one short reply when you choose Snooze 5 min, from either the page or popup. **Rested response** speaks once at completion and keeps the Rested screen visible until the line finishes. Both are on by default and can be disabled independently. Skip, pause, resume, idle time, and ordinary timer changes stay silent. Leaving the active page stops speech.
 
-**Speaking to** changes how the same narrator addresses you. **Flirty lines** is optional and off by default. Recordings rotate before repeating; favorites are preferred within a matching context, and muted clips stay out of automatic guidance. If every matching clip is muted, that context stays silent. Every recording remains available for manual preview, with only one preview playing at a time.
+**Speaking to** changes how the same narrator addresses you. **Flirty lines** is optional and off by default. When enabled, alerts and rest openings prefer spoken pet names; later guidance keeps the same name or uses neutral wording. Recordings rotate before repeating; favorites are preferred within a matching context, and muted clips stay out of automatic guidance. If every matching clip is muted, that context stays silent. Every recording remains available for manual preview, with only one preview playing at a time.
+
+Click the webpage once to enable sound there, or use **Test voice**. Browser audio restrictions can keep a newly opened page silent until you interact with it; Blinkly waits instead of attempting blocked playback.
 
 Quiet hours pause automatic reminders while allowing manual breaks and previews. The chime is a separate setting under Comfort.
 
