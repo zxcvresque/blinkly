@@ -1,4 +1,4 @@
-[![Watch the Blinkly launch video](media/blinkly-launch-landscape.jpg)](https://zxcvresque.github.io/blinkly/media/blinkly-launch-landscape.mp4)
+https://github.com/user-attachments/assets/ca1db00d-c044-4f84-a12e-63224a890db8
 
 <div align="center">
   <img src="assets/blinkly-logo.png" width="144" alt="Blinkly's iridescent eye logo">
