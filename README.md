@@ -13,6 +13,8 @@
     &nbsp; · &nbsp;
     <a href="blinkly-firefox.zip?raw=true"><strong>Download for Firefox</strong></a>
     &nbsp; · &nbsp;
+    <a href="https://zxcvresque.github.io/blinkly/">Website</a>
+    &nbsp; · &nbsp;
     <a href="#installation">Installation</a>
   </p>
   <p>Created by <a href="https://github.com/zxcvresque">zxcvresque</a></p>
