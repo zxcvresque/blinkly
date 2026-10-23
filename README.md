@@ -1,5 +1,3 @@
-https://github.com/user-attachments/assets/ca1db00d-c044-4f84-a12e-63224a890db8
-
 <div align="center">
   <img src="assets/blinkly-logo.png" width="144" alt="Blinkly's iridescent eye logo">
   <h1>Blinkly</h1>
@@ -21,6 +19,8 @@ https://github.com/user-attachments/assets/ca1db00d-c044-4f84-a12e-63224a890db8
   </p>
   <p>Created by <a href="https://github.com/zxcvresque">zxcvresque</a></p>
 </div>
+
+https://github.com/user-attachments/assets/ca1db00d-c044-4f84-a12e-63224a890db8
 
 ## A quieter kind of reminder
 
