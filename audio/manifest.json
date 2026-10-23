@@ -422,9 +422,9 @@
       "text": "[laughing] Rested! [softly] See you in 20 minutes.",
       "file": "audio/vo_1wmshz0gun4.mp3",
       "title": "Rested and ready",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "laughing",
         "softly"
@@ -442,9 +442,9 @@
       "text": "[excited] Nice! Eyes happy. [laughing] See you in 20 minutes.",
       "file": "audio/vo_qqauq6rml1.mp3",
       "title": "Happy eyes",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "excited",
         "laughing"
@@ -462,9 +462,9 @@
       "text": "[sighing] Ahh. That's better. [chuckling] Back in 20 minutes.",
       "file": "audio/vo_2bn5m2b3w9j.mp3",
       "title": "That feels better",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "sighing",
         "chuckling"
@@ -482,9 +482,9 @@
       "text": "[dog barking] [laughing] Even the dog says nice job. Rested! See you in 20 minutes.",
       "file": "audio/vo_sagv5u40t6.mp3",
       "title": "The dog says nice job",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "dog barking",
         "laughing"
@@ -502,9 +502,9 @@
       "text": "[engine starting] [excited] Eyes recharged! See you in 20 minutes.",
       "file": "audio/vo_1ls4dcq0gbw.mp3",
       "title": "Eyes recharged",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "engine starting",
         "excited"
@@ -522,9 +522,9 @@
       "text": "[sleepy drowsy voice] Rested... [yawning] see you in 20 minutes. Or maybe... get some sleep.",
       "file": "audio/vo_o9drykner.mp3",
       "title": "Rested, or ready for sleep",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "sleepy",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "sleepy drowsy voice",
         "yawning"
@@ -722,9 +722,9 @@
       "text": "[angry] [sharp exhale] You snoozed me? Five minutes. Then those eyes get their break.",
       "file": "audio/vo_1e3hwygz10.mp3",
       "title": "You snoozed me?",
-      "category": "Reactions (preview only)",
+      "category": "Snooze",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "angry",
         "sharp exhale"
@@ -742,9 +742,9 @@
       "text": "[scoffing] [angry] Oh, one more thing? Fine. Five minutes. I'm keeping count.",
       "file": "audio/vo_123jkep0rnv.mp3",
       "title": "Keeping count",
-      "category": "Reactions (preview only)",
+      "category": "Snooze",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "scoffing",
         "angry"
@@ -762,9 +762,9 @@
       "text": "[voice breaking] I rehearsed that whole reminder... [chuckling] Alright, five more minutes.",
       "file": "audio/vo_1p6ofscf1pu.mp3",
       "title": "The rehearsed reminder",
-      "category": "Reactions (preview only)",
+      "category": "Snooze",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "voice breaking",
         "chuckling"
@@ -782,9 +782,9 @@
       "text": "[angry] Again? [sharp exhale] That snooze button is not an eye care routine.",
       "file": "audio/vo_24cmz68v8vs.mp3",
       "title": "The snooze button is not a routine",
-      "category": "Reactions (preview only)",
+      "category": "Snooze",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "angry",
         "sharp exhale"
@@ -802,9 +802,9 @@
       "text": "[menacing] [slowly] Another snooze. [pause] I will be back. [chuckling] In five minutes.",
       "file": "audio/vo_23l7pegezh3.mp3",
       "title": "Back in five minutes",
-      "category": "Reactions (preview only)",
+      "category": "Snooze",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "menacing",
         "slowly",
@@ -1145,9 +1145,9 @@
       "text": "[crowd cheering] [excited] Yes! A whole break. Your eyes have fans now.",
       "file": "audio/vo_2cztlog6vr7.mp3",
       "title": "Your eyes have fans",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "crowd cheering",
         "excited"
@@ -1165,9 +1165,9 @@
       "text": "[applause] [playful] A tiny standing ovation for looking away.",
       "file": "audio/vo_22bncje3ht.mp3",
       "title": "A tiny standing ovation",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "applause",
         "playful"
@@ -1185,9 +1185,9 @@
       "text": "[voice breaking] I'm so proud... [laughing] It was only twenty seconds, but still.",
       "file": "audio/vo_3g85xt1c6u.mp3",
       "title": "Proud of twenty seconds",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "voice breaking",
         "laughing"
@@ -1205,9 +1205,9 @@
       "text": "[singing] Eyes rested, shoulders free... [chuckling] Back you go.",
       "file": "audio/vo_xre6cs0efl.mp3",
       "title": "Eyes rested, shoulders free",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "normal",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "singing",
         "chuckling"
@@ -1403,9 +1403,9 @@
       "text": "[sleepy drowsy voice] [sighing] Better. Maybe let the next break be bedtime.",
       "file": "audio/vo_5yk1t3iuyj.mp3",
       "title": "Let the next break be bedtime",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "sleepy",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "sleepy drowsy voice",
         "sighing"
@@ -1463,9 +1463,9 @@
       "text": "[drunken voice] You snoozed... the snooze? [scoffing] Five minutes. I think. Yes, five.",
       "file": "audio/vo_237up16kxvh.mp3",
       "title": "Five minutes, I think",
-      "category": "Reactions (preview only)",
+      "category": "Snooze",
       "context": "drunken",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "drunken voice",
         "scoffing"
@@ -1721,9 +1721,9 @@
       "text": "[drunken voice] [chuckling] Look at you. Responsible eyes. [softly] Now consider some sleep.",
       "file": "audio/vo_1uszwviou0x.mp3",
       "title": "Responsible eyes",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "drunken",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "drunken voice",
         "chuckling",
@@ -1742,9 +1742,9 @@
       "text": "[drunken voice] We did it. [yawning] You, me, both eyes. Bedtime, maybe?",
       "file": "audio/vo_20xbzytyw52.mp3",
       "title": "You, me, both eyes",
-      "category": "Completion (preview only)",
+      "category": "Completion",
       "context": "drunken",
-      "usage": "manual-preview",
+      "usage": "automatic",
       "tags": [
         "drunken voice",
         "yawning"

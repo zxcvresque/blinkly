@@ -112,13 +112,29 @@ async function shadow(page) {
       factsEvery: this.querySelector('[data-k="factsEvery"]').value,
       workMin: this.querySelector('[data-k="workMin"]').value,
       flirty: this.querySelector('[data-k="flirty"]').checked,
-      recipientGender: this.querySelector('[data-k="recipientGender"]').value
+      recipientGender: this.querySelector('[data-k="recipientGender"]').value,
+      restGuidance: this.querySelector('[data-k="restGuidance"]').value,
+      voiceSnooze: this.querySelector('[data-k="voiceSnooze"]').checked,
+      voiceDone: this.querySelector('[data-k="voiceDone"]').checked
     };
   });
 
   await click('#tabs [data-t="voice"]');
   await until(async () => (await controls()).count === expectedCount, `${expectedCount} library entries`);
   assert.equal((await controls()).recipientGender, 'male', 'Existing installations default to male recipient');
+  assert.equal((await controls()).restGuidance, 'balanced');
+  assert.equal((await controls()).voiceSnooze, true); assert.equal((await controls()).voiceDone, true);
+  await change('[data-k="restGuidance"]','quiet');
+  await change('[data-k="voiceSnooze"]',false,'input'); await change('[data-k="voiceDone"]',false,'input');
+  await reload();
+  assert.equal((await controls()).restGuidance,'quiet');
+  assert.equal((await controls()).voiceSnooze,false); assert.equal((await controls()).voiceDone,false);
+  await change('[data-k="restGuidance"]','balanced');
+  await change('[data-k="voiceSnooze"]',true,'input'); await change('[data-k="voiceDone"]',true,'input');
+  await reload();
+  assert.equal((await controls()).restGuidance,'balanced');
+  assert.equal((await controls()).voiceSnooze,true); assert.equal((await controls()).voiceDone,true);
+
   const recipientOptions = await ui(function () {
     return [...this.querySelector('[data-k="recipientGender"]').options].map(option => ({ value: option.value, label: option.textContent }));
   });
@@ -344,7 +360,7 @@ async function shadow(page) {
   const report = { browser: 'Helium', libraryEntries: entries.length, categoryCount, searchCount,
     previewKeys: entries.slice(0, 2).map(entry => entry.key), previewStates, narrowPanels, savedSettings: await config(),
     consoleErrors: errors, elevenLabsRequests: 0,
-    checks: [`${expectedCount} named play controls match metadata`, 'male recipient default and male/female selections persist',
+    checks: [`${expectedCount} named play controls match metadata`, 'male recipient default and male/female selections persist', 'balanced/quiet guidance and snooze/completion switches persist',
       'recipient-neutral settings copy without technical voice details', 'location-free transcripts', 'two previews and stop',
       'single active preview control', 'category and search persist', 'custom color and hex persist',
       'favorite and muted keys persist and filter immediately', 'favorite and muted filters restore',

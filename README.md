@@ -4,7 +4,7 @@
   <p><strong>A small pause for your eyes.</strong></p>
   <p>Every 20 minutes, look 20 feet away for 20 seconds.<br>Quiet reminders, gentle motion, and a voice that knows when to stop.</p>
   <p>
-    <img alt="Version 2.6.0" src="https://img.shields.io/badge/version-2.6.0-e9bad8?style=flat-square&amp;labelColor=262626">
+    <img alt="Version 2.6.1" src="https://img.shields.io/badge/version-2.6.1-e9bad8?style=flat-square&amp;labelColor=262626">
     <img alt="Chromium and Firefox" src="https://img.shields.io/badge/browsers-Chromium_%2B_Firefox-a4dfe2?style=flat-square&amp;labelColor=262626">
     <img alt="230 offline recordings" src="https://img.shields.io/badge/offline-230_recordings-f0dfa8?style=flat-square&amp;labelColor=262626">
   </p>
@@ -36,7 +36,7 @@ Window light moves across a textured wall while you work. When it is time to res
 | Thoughtful by default | Make it yours |
 | --- | --- |
 | **Gentle breaks** | Adjust work and rest durations, choose a full-screen scene or a corner card, and take a break whenever you need one. |
-| **Unhurried voice guidance** | A standard 20-second rest gets at most one sentence. Longer rests of 40 seconds or more get at most two. |
+| **Unhurried voice guidance** | Balanced guidance gives a standard rest two spaced prompts. Quiet mode keeps one opening line. Snooze and Rested responses have separate switches. |
 | **230 saved recordings** | Browse named recordings with transcripts and delivery tags. Preview, favorite, mute, search, or filter them. |
 | **A personal wind-down** | Set your bedtime and timezone, choose late-night delivery, and optionally shorten reminder intervals near sleep. |
 | **Comfort that follows you** | Pick any accent color, switch on a warm tint immediately, and place the floating timer in a corner or drag it into position. |
@@ -73,7 +73,7 @@ Replace the files in the same unpacked folder, reload the extension, and refresh
 | **Comfort** | Accent swatches or a custom hex color, warm tint strength, **Tint now**, night-only tint, chime, volume, and notifications. |
 | **Smart** | Pause when away, wait for video, show or hide the timer, excluded sites, and **Timer placement**. Choose a corner or **Custom · drag on page**. |
 | **Sleep** | Bedtime, timezone, wind-down window, quiet hours, and sleepy or playful late-night delivery. **Change voice only** keeps your interval; **More frequent reminders** uses the shorter of your usual and near-bedtime intervals. |
-| **Voice** | Guidance volume, **Speaking to → Male / Female**, optional flirty lines, fact frequency, and a searchable recording library with favorites and muted clips. |
+| **Voice** | Guidance volume, **Rest guidance → Balanced / Quiet**, **Snooze response**, **Rested response**, **Speaking to → Male / Female**, optional flirty lines, fact frequency, and a searchable recording library with favorites and muted clips. |
 | **Today** | Breaks taken, skipped breaks, screen time, daily streak, and the past week's activity. |
 
 **Tint now** applies warmth immediately, even outside the night schedule. If warmth is set to zero, it starts at 15%. Switching it off restores the night-only schedule when enabled; otherwise the tint turns off.
@@ -84,7 +84,9 @@ Keyboard shortcuts: **Alt+Shift+E** opens settings, **Alt+Shift+B** starts a bre
 
 ## A little personality, without the chatter
 
-Guidance speaks during a visible alert or rest session and stops when you snooze, skip, finish, or leave the active page. A short rest uses at most one calm line; rests of at least 40 seconds allow up to two. Longer sessions keep the same pet name or use neutral wording. An occasional eye fact replaces a guidance sentence instead of adding another one.
+Balanced guidance uses two prompts, roughly ten seconds apart in a 20-second rest. Quiet mode uses one opening line, and rests shorter than 20 seconds also use one. The later prompt keeps the same pet name or uses neutral wording; it is skipped if the first recording is still playing. An occasional eye fact replaces the opening instead of adding another prompt.
+
+**Snooze response** gives one short reply when you choose Snooze 5 min, from either the page or popup. **Rested response** speaks once at completion and keeps the Rested screen visible until the line finishes. Both are on by default and can be disabled independently. Skip, pause, resume, idle time, and ordinary timer changes stay silent. Leaving the active page stops speech.
 
 **Speaking to** changes how the same narrator addresses you. **Flirty lines** is optional and off by default. Recordings rotate before repeating; favorites are preferred within a matching context, and muted clips stay out of automatic guidance. If every matching clip is muted, that context stays silent. Every recording remains available for manual preview, with only one preview playing at a time.
 

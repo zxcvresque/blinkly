@@ -74,8 +74,9 @@ async function canSpeak(sender) {
   } catch { return false; }
 }
 
-const ROTATION_GROUP = /^(day|night|drunk):(warn|step):[0-3]$/;
+const ROTATION_GROUP = /^(day|night|drunk):(?:(?:warn|step):[0-3]|(?:snooze|done):0)$/;
 const SESSION_ID = /^\d{1,16}$/;
+const ACTION_ID = /^[A-Za-z0-9:_-]{1,160}$/;
 let selectionQueue = Promise.resolve();
 function selectFromBag(groups, group, keys, petForKey = () => '', lastPet = '') {
   const pool = [...new Set(keys)].sort();
@@ -113,8 +114,14 @@ async function selectClip(message, sender) {
   if (typeof message.group !== 'string' || !ROTATION_GROUP.test(message.group))
     throw new Error('Invalid voice rotation group');
   const step = /:step:([0-3])$/.exec(message.group);
-  if (step && (typeof message.sessionId !== 'string' || !SESSION_ID.test(message.sessionId)))
+  const reaction = /:(snooze|done):0$/.exec(message.group);
+  if ((step || reaction?.[1] === 'done' || reaction && message.sessionId !== undefined)
+    && (typeof message.sessionId !== 'string' || !SESSION_ID.test(message.sessionId)))
     throw new Error('Invalid break session');
+  if (reaction && (typeof message.actionId !== 'string' || !ACTION_ID.test(message.actionId)))
+    throw new Error('Invalid voice action');
+  if (message.restGuidance !== undefined && !['quiet', 'balanced'].includes(message.restGuidance))
+    throw new Error('Invalid rest guidance');
   if (message.factKeys !== undefined && (!step || step[1] !== '0'))
     throw new Error('Facts can only replace the opening rest guidance');
   if (message.duration !== undefined && (typeof message.duration !== 'number' || !Number.isFinite(message.duration)
@@ -132,17 +139,19 @@ async function selectClip(message, sender) {
     }
     return [...new Set(keys)];
   };
-  let keys = validateKeys(message.keys, !!step);
+  let keys = validateKeys(message.keys, !!step || !!reaction);
   const factKeys = message.factKeys === undefined ? [] : validateKeys(message.factKeys, true);
   const stored = (await chrome.storage.local.get(['voiceRotation'])).voiceRotation;
   const rotation = stored?.schema === 1 && stored.groups && typeof stored.groups === 'object' && !Array.isArray(stored.groups)
     ? stored : { schema: 1, groups: {}, sessionCount: 0, sessions: [] };
   rotation.sessions = Array.isArray(rotation.sessions) ? rotation.sessions.filter(s => s && SESSION_ID.test(s.id)).slice(-64) : [];
   rotation.sessionCount = Number.isSafeInteger(rotation.sessionCount) && rotation.sessionCount >= 0 ? rotation.sessionCount : 0;
-  let session = step && rotation.sessions.find(s => s.id === message.sessionId);
+  rotation.actions = Array.isArray(rotation.actions) ? rotation.actions.filter(action => action && typeof action.id === 'string' && ACTION_ID.test(action.id)).slice(-128) : [];
+  if (reaction && rotation.actions.some(action => action.id === message.actionId)) return { ok: true, key: null };
+  let session = (step || reaction) && rotation.sessions.find(s => s.id === message.sessionId);
   if (step?.[1] === '0' && !session) {
     ++rotation.sessionCount;
-    session = { id: message.sessionId, duration: message.duration ?? 20, factsEvery,
+    session = { id: message.sessionId, duration: message.duration ?? 20, restGuidance: message.restGuidance || 'balanced', factsEvery,
       factDue: factsEvery > 0 && rotation.sessionCount % factsEvery === 0, factUsed: false, selectedSteps: {}, pet: '' };
     rotation.sessions.push(session);
     rotation.sessions = rotation.sessions.slice(-64);
@@ -153,7 +162,7 @@ async function selectClip(message, sender) {
     // mark that opening consumed so upgrading cannot narrate the same rest twice.
     if (!session.selectedSteps || typeof session.selectedSteps !== 'object' || Array.isArray(session.selectedSteps))
       session.selectedSteps = { 0: null };
-    if (!Cadence.restStepAllowed(session.duration, Number(step[1])) || Object.hasOwn(session.selectedSteps, step[1]))
+    if (!Cadence.restStepAllowed(session.duration, Number(step[1]), session.restGuidance || 'quiet') || Object.hasOwn(session.selectedSteps, step[1]))
       return { ok: true, key: null };
   }
   let group = message.group;
@@ -173,17 +182,19 @@ async function selectClip(message, sender) {
       ? clip.text.match(/\b(daddy|handsome|handshome|babeee|hot shtuff|trouble|mister|beautiful|vixen|gorgeoush?)\b/i)?.[0].toLowerCase() || '' : '';
   };
   const lastPet = typeof rotation.lastPet === 'string' ? rotation.lastPet : '';
-  if (step?.[1] === '2') {
+  const sessionConsistent = step?.[1] === '2' || reaction && !!session;
+  if (sessionConsistent) {
     const pet = typeof session.pet === 'string' ? session.pet : '';
     const matching = pet ? keys.filter(key => petForKey(key) === pet) : [];
     keys = matching.length ? matching : keys.filter(key => !petForKey(key));
   }
-  const key = keys.length ? selectFromBag(rotation.groups, group, keys, petForKey, step?.[1] === '2' ? '' : lastPet) : null;
+  const key = keys.length ? selectFromBag(rotation.groups, group, keys, petForKey, sessionConsistent ? '' : lastPet) : null;
   if (step) {
     session.selectedSteps[step[1]] = key;
     if (step[1] === '0') session.pet = key ? petForKey(key) : '';
     if (usingFact && key) session.factUsed = true;
   }
+  if (reaction) { rotation.actions.push({ id: message.actionId }); rotation.actions = rotation.actions.slice(-128); }
   if (key && petForKey(key)) rotation.lastPet = petForKey(key);
   await chrome.storage.local.set({ voiceRotation: rotation });
   return { ok: true, key };

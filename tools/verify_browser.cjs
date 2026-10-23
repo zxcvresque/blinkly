@@ -52,7 +52,7 @@ async function shadow(page) {
   context.on('request', request => requests.push(request.url()));
   const worker = context.serviceWorkers()[0] || await context.waitForEvent('serviceworker');
   worker.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
-  await worker.evaluate(() => chrome.storage.local.clear());
+  await worker.evaluate(async () => { await chrome.storage.local.clear(); await chrome.storage.local.set({cfg:{restGuidance:'quiet',voiceSnooze:false,voiceDone:false}}); });
   const options = await context.newPage();
   options.on('pageerror', error => errors.push(error.message));
   await options.goto(worker.url().replace('background.js', 'options.html'));
@@ -128,13 +128,13 @@ async function shadow(page) {
     await chrome.storage.local.set({ state: { ...state, breakEnd: Date.now() - 1, w: 'qa-end' } });
   });
   await wait(1800);
-  assert.deepEqual(await worker.evaluate(() => __qaRequests), [], 'Completion is silent');
+  assert.deepEqual(await worker.evaluate(() => __qaRequests), [], 'Completion response is silent when disabled');
   // Pause, resume and snooze from the popup must not speak outside an alert/rest.
   const popup = await context.newPage();
   await popup.goto(worker.url().replace('background.js', 'popup.html'));
   await popup.locator('#b-pause').click(); await popup.locator('#b-pause').click(); await popup.locator('#b-snooze').click();
   await wait(500);
-  assert.deepEqual(await worker.evaluate(() => __qaRequests), [], 'Popup actions outside sessions are silent');
+  assert.deepEqual(await worker.evaluate(() => __qaRequests), [], 'Popup responses stay silent when disabled');
   await popup.close(); await page.bringToFront();
   // Trigger a warning after snooze; only an angry warning may be requested.
   await worker.evaluate(async () => {

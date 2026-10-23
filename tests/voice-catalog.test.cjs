@@ -60,16 +60,17 @@ test('every library clip has a unique curated name, category, performance contex
   assert.deepEqual(buildCatalog(catalog), catalog, 'checked-in metadata must match the annotation tool');
   const categories = new Set([
     'Alerts', 'Look away', 'Soften focus', 'Blink', 'Relax', 'Eye facts',
-    'Completion (preview only)', 'Reactions (preview only)', 'Voice test'
+    'Completion', 'Snooze', 'Reactions (preview only)', 'Voice test'
   ]);
   const titles = new Set();
   const automatic = new Set();
   for (const date of Object.values(contexts)) {
     for (const recipientGender of ['male', 'female']) {
     for (const snoozeCount of [0, 1, 2]) {
-      for (const event of ['warn', 'fact']) {
+      for (const event of ['warn', 'fact', 'snooze']) {
         for (const text of voice.pool(event, { date, snoozeCount, flirty: true, recipientGender })) automatic.add(text);
       }
+      for (const text of voice.completionPool({ date, workMin: 20, breakSec: 20 })) automatic.add(text);
       for (let step = 0; step < 4; step++) {
         for (const text of voice.pool('step', { date, snoozeCount, step, flirty: true, recipientGender })) automatic.add(text);
       }

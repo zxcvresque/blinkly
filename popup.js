@@ -91,6 +91,7 @@ $('b-pause').onclick = () => patch(s => {
 });
 $('b-snooze').onclick = () => patch((s, c) => {
   if (c.strict) return;
+  const sessionId = s.phase === 'break' ? String(s.breakEnd) : null;
   if (s.phase === 'break') {
     const key = new Date().toLocaleDateString('en-CA');
     const day = s.days[key] ||= { d: 0, s: 0, a: 0 };
@@ -99,6 +100,7 @@ $('b-snooze').onclick = () => patch((s, c) => {
   s.phase = 'work'; s.elapsed = Math.max(0, Sleep.effectiveWorkMin(c) * 60 - 300);
   s.snoozeCount = (Number(s.snoozeCount) || 0) + 1;
   voiceEvent(s, 'snooze');
+  if (sessionId) s.voiceEvent.sessionId = sessionId;
 });
 $('b-set').onclick = async () => {
   const status = $('settings-status');

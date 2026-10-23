@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Blinkly: 20-20-20 eye care
 // @namespace    https://blinkly.local
-// @version      2.6.0
+// @version      2.6.1
 // @description  Blinkly extension runtime: window light, misty mountains, guided eye breaks, cross-tab sync, and bundled offline ElevenLabs guidance.
 // @match        *://*/*
 // @noframes
@@ -63,18 +63,23 @@
     workMin: 20, breakSec: 20, warnSec: 30, mode: 'overlay', strict: false,
     warm: 0, warmNight: false, accent: '#ef5b78', sound: true, volume: 0.4, notify: false,
     idleMin: 2, deferMedia: true, widget: true, corner: 'br', blocklist: '',
-    voiceOn: true, voiceId: Voice.VOICE_ID, voiceModel: Voice.MODEL, voiceVol: 0.9
+    voiceOn: true, voiceId: Voice.VOICE_ID, voiceModel: Voice.MODEL, voiceVol: 0.9,
+    restGuidance: 'balanced', voiceSnooze: true, voiceDone: true
   };
   const readConfig = value => {
     const config = Placement.normalize(Prefs.normalize(Sleep.normalize({ ...DEFAULTS, ...value, voiceId: Voice.VOICE_ID, voiceModel: Voice.MODEL })));
     if (typeof value?.warmNow !== 'boolean' && value?.warm > 0 && !value?.warmNight) config.warmNow = true;
-    return { ...config, corner: ['tl', 'tr', 'bl', 'br', 'custom'].includes(config.corner) ? config.corner : 'br', accent: config.accent === '#f4a259' ? '#ef5b78' : config.accent, recipientGender: config.recipientGender === 'female' ? 'female' : 'male' };
+    return { ...config, restGuidance: config.restGuidance === 'quiet' ? 'quiet' : 'balanced',
+      libraryCategory: config.libraryCategory === 'Completion (preview only)' ? 'Completion' : config.libraryCategory,
+      voiceSnooze: typeof config.voiceSnooze === 'boolean' ? config.voiceSnooze : true,
+      voiceDone: typeof config.voiceDone === 'boolean' ? config.voiceDone : true,
+      corner: ['tl', 'tr', 'bl', 'br', 'custom'].includes(config.corner) ? config.corner : 'br', accent: config.accent === '#f4a259' ? '#ef5b78' : config.accent, recipientGender: config.recipientGender === 'female' ? 'female' : 'male' };
   };
   let cfg = readConfig(Store.get('cfg', {}));
   // Migrate old settings without retaining the generation credential.
   if ('voiceKey' in cfg) { delete cfg.voiceKey; Store.set('cfg', cfg); }
   const ME = Math.random().toString(36).slice(2);
-  const freshState = () => ({ phase: 'work', elapsed: 0, breakEnd: 0, breakLen: 20, paused: false, lastTick: 0, owner: '', lastAct: Date.now(), res: '', resAt: 0, days: {}, snoozeCount: 0, voiceEvent: null, mediaNotified: false, manualBreak: false, w: '' });
+  const freshState = () => ({ phase: 'work', elapsed: 0, breakEnd: 0, breakLen: 20, paused: false, lastTick: 0, owner: '', lastAct: Date.now(), res: '', resAt: 0, resUntil: 0, days: {}, snoozeCount: 0, voiceEvent: null, mediaNotified: false, manualBreak: false, w: '' });
   let S = { ...freshState(), ...Store.get('state', {}) };
 
   if (!PAGE && cfg.blocklist.split(/[\s,]+/).filter(Boolean).some(h => location.hostname === h || location.hostname.endsWith('.' + h))) return;
@@ -119,7 +124,7 @@
 
   const row = (l, sub, c) => `<div class="row"><div class="lbl"><b>${l}</b>${sub ? `<span>${sub}</span>` : ''}</div>${c}</div>`;
   const rng = (k, a, b, st, u) => `<div class="rg"><input type="range" data-k="${k}" min="${a}" max="${b}" step="${st}" aria-label="${k}"><output data-o="${k}" data-u="${u}"></output></div>`;
-  const tog = k => `<label class="sw"><input type="checkbox" role="switch" aria-label="${({ flirty: 'Flirty lines', voiceOn: 'Spoken guidance', strict: 'Strict mode', sleepEnabled: 'Sleep schedule', quietEnabled: 'Quiet hours', warmNight: 'Tint only at night', warmNow: 'Tint now', sound: 'Chime', notify: 'Desktop notification', deferMedia: 'Wait for video', widget: 'Show timer' })[k] || k}" data-k="${k}"><i aria-hidden="true"></i></label>`;
+  const tog = k => `<label class="sw"><input type="checkbox" role="switch" aria-label="${({ flirty: 'Flirty lines', voiceOn: 'Spoken guidance', voiceSnooze: 'Snooze response', voiceDone: 'Rested response', strict: 'Strict mode', sleepEnabled: 'Sleep schedule', quietEnabled: 'Quiet hours', warmNight: 'Tint only at night', warmNow: 'Tint now', sound: 'Chime', notify: 'Desktop notification', deferMedia: 'Wait for video', widget: 'Show timer' })[k] || k}" data-k="${k}"><i aria-hidden="true"></i></label>`;
   const seg = (k, opts) => `<div class="seg" data-k="${k}">${opts.map(([v, t]) => `<button data-v="${v}">${t}</button>`).join('')}</div>`;
   const ACCENTS = ['#ef5b78', '#7dd3c0', '#8ab4ff', '#f08fb0', '#c4b5fd'];
 
@@ -356,7 +361,10 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
         <p class="hint" id="quiet-note"></p>
       </section>
       <section class="tab" data-t="voice">
-        ${row('Spoken guidance', 'One calm line per 20-second rest; longer rests get at most two', tog('voiceOn'))}
+        ${row('Spoken guidance', 'Guidance, with optional snooze and Rested responses', tog('voiceOn'))}
+        <div class="row col"><div class="lbl"><b>Rest guidance</b><span>Spaced prompts keep the same pet name or use neutral wording.</span></div><select class="field" data-k="restGuidance" aria-label="Rest guidance"><option value="balanced">Balanced · two spaced lines</option><option value="quiet">Quiet · one opening line</option></select></div>
+        ${row('Snooze response', 'A short response when you choose Snooze 5 min', tog('voiceSnooze'))}
+        ${row('Rested response', 'A completion line while Rested is visible', tog('voiceDone'))}
         <div class="row col"><div class="lbl"><b>Speaking to</b><span>Choose how the same voice addresses you.</span></div><select class="field" data-k="recipientGender" aria-label="Speaking to"><option value="male">Male</option><option value="female">Female</option></select></div>
         ${row('Flirty lines', 'Mix playful pet names into guidance', tog('flirty'))}
         <div class="row col"><div class="lbl"><b>Spoken eye facts</b><span>Replaces the opening guidance during selected rest sessions; adds no extra speech.</span></div><select class="field" id="facts-every" data-k="factsEvery" aria-label="Spoken fact frequency"><option value="0">Off</option><option value="1">Every rest session</option><option value="2">Every 2nd rest session</option><option value="3">Every 3rd rest session</option><option value="5">Every 5th rest session</option><option value="10">Every 10th rest session</option></select></div>
@@ -485,7 +493,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     $('#library-count').textContent = `${clips.length} of ${libraryClips.length} saved recordings`;
     const groups = new Map();
     for (const clip of clips) { if (!groups.has(clip.category)) groups.set(clip.category, []); groups.get(clip.category).push(clip); }
-    $('#audio-library').innerHTML = [...groups].map(([category, entries]) => `<section class="library-group"><h3>${escapeHTML(category)}</h3>${entries.map(clip => `<article class="audio-item"><div class="audio-head"><div><b>${escapeHTML(clip.title)}</b><span class="audio-meta">${escapeHTML([clip.gender && clip.gender !== 'neutral' ? clip.gender === 'both' ? 'Male / Female' : clip.gender === 'female' ? 'For her' : 'For him' : '', clip.context, clip.mood, muted.has(clip.key) ? 'Muted for automatic playback' : clip.usage === 'manual-preview' ? 'Preview only' : 'Alerts / rest'].filter(Boolean).join(' · '))}</span></div><div class="audio-actions"><button class="audio-play${previewKey === clip.key ? ' on' : ''}" data-preview="${clip.key}" aria-label="${previewKey === clip.key ? 'Stop' : 'Play'} ${escapeHTML(clip.title)}">${previewKey === clip.key ? 'Stop' : 'Play'}</button><button class="audio-pref" data-favorite="${clip.key}" aria-pressed="${favorites.has(clip.key)}" aria-label="${favorites.has(clip.key) ? 'Unfavorite' : 'Favorite'} ${escapeHTML(clip.title)}">${favorites.has(clip.key) ? '★' : '☆'}</button><button class="audio-pref" data-mute="${clip.key}" aria-pressed="${muted.has(clip.key)}" aria-label="${muted.has(clip.key) ? 'Unmute' : 'Mute'} ${escapeHTML(clip.title)}">${muted.has(clip.key) ? 'Unmute' : 'Mute'}</button></div></div><p class="audio-text">${escapeHTML(clip.transcript)}</p><span class="audio-meta">${escapeHTML(clip.tags.join(' · '))}</span></article>`).join('')}</section>`).join('') || '<p class="library-empty">No recordings match this search.</p>';
+    $('#audio-library').innerHTML = [...groups].map(([category, entries]) => `<section class="library-group"><h3>${escapeHTML(category)}</h3>${entries.map(clip => `<article class="audio-item"><div class="audio-head"><div><b>${escapeHTML(clip.title)}</b><span class="audio-meta">${escapeHTML([clip.gender && clip.gender !== 'neutral' ? clip.gender === 'both' ? 'Male / Female' : clip.gender === 'female' ? 'For her' : 'For him' : '', clip.context, clip.mood, muted.has(clip.key) ? 'Muted for automatic playback' : clip.usage === 'manual-preview' ? 'Preview only' : 'Guidance / responses'].filter(Boolean).join(' · '))}</span></div><div class="audio-actions"><button class="audio-play${previewKey === clip.key ? ' on' : ''}" data-preview="${clip.key}" aria-label="${previewKey === clip.key ? 'Stop' : 'Play'} ${escapeHTML(clip.title)}">${previewKey === clip.key ? 'Stop' : 'Play'}</button><button class="audio-pref" data-favorite="${clip.key}" aria-pressed="${favorites.has(clip.key)}" aria-label="${favorites.has(clip.key) ? 'Unfavorite' : 'Favorite'} ${escapeHTML(clip.title)}">${favorites.has(clip.key) ? '★' : '☆'}</button><button class="audio-pref" data-mute="${clip.key}" aria-pressed="${muted.has(clip.key)}" aria-label="${muted.has(clip.key) ? 'Unmute' : 'Mute'} ${escapeHTML(clip.title)}">${muted.has(clip.key) ? 'Unmute' : 'Mute'}</button></div></div><p class="audio-text">${escapeHTML(clip.transcript)}</p><span class="audio-meta">${escapeHTML(clip.tags.join(' · '))}</span></article>`).join('')}</section>`).join('') || '<p class="library-empty">No recordings match this search.</p>';
   }
   async function previewClip(key) {
     if (previewKey === key) { stopVoice(); return; }
@@ -498,7 +506,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
   async function voiceStatus() {
     try {
       const pack = await packInfo();
-      vstat(`${pack.count} recordings ready. Guidance plays during alerts and rest.`);
+      vstat(`${pack.count} recordings ready. Choose quiet or balanced guidance and optional responses.`);
     } catch (error) { vstat(error.message); }
   }
   let lastTestText = '';
@@ -512,7 +520,16 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     say(lastTestText, true);
   }
   const voiceSessionVisible = () => !PAGE && document.visibilityState === 'visible' && (!Prefs.quietNow(cfg) || S.phase === 'break' && S.manualBreak) && (S.phase === 'break' ? ov.classList.contains('on') : toastEl.classList.contains('on') && !toastEl.classList.contains('plain'));
-  function playBuf(buf, epoch, force = false) {
+  const restedVisible = () => S.res === 'done' && Date.now() < (S.resUntil || S.resAt + 3400);
+  function voiceAllowed(context) {
+    if (!cfg.voiceOn || PAGE || document.visibilityState !== 'visible') return false;
+    if (context?.event === 'snooze') return cfg.voiceSnooze && S.phase === 'work' && toastEl.classList.contains('on')
+      && S.voiceEvent?.id === context.actionId && Date.now() - S.voiceEvent.at < 11000;
+    if (context?.event === 'done') return cfg.voiceDone && restedVisible() && ov.classList.contains('on')
+      && S.voiceEvent?.id === context.actionId && (!Prefs.quietNow(cfg) || S.manualBreak);
+    return voiceSessionVisible();
+  }
+  function playBuf(buf, epoch, force = false, context = null) {
     return new Promise(resolve => {
       if (epoch !== vEpoch) return resolve();
       const c = audioCtx();
@@ -526,21 +543,30 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       let timer;
       const end = () => {
         clearTimeout(timer);
-        if (vCur?.src === src) { vCur = null; previewKey = null; renderLibrary(); }
+        if (vCur?.src === src) {
+          vCur = null; previewKey = null; renderLibrary();
+          if (context?.event === 'done' && S.voiceEvent?.id === context.actionId) {
+            S.resUntil = Date.now() + 250; save(); render();
+          }
+          if (context?.event === 'snooze' && S.voiceEvent?.id === context.actionId) hideToast();
+        }
         src.disconnect(); g.disconnect(); resolve();
       };
       src.onended = end;
       timer = setTimeout(end, buf.duration * 1000 + 1500);
-      vCur = { src, g, force }; src.start();
+      if (context?.event === 'done') {
+        S.resUntil = Date.now() + Math.min(10000, buf.duration * 1000 + 350); save(); render();
+      }
+      vCur = { src, g, force, context }; src.start();
     });
   }
   async function pump() {
     vBusy = true;
     try {
       while (vPending) {
-        const { text, epoch, force } = vPending; vPending = null;
+        const { text, epoch, force, context } = vPending; vPending = null;
         try {
-          if (!force && (!voiceSessionVisible() || !(await packMessage({ type: 'blinkly-can-speak' })).allowed)) continue;
+          if (!force && (!voiceAllowed(context) || !(await packMessage({ type: 'blinkly-can-speak' })).allowed)) continue;
           if (epoch !== vEpoch) continue;
           const key = Voice.key(text);
           let buf = dec.get(key);
@@ -553,17 +579,17 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
             dec.set(key, buf);
             if (dec.size > 16) dec.delete(dec.keys().next().value);
           }
-          if (!force && (!voiceSessionVisible() || !(await packMessage({ type: 'blinkly-can-speak' })).allowed)) continue;
-          await playBuf(buf, epoch, force);
+          if (!force && (!voiceAllowed(context) || !(await packMessage({ type: 'blinkly-can-speak' })).allowed)) continue;
+          await playBuf(buf, epoch, force, context);
         } catch (error) { vstat(error.message); }
       }
     } finally { vBusy = false; }
   }
-  function say(text, force = false) {
+  function say(text, force = false, context = null) {
     // Only the foreground page speaks; other visible windows still render the break.
-    if (!force && (!cfg.voiceOn || !voiceSessionVisible())) return;
+    if (!force && !voiceAllowed(context)) return;
     if (!text) return;
-    vPending = { text, epoch: vEpoch, force };
+    vPending = { text, epoch: vEpoch, force, context };
     if (!vBusy) void pump();
   }
   function stopVoice() {
@@ -578,12 +604,17 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       previous.src.stop(t + 0.1);
     } catch {}
   }
-  async function voiceEvent(event, step = 0) {
-    if (event !== 'warn' && event !== 'step') return;
-    if (event === 'step' && !Cadence.restStepAllowed(S.breakLen || cfg.breakSec, step)) return;
+  async function voiceEvent(event, step = 0, action = null) {
+    if (!['warn', 'step', 'snooze', 'done'].includes(event)) return;
+    if (event === 'step' && !Cadence.restStepAllowed(S.breakLen || cfg.breakSec, step, cfg.restGuidance)) return;
+    // Never queue the second prompt behind a long first recording.
+    if (event === 'step' && step === 2 && (vCur || vPending)) return;
+    const reaction = event === 'snooze' || event === 'done';
+    const context = reaction ? { event, actionId: action?.id || S.voiceEvent?.id } : null;
+    if (reaction && !context.actionId || !voiceAllowed(context)) return;
     const epoch = vEpoch;
-    const periodOverride = Sleep.period(cfg), voiceOptions = { workMin: cfg.workMin, snoozeCount: S.snoozeCount, step, flirty: cfg.flirty, recipientGender: cfg.recipientGender, periodOverride };
-    let pool = Prefs.eligible(Voice.pool(event, voiceOptions), cfg, Voice.key);
+    const periodOverride = Sleep.period(cfg), voiceOptions = { workMin: Sleep.effectiveWorkMin(cfg), breakSec: S.breakLen || cfg.breakSec, snoozeCount: S.snoozeCount, step, flirty: cfg.flirty, recipientGender: cfg.recipientGender, periodOverride };
+    let pool = Prefs.eligible(event === 'done' ? Voice.completionPool(voiceOptions) : Voice.pool(event, voiceOptions), cfg, Voice.key);
     const factPool = cfg.factsEvery ? Prefs.eligible(Voice.pool('fact', voiceOptions), cfg, Voice.key) : [];
     try {
       const pack = await packInfo();
@@ -591,21 +622,27 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       const available = new Set(pack.availableKeys);
       pool = pool.filter(text => available.has(Voice.key(text)));
     } catch (error) { vstat(error.message); return; }
-    if ((!pool.length && event !== 'step') || !cfg.voiceOn || !voiceSessionVisible()) return;
+    if ((!pool.length && event !== 'step') || !voiceAllowed(context)) {
+      if (event === 'done') { S.resUntil = S.resAt + 3400; save(); render(); }
+      return;
+    }
     try {
       const selection = await packMessage({
         type: 'blinkly-select-clip', group: `${periodOverride}:${event}:${step}`,
-        keys: pool.map(Voice.key), factsEvery: cfg.factsEvery, duration: S.breakLen || cfg.breakSec, sessionId: event === 'step' ? String(S.breakEnd) : '',
+        keys: pool.map(Voice.key), factsEvery: cfg.factsEvery, duration: S.breakLen || cfg.breakSec, restGuidance: cfg.restGuidance,
+        ...(event === 'step' ? { sessionId: String(S.breakEnd) } : {}),
+        ...(reaction ? { actionId: context.actionId, ...((action || S.voiceEvent)?.sessionId ? { sessionId: (action || S.voiceEvent).sessionId } : {}) } : {}),
         ...(event === 'step' && step === 0 ? { factKeys: factPool.map(Voice.key) } : {})
       });
-      if (epoch !== vEpoch || !selection.key) return;
+      if (epoch !== vEpoch) return;
+      if (!selection.key) return;
       const text = [...pool, ...factPool].find(line => Voice.key(line) === selection.key);
-      if (text) say(text);
+      if (text) say(text, false, context);
     } catch (error) { vstat(error.message); }
   }
   const voiceWarn = () => announceVoice('warn');
   function voiceStep(i, first) {
-    if (!Cadence.restStepAllowed(S.breakLen || cfg.breakSec, i)) return;
+    if (!Cadence.restStepAllowed(S.breakLen || cfg.breakSec, i, cfg.restGuidance)) return;
     const end = S.breakEnd, epoch = vEpoch;
     const go = () => { if (epoch === vEpoch && S.phase === 'break' && S.breakEnd === end) voiceEvent('step', i); };
     first ? (vDelay = setTimeout(go, 900)) : go();
@@ -621,6 +658,11 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
       showToast(`Break in ${cfg.warnSec} seconds`, 'Pick something far away to look at.');
       void voiceEvent('warn');
     }
+    if (event.type === 'snooze' && S.phase === 'work' && cfg.voiceSnooze) {
+      showToast('Snoozed for 5 minutes', 'Your next eye break will wait.', true, 11000);
+      void voiceEvent('snooze', 0, event);
+    }
+    if (event.type === 'done' && restedVisible()) { render(); void voiceEvent('done', 0, event); }
   }
   function announceVoice(type, id = `${type}:${Date.now()}:${ME}`) {
     S.voiceEvent = { id, type, at: Date.now() };
@@ -644,19 +686,32 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     const d = day(), stale = Date.now() - S.breakEnd > 60000;
     stopVoice(); hideToast();
     S.phase = 'work'; S.elapsed = 0; S.snoozeCount = 0; S.mediaNotified = false; warned = false;
-    if (kind === 'done' && !stale) { d.d++; S.res = 'done'; S.resAt = Date.now(); chime('end'); }
+    if (kind === 'done' && !stale) {
+      d.d++; S.res = 'done'; S.resAt = Date.now();
+      S.resUntil = S.resAt + (cfg.voiceOn && cfg.voiceDone ? 9000 : 3400);
+      S.voiceEvent = { id: `done:${S.breakEnd}`, type: 'done', at: S.resAt, sessionId: String(S.breakEnd) };
+      if (!cfg.voiceOn || !cfg.voiceDone) chime('end');
+    }
     else if (kind === 'skip') { d.s++; S.res = 'skip'; S.resAt = Date.now(); }
-    save(); render();
+    save(); render(); externalVoiceEvent();
   }
-  const snooze = () => { if (cfg.strict) return; stopVoice(); if (S.phase === 'break') { S.phase = 'work'; day().s++; } S.snoozeCount = (S.snoozeCount || 0) + 1; S.elapsed = Math.max(0, limit() - 300); S.res = ''; warned = false; hideToast(); save(); render(); };
+  const snooze = () => {
+    if (cfg.strict) return;
+    const sessionId = S.phase === 'break' ? String(S.breakEnd) : null;
+    stopVoice(); if (S.phase === 'break') { S.phase = 'work'; day().s++; }
+    S.snoozeCount = (S.snoozeCount || 0) + 1; S.elapsed = Math.max(0, limit() - 300); S.res = ''; warned = false;
+    hideToast();
+    S.voiceEvent = { id: `snooze:${Date.now()}:${ME}`, type: 'snooze', at: Date.now(), ...(sessionId ? { sessionId } : {}) };
+    save(); render(); externalVoiceEvent();
+  };
   const togglePause = () => { stopVoice(); S.paused = !S.paused; save(); render(); };
   const restart = () => { stopVoice(); S.phase = 'work'; S.elapsed = 0; S.snoozeCount = 0; S.mediaNotified = false; S.res = ''; warned = false; hideToast(); save(); render(); };
   const togglePanel = open => { if (PAGE) return; panel.classList.toggle('on', open); if (!open && previewKey) stopVoice(); if (open) { renderStats(); requestAnimationFrame(moveInd); voiceStatus(); } };
 
-  function showToast(title, sub, plain) {
+  function showToast(title, sub, plain, duration) {
     els.tt.textContent = title; els.ts.textContent = sub || '';
     toastEl.classList.toggle('plain', !!plain); toastEl.classList.add('on');
-    clearTimeout(toastTimer); toastTimer = setTimeout(hideToast, plain ? 3500 : 12000);
+    clearTimeout(toastTimer); toastTimer = setTimeout(hideToast, duration || (plain ? 3500 : 12000));
   }
   function hideToast() {
     const wasVisible = toastEl.classList.contains('on');
@@ -734,7 +789,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     els.ps.textContent = status || `Next break in ${fmt(left)}`;
     if (toastEl.classList.contains('on') && warn) els.tl.style.setProperty('--tp', (left / cfg.warnSec).toFixed(3));
 
-    const celebrating = !breaking && !PAGE && S.res === 'done' && now - S.resAt < 3400;
+    const celebrating = !breaking && !PAGE && restedVisible();
     ov.classList.toggle('on', breaking || celebrating);
     ov.classList.toggle('done', celebrating);
     if (breaking) {
@@ -841,7 +896,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
     }
     cfg = readConfig({ ...cfg, ...extra, [k]: v }); Store.set('cfg', cfg); applyCfg(); outLabel(k); render();
     if (['warmNow', 'warm'].includes(k)) syncControls();
-    if (k === 'voiceOn' && !v || ['recipientGender', 'flirty'].includes(k)) stopVoice();
+    if (['voiceOn','voiceSnooze','voiceDone'].includes(k) && !v || ['recipientGender', 'flirty'].includes(k)) stopVoice();
     if (k === 'voiceVol' && vCur) vCur.g.gain.value = v;
     if (k === 'workMin') voiceStatus();
     if (['favoriteClips','mutedClips'].includes(k)) renderLibrary();
@@ -969,7 +1024,7 @@ select.field{width:100%;max-width:none;margin-top:8px}.sleep-note{padding:12px;b
 
   Store.on((k, v) => {
     if (k === 'state' && v) { if (v.w === ME) return; const endedRest = S.phase === 'break' && v.phase !== 'break'; S = { ...freshState(), ...v }; if (endedRest) stopVoice(); externalVoiceEvent(); render(); }
-    if (k === 'cfg' && v) { cfg = readConfig(v); if (!cfg.voiceOn) stopVoice(); applyCfg(); syncControls(); restoreSettingsTab(); if (libraryClips.length) { $('#library-search').value = cfg.librarySearch || ''; $('#library-category').value = cfg.libraryCategory || ''; $('#library-preference').value = cfg.libraryPreference || 'all'; renderLibrary(); } render(); }
+    if (k === 'cfg' && v) { cfg = readConfig(v); if (!cfg.voiceOn || vCur?.context?.event === 'snooze' && !cfg.voiceSnooze || vCur?.context?.event === 'done' && !cfg.voiceDone) stopVoice(); applyCfg(); syncControls(); restoreSettingsTab(); if (libraryClips.length) { $('#library-search').value = cfg.librarySearch || ''; $('#library-category').value = cfg.libraryCategory || ''; $('#library-preference').value = cfg.libraryPreference || 'all'; renderLibrary(); } render(); }
   });
 
   applyCfg(); syncControls(); restoreSettingsTab(); render();

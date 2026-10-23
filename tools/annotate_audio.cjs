@@ -35,8 +35,8 @@ function buildCatalog(previous = {}) {
   group(original.done, [
     'Rested and ready', 'Happy eyes', 'That feels better',
     'The dog says nice job', 'Eyes recharged'
-  ], 'Completion (preview only)', 'manual-preview');
-  group(original.doneNight, ['Rested, or ready for sleep'], 'Completion (preview only)', 'manual-preview');
+  ], 'Completion');
+  group(original.doneNight, ['Rested, or ready for sleep'], 'Completion');
 
   group(voice.extra.warn, [
     'Another tab?', 'Your eyes are next', 'Emotional about a break',
@@ -45,10 +45,10 @@ function buildCatalog(previous = {}) {
   ], 'Alerts');
   group(voice.extra.snooze, [
     'You snoozed me?', 'Keeping count', 'The rehearsed reminder'
-  ], 'Reactions (preview only)', 'manual-preview');
+  ], 'Snooze');
   group(voice.extra.snoozeAgain, [
     'The snooze button is not a routine', 'Back in five minutes'
-  ], 'Reactions (preview only)', 'manual-preview');
+  ], 'Snooze');
   group(voice.extra.warnSnoozed, ['Your five minutes are nearly up', 'The snooze sequel'], 'Alerts');
   group(voice.extra.steps[0], [
     'Screen down, eyes up', 'A spell for distance', 'Beyond the screen', 'Cheers for looking away'
@@ -64,7 +64,7 @@ function buildCatalog(previous = {}) {
   ], 'Relax');
   group(voice.extra.done, [
     'Your eyes have fans', 'A tiny standing ovation', 'Proud of twenty seconds', 'Eyes rested, shoulders free'
-  ], 'Completion (preview only)', 'manual-preview');
+  ], 'Completion');
   group(voice.extra.skip, ['Your eyes noticed the skip', 'Escaping already?'], 'Reactions (preview only)', 'manual-preview');
   group(voice.extra.pause, ['Take your time'], 'Reactions (preview only)', 'manual-preview');
   group(voice.extra.resume, ['There you are'], 'Reactions (preview only)', 'manual-preview');
@@ -72,9 +72,9 @@ function buildCatalog(previous = {}) {
   group(voice.extra.welcome, ['Welcome back'], 'Reactions (preview only)', 'manual-preview');
   group(voice.extra.media, ['Waiting for your video'], 'Reactions (preview only)', 'manual-preview');
   group(voice.extra.nightWarn, ['A little late-night quiet', 'A gentle nudge'], 'Alerts');
-  group(voice.extra.nightDone, ['Let the next break be bedtime'], 'Completion (preview only)', 'manual-preview');
+  group(voice.extra.nightDone, ['Let the next break be bedtime'], 'Completion');
   group(voice.extra.drunkWarn, ['A late-night reality check', 'The screen will still be here'], 'Alerts');
-  group(voice.extra.drunkSnooze, ['Five minutes, I think'], 'Reactions (preview only)', 'manual-preview');
+  group(voice.extra.drunkSnooze, ['Five minutes, I think'], 'Snooze');
   group(voice.extra.drunkSteps[0], [
     'That distant spot, stay there', 'Hey, eyes off the screen', "That's the distant one"
   ], 'Look away');
@@ -89,7 +89,7 @@ function buildCatalog(previous = {}) {
   ], 'Relax');
   group(voice.extra.drunkDone, [
     'Responsible eyes', 'You, me, both eyes'
-  ], 'Completion (preview only)', 'manual-preview');
+  ], 'Completion');
   group(voice.extra.facts, [
     'Screens and fewer blinks', 'Blinking spreads tears', 'Full blinks keep eyes moist'
   ], 'Eye facts');

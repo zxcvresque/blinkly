@@ -238,7 +238,13 @@
     if (event === 'snooze') return p === 'drunk' ? extra.drunkSnooze : snoozeCount > 1 ? extra.snoozeAgain : extra.snooze;
     return extra[event] || [];
   }
-  const api = Object.freeze({ original, extra, petClips, allTexts, hash, key, pool, istHour, period, VOICE_ID, MODEL });
+  function completionPool({ workMin = 20, breakSec = 20, date = new Date(), periodOverride } = {}) {
+    const p = ['day', 'night', 'drunk'].includes(periodOverride) ? periodOverride : period(date);
+    if (p === 'drunk') return extra.drunkDone;
+    if (p === 'night') return [...(workMin === 20 ? [original(20).doneNight] : []), ...extra.nightDone];
+    return [...(workMin === 20 ? original(20).done : []), ...extra.done.filter(text => breakSec === 20 || !text.includes('twenty seconds'))];
+  }
+  const api = Object.freeze({ original, extra, petClips, allTexts, hash, key, pool, completionPool, istHour, period, VOICE_ID, MODEL });
   scope.BlinklyVoice = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(globalThis);

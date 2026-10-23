@@ -191,10 +191,10 @@ const rotationPack = () => ({ clips: Object.fromEntries([
 ].map(key => [key, { file: `audio/${key}.mp3` }])) });
 const stepKeys = step => ['a', 'b', 'c'].map(letter => `vo_${letter}${step}`);
 const facts = ['vo_facta', 'vo_factb', 'vo_factc'];
-const select = (bg, group, keys, sessionId, factKeys, factsEvery, duration) => bg.request({
+const select = (bg, group, keys, sessionId, factKeys, factsEvery, duration, restGuidance = 'quiet') => bg.request({
   type: 'blinkly-select-clip', group, keys, ...(sessionId === undefined ? {} : { sessionId }),
   ...(factKeys === undefined ? {} : { factKeys }), ...(factsEvery === undefined ? {} : { factsEvery }),
-  ...(duration === undefined ? {} : { duration })
+  ...(duration === undefined ? {} : { duration }), restGuidance
 }, { tab: { id: 42 } });
 
 test('allowed rest-step bags rotate across sessions while intermediate steps remain silent', async () => {
@@ -202,7 +202,7 @@ test('allowed rest-step bags rotate across sessions while intermediate steps rem
   for (let round = 0; round < 4; round++) {
     const id = String(1700000000000 + round);
     for (const step of [0, 1, 2, 3]) {
-      const response = await select(bg, `drunk:step:${step}`, stepKeys(step), id, undefined, 0, 40);
+      const response = await select(bg, `drunk:step:${step}`, stepKeys(step), id, undefined, 0, 40, 'balanced');
       assert.equal(response.ok, true);
       if (step === 0 || step === 2) results[step / 2].push(response.key);
       else assert.equal(response.key, null);
@@ -555,9 +555,9 @@ test('a long rest keeps its nickname, falls back to neutral, or stays silent ins
     const pack = rotationPack(), stored = {}, id = '1700000000000';
     pack.clips.vo_a0.pet = 'Babe'; pack.clips.vo_a2.pet = 'babe'; pack.clips.vo_b2.pet = 'Honey';
     const bg = background(pack, {}, stored);
-    assert.equal((await select(bg, 'day:step:0', ['vo_a0'], id, undefined, 0, 40)).key, 'vo_a0');
-    assert.equal((await select(background(pack, {}, stored), 'night:step:2', laterKeys, id, undefined, 0, 40)).key, expected);
-    assert.equal((await select(bg, 'day:step:2', laterKeys, id, undefined, 0, 40)).key, null);
+    assert.equal((await select(bg, 'day:step:0', ['vo_a0'], id, undefined, 0, 40, 'balanced')).key, 'vo_a0');
+    assert.equal((await select(background(pack, {}, stored), 'night:step:2', laterKeys, id, undefined, 0, 40, 'balanced')).key, expected);
+    assert.equal((await select(bg, 'day:step:2', laterKeys, id, undefined, 0, 40, 'balanced')).key, null);
     assert.ok(Object.values(stored.voiceRotation.sessions[0].selectedSteps).filter(Boolean).length <= 2);
     assert.equal(stored.voiceRotation.sessions[0].pet, 'babe');
   }
@@ -567,8 +567,8 @@ test('a neutral opening does not introduce a nickname in a later long-rest promp
   const pack = rotationPack(), stored = {}, id = '1700000000000';
   pack.clips.vo_a2.pet = 'Babe';
   const bg = background(pack, {}, stored);
-  await select(bg, 'day:step:0', ['vo_a0'], id, undefined, 0, 60);
-  assert.equal((await select(bg, 'day:step:2', ['vo_a2', 'vo_c2'], id, undefined, 0, 60)).key, 'vo_c2');
+  await select(bg, 'day:step:0', ['vo_a0'], id, undefined, 0, 60, 'balanced');
+  assert.equal((await select(bg, 'day:step:2', ['vo_a2', 'vo_c2'], id, undefined, 0, 60, 'balanced')).key, 'vo_c2');
 });
 
 test('invalid duration is rejected and old session records cannot replay their opening', async () => {
@@ -583,6 +583,91 @@ test('invalid duration is rejected and old session records cannot replay their o
   const bg = background(pack, {}, stored);
   assert.equal((await select(bg, 'day:step:0', stepKeys(0), '1700000000000')).key, null);
   assert.equal((await select(bg, 'day:step:2', stepKeys(2), '1700000000000', undefined, 0, 60)).key, null);
+});
+
+test('balanced twenty-second mode permits two prompts by default while quiet stays at one', async () => {
+  for (const restGuidance of [undefined, 'balanced', 'quiet']) {
+    const stored = {}, bg = background(rotationPack(), {}, stored), sessionId = '1700000000000';
+    const request = step => bg.request({ type: 'blinkly-select-clip', group: `day:step:${step}`, keys: stepKeys(step),
+      sessionId, duration: 20, factsEvery: 0, ...(restGuidance === undefined ? {} : { restGuidance }) }, { tab: { id: 42 } });
+    const responses = [];
+    for (const step of [0, 1, 2, 3, 0, 2]) responses.push(await request(step));
+    assert.equal(responses.filter(response => response.key).length, restGuidance === 'quiet' ? 1 : 2);
+    assert.equal(stored.voiceRotation.sessions[0].restGuidance, restGuidance || 'balanced');
+    const opposite = restGuidance === 'quiet' ? 'balanced' : 'quiet';
+    assert.equal((await select(background(rotationPack(), {}, stored), 'day:step:2', stepKeys(2), sessionId,
+      undefined, 0, 20, opposite)).key, null, 'changing the mode cannot replay an already-consumed slot');
+  }
+  const stored = {}, bg = background(rotationPack(), {}, stored), sessionId = '1700000000001';
+  await select(bg, 'day:step:0', stepKeys(0), sessionId, undefined, 0, 10, 'balanced');
+  assert.equal((await select(bg, 'day:step:2', stepKeys(2), sessionId, undefined, 0, 20, 'balanced')).key, null);
+});
+
+const react = (bg, event, actionId, keys, sessionId, period = 'day') => bg.request({
+  type: 'blinkly-select-clip', group: `${period}:${event}:0`, keys, actionId,
+  ...(sessionId === undefined ? {} : { sessionId })
+}, { tab: { id: 42 } });
+
+test('snooze and completion reactions deduplicate action ids across concurrent tabs and worker restarts', async () => {
+  const pack = rotationPack(), stored = {}, bg = background(pack, {}, stored), sessionId = '1700000000000';
+  await select(bg, 'day:step:0', stepKeys(0), sessionId);
+  const snoozes = await Promise.all(Array.from({ length: 4 }, () => react(bg, 'snooze', 'snooze:action-1', stepKeys(1), sessionId)));
+  assert.equal(snoozes.filter(response => response.key).length, 1);
+  assert.equal((await react(background(pack, {}, stored), 'snooze', 'snooze:action-1', stepKeys(1), sessionId, 'drunk')).key, null);
+  assert.equal((await react(bg, 'done', 'snooze:action-1', stepKeys(3), sessionId)).key, null, 'action id is global across reaction groups');
+  const done = await react(bg, 'done', `done:${sessionId}`, stepKeys(3), sessionId);
+  assert.ok(stepKeys(3).includes(done.key));
+  assert.equal((await react(background(pack, {}, stored), 'done', `done:${sessionId}`, stepKeys(3), sessionId)).key, null);
+  assert.deepEqual(stored.voiceRotation.actions.map(action => action.id), ['snooze:action-1', `done:${sessionId}`]);
+});
+
+test('rest reactions preserve a known nickname or use neutral recordings, including across restart', async () => {
+  for (const event of ['snooze', 'done']) for (const [keys, expected] of [
+    [['vo_a3', 'vo_b3', 'vo_c3'], 'vo_a3'], [['vo_b3', 'vo_c3'], 'vo_c3'], [['vo_b3'], null]
+  ]) {
+    const pack = rotationPack(), stored = {}, sessionId = '1700000000000';
+    pack.clips.vo_a0.pet = 'Babe'; pack.clips.vo_a3.pet = 'Babe'; pack.clips.vo_b3.pet = 'Honey';
+    await select(background(pack, {}, stored), 'day:step:0', ['vo_a0'], sessionId);
+    const response = await react(background(pack, {}, stored), event, `${event}:${sessionId}`, keys, sessionId);
+    assert.equal(response.key, expected);
+    assert.equal((await react(background(pack, {}, stored), event, `${event}:${sessionId}`, keys, sessionId)).key, null);
+  }
+});
+
+test('neutral-rest reactions stay neutral and snoozing outside a rest can select a fresh nickname', async () => {
+  const pack = rotationPack(), stored = {}, sessionId = '1700000000000';
+  pack.clips.vo_a3.pet = 'Honey';
+  const bg = background(pack, {}, stored);
+  await select(bg, 'day:step:0', ['vo_a0'], sessionId);
+  assert.equal((await react(bg, 'done', 'done:neutral', ['vo_a3', 'vo_c3'], sessionId)).key, 'vo_c3');
+  assert.equal((await react(bg, 'snooze', 'snooze:outside', ['vo_a3'])).key, 'vo_a3');
+  assert.equal((await react(bg, 'snooze', 'snooze:outside-again', ['vo_a3'])).key, null, 'outside-rest snooze follows global nickname rotation');
+});
+
+test('invalid reaction identities, placement, sessions and guidance fail without mutating saved state', async () => {
+  const invalid = [
+    { group: 'day:snooze:1', actionId: 'one' }, { group: 'day:done:2', actionId: 'one', sessionId: '123' },
+    ...[undefined, '', 'has space', 'x'.repeat(161), 123, '../one'].map(actionId => ({ group: 'day:snooze:0', actionId })),
+    { group: 'day:done:0', actionId: 'done:one' },
+    { group: 'day:done:0', actionId: 'done:one', sessionId: 'abc' },
+    { group: 'day:snooze:0', actionId: 'one', sessionId: 123 },
+    { group: 'day:step:0', sessionId: '123', restGuidance: 'loud' },
+    { group: 'day:snooze:0', actionId: 'one', factKeys: facts }
+  ];
+  for (const message of invalid) {
+    const stored = {}, bg = background(rotationPack(), {}, stored);
+    const response = await bg.request({ type: 'blinkly-select-clip', keys: stepKeys(0), ...message }, { tab: { id: 42 } });
+    assert.equal(response.ok, false, JSON.stringify(message)); assert.equal(stored.voiceRotation, undefined);
+  }
+});
+
+test('muted reactions consume their action once and reaction history is bounded', async () => {
+  const pack = rotationPack(), stored = {}, bg = background(pack, {}, stored);
+  assert.equal((await react(bg, 'snooze', 'silent', [])).key, null);
+  assert.equal((await react(bg, 'snooze', 'silent', stepKeys(0))).key, null);
+  for (let index = 0; index < 130; index++) await react(bg, 'snooze', `action:${index}`, []);
+  assert.equal(stored.voiceRotation.actions.length, 128);
+  assert.equal(stored.voiceRotation.actions[0].id, 'action:2');
 });
 
 test('hardcoded recorded pet names cannot change during a longer rest', async () => {
