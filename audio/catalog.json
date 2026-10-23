@@ -1,0 +1,5684 @@
+{
+  "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+  "model": "eleven_v4",
+  "format": "mp3_44100_128",
+  "workMinutes": {
+    "min": 20,
+    "max": 20
+  },
+  "clips": [
+    {
+      "key": "vo_1xy2mhrhle3",
+      "text": "[whispering] Hey... [chuckling] it's me. [softly] Time to rest those eyes.",
+      "file": "audio/vo_1xy2mhrhle3.mp3",
+      "title": "A whispered hello",
+      "category": "Voice test",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "whispering",
+        "chuckling",
+        "softly"
+      ],
+      "transcript": "Hey... it's me. Time to rest those eyes.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_20llnttxp6o",
+      "text": "[clears throat] [softly] Hey... break's coming up in just a moment. [chuckling] Finish your thought. I'll wait.",
+      "file": "audio/vo_20llnttxp6o.mp3",
+      "title": "Finish your thought",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "clears throat",
+        "softly",
+        "chuckling"
+      ],
+      "transcript": "Hey... break's coming up in just a moment. Finish your thought. I'll wait.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_14b7ev7y7w5",
+      "text": "[keyboard typing] [playful] Still typing, huh? [chuckling] Wrap it up... break's almost here.",
+      "file": "audio/vo_14b7ev7y7w5.mp3",
+      "title": "Still typing?",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "keyboard typing",
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Still typing, huh? Wrap it up... break's almost here.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2bw1h6raq9z",
+      "text": "[knocking on door] [whispering] Knock knock... your eyes would like a little break soon.",
+      "file": "audio/vo_2bw1h6raq9z.mp3",
+      "title": "A knock for your eyes",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "knocking on door",
+        "whispering"
+      ],
+      "transcript": "Knock knock... your eyes would like a little break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1h8iq451vgp",
+      "text": "[phone ringing] [chuckling] Oh, that's just me. [softly] Break's almost here.",
+      "file": "audio/vo_1h8iq451vgp.mp3",
+      "title": "Your break is calling",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "phone ringing",
+        "chuckling",
+        "softly"
+      ],
+      "transcript": "Oh, that's just me. Break's almost here.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_reeqahb3x7",
+      "text": "[menacing] Your break is coming... [laughing] kidding. Just a moment, okay?",
+      "file": "audio/vo_reeqahb3x7.mp3",
+      "title": "A teasing warning",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "menacing",
+        "laughing"
+      ],
+      "transcript": "Your break is coming... kidding. Just a moment, okay?",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1hxqyen965g",
+      "text": "[witch voice] Heh heh heh... time for your break, my pretty.",
+      "file": "audio/vo_1hxqyen965g.mp3",
+      "title": "The little break spell",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "witch voice"
+      ],
+      "transcript": "Heh heh heh... time for your break, my pretty.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_otocwq1yxy",
+      "text": "[yawning] [tired] It's late... [weak] but your eyes still need this. Break soon.",
+      "file": "audio/vo_otocwq1yxy.mp3",
+      "title": "A sleepy reminder",
+      "category": "Alerts",
+      "context": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "tired",
+        "weak"
+      ],
+      "transcript": "It's late... but your eyes still need this. Break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_zzndqm7n06",
+      "text": "[softly] Alright... look up from the screen. [pause] Find something far away.",
+      "file": "audio/vo_zzndqm7n06.mp3",
+      "title": "Find a distant spot",
+      "category": "Look away",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Alright... look up from the screen. Find something far away.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_4ouasos20i",
+      "text": "[bell ringing] [softly] Break time. Eyes up... pick a spot way out there.",
+      "file": "audio/vo_4ouasos20i.mp3",
+      "title": "The break-time bell",
+      "category": "Look away",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "bell ringing",
+        "softly"
+      ],
+      "transcript": "Break time. Eyes up... pick a spot way out there.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_5rdtv5relh",
+      "text": "[echoing] [whispering] Look up... find something far, far away.",
+      "file": "audio/vo_5rdtv5relh.mp3",
+      "title": "Far, far away",
+      "category": "Look away",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "echoing",
+        "whispering"
+      ],
+      "transcript": "Look up... find something far, far away.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_28kmlmfmhts",
+      "text": "[slowly] Let your eyes go soft... no need to strain.",
+      "file": "audio/vo_28kmlmfmhts.mp3",
+      "title": "Let your eyes go soft",
+      "category": "Soften focus",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "slowly"
+      ],
+      "transcript": "Let your eyes go soft... no need to strain.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_11uyeyvv9hl",
+      "text": "[rain falling] [softly] Just rest on it... like watching the rain.",
+      "file": "audio/vo_11uyeyvv9hl.mp3",
+      "title": "Rest like the rain",
+      "category": "Soften focus",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "rain falling",
+        "softly"
+      ],
+      "transcript": "Just rest on it... like watching the rain.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_krgs43qv54",
+      "text": "[whispering] Let it go a little blurry... that's okay.",
+      "file": "audio/vo_krgs43qv54.mp3",
+      "title": "A little blurry is okay",
+      "category": "Soften focus",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "whispering"
+      ],
+      "transcript": "Let it go a little blurry... that's okay.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_ws68868abq",
+      "text": "[slowly] Now blink... slowly... [pause] all the way closed.",
+      "file": "audio/vo_ws68868abq.mp3",
+      "title": "Close all the way",
+      "category": "Blink",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "slowly",
+        "pause"
+      ],
+      "transcript": "Now blink... slowly... all the way closed.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_xk35zn8n51",
+      "text": "[playful] Blinking time! [pause] Nice... and slow.",
+      "file": "audio/vo_xk35zn8n51.mp3",
+      "title": "Blinking time",
+      "category": "Blink",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "pause"
+      ],
+      "transcript": "Blinking time! Nice... and slow.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_25a54uy0crm",
+      "text": "[whispering] Blink... [pause] nice and slow.",
+      "file": "audio/vo_25a54uy0crm.mp3",
+      "title": "A whispered slow blink",
+      "category": "Blink",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "whispering",
+        "pause"
+      ],
+      "transcript": "Blink... nice and slow.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_nojnn4tab0",
+      "text": "[yawning] Ahh... shoulders down, jaw loose. [sighing] Breathe out.",
+      "file": "audio/vo_nojnn4tab0.mp3",
+      "title": "Shoulders down, jaw loose",
+      "category": "Relax",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sighing"
+      ],
+      "transcript": "Ahh... shoulders down, jaw loose. Breathe out.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2fxlymt4x2s",
+      "text": "[heartbeat] [slowly] Shoulders down... [pause] unclench your jaw... [sighing] breathe out.",
+      "file": "audio/vo_2fxlymt4x2s.mp3",
+      "title": "A heartbeat and a breath",
+      "category": "Relax",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "heartbeat",
+        "slowly",
+        "pause",
+        "sighing"
+      ],
+      "transcript": "Shoulders down... unclench your jaw... breathe out.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1tfpzuxopiv",
+      "text": "[softly] Drop your shoulders... [sighing] and let it all go.",
+      "file": "audio/vo_1tfpzuxopiv.mp3",
+      "title": "Let it all go",
+      "category": "Relax",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "sighing"
+      ],
+      "transcript": "Drop your shoulders... and let it all go.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1wmshz0gun4",
+      "text": "[laughing] Rested! [softly] See you in 20 minutes.",
+      "file": "audio/vo_1wmshz0gun4.mp3",
+      "title": "Rested and ready",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "laughing",
+        "softly"
+      ],
+      "transcript": "Rested! See you in 20 minutes.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_qqauq6rml1",
+      "text": "[excited] Nice! Eyes happy. [laughing] See you in 20 minutes.",
+      "file": "audio/vo_qqauq6rml1.mp3",
+      "title": "Happy eyes",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "excited",
+        "laughing"
+      ],
+      "transcript": "Nice! Eyes happy. See you in 20 minutes.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2bn5m2b3w9j",
+      "text": "[sighing] Ahh. That's better. [chuckling] Back in 20 minutes.",
+      "file": "audio/vo_2bn5m2b3w9j.mp3",
+      "title": "That feels better",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "sighing",
+        "chuckling"
+      ],
+      "transcript": "Ahh. That's better. Back in 20 minutes.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_sagv5u40t6",
+      "text": "[dog barking] [laughing] Even the dog says nice job. Rested! See you in 20 minutes.",
+      "file": "audio/vo_sagv5u40t6.mp3",
+      "title": "The dog says nice job",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "dog barking",
+        "laughing"
+      ],
+      "transcript": "Even the dog says nice job. Rested! See you in 20 minutes.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1ls4dcq0gbw",
+      "text": "[engine starting] [excited] Eyes recharged! See you in 20 minutes.",
+      "file": "audio/vo_1ls4dcq0gbw.mp3",
+      "title": "Eyes recharged",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "engine starting",
+        "excited"
+      ],
+      "transcript": "Eyes recharged! See you in 20 minutes.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_o9drykner",
+      "text": "[sleepy drowsy voice] Rested... [yawning] see you in 20 minutes. Or maybe... get some sleep.",
+      "file": "audio/vo_o9drykner.mp3",
+      "title": "Rested, or ready for sleep",
+      "category": "Completion (preview only)",
+      "context": "sleepy",
+      "usage": "manual-preview",
+      "tags": [
+        "sleepy drowsy voice",
+        "yawning"
+      ],
+      "transcript": "Rested... see you in 20 minutes. Or maybe... get some sleep.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_12vz9efkoli",
+      "text": "[bored] Another tab? [sighing] Your eyes are filing a complaint. Break soon.",
+      "file": "audio/vo_12vz9efkoli.mp3",
+      "title": "Another tab?",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "bored",
+        "sighing"
+      ],
+      "transcript": "Another tab? Your eyes are filing a complaint. Break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1wkjxz9rs5g",
+      "text": "[coughing] [clears throat] Ahem. Your screen has had plenty of attention. Your eyes are next.",
+      "file": "audio/vo_1wkjxz9rs5g.mp3",
+      "title": "Your eyes are next",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "coughing",
+        "clears throat"
+      ],
+      "transcript": "Ahem. Your screen has had plenty of attention. Your eyes are next.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1scihp4zw1w",
+      "text": "[sniffling] [playful] Don't mind me. Just getting emotional about you finally taking a break.",
+      "file": "audio/vo_1scihp4zw1w.mp3",
+      "title": "Emotional about a break",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "sniffling",
+        "playful"
+      ],
+      "transcript": "Don't mind me. Just getting emotional about you finally taking a break.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_17ory48xwz1",
+      "text": "[drum roll] [excited] Coming up next... twenty seconds without a screen!",
+      "file": "audio/vo_17ory48xwz1.mp3",
+      "title": "A drum roll for screen freedom",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "drum roll",
+        "excited"
+      ],
+      "transcript": "Coming up next... twenty seconds without a screen!",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_21lum5uxoe4",
+      "text": "[gasping] [playful] A world beyond this tab? Incredible. Let's look at it in a moment.",
+      "file": "audio/vo_21lum5uxoe4.mp3",
+      "title": "A world beyond this tab",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "gasping",
+        "playful"
+      ],
+      "transcript": "A world beyond this tab? Incredible. Let's look at it in a moment.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_ejhvsu4vkk",
+      "text": "[shouting] Eyes up! [softly] Sorry. Tiny announcement. Your break is nearly here.",
+      "file": "audio/vo_ejhvsu4vkk.mp3",
+      "title": "A tiny announcement",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "shouting",
+        "softly"
+      ],
+      "transcript": "Eyes up! Sorry. Tiny announcement. Your break is nearly here.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2g789vncn90",
+      "text": "[dog barking] [playful] Even the dog says... eyes up. Break soon.",
+      "file": "audio/vo_2g789vncn90.mp3",
+      "title": "The dog wants a break",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "dog barking",
+        "playful"
+      ],
+      "transcript": "Even the dog says... eyes up. Break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_d3w458biv1",
+      "text": "[engine starting] [playful] Time to idle those eyes. Break soon.",
+      "file": "audio/vo_d3w458biv1.mp3",
+      "title": "Idle those eyes",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "engine starting",
+        "playful"
+      ],
+      "transcript": "Time to idle those eyes. Break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_40m9t4aocw",
+      "text": "[voice breaking] Your eyes work so hard... [softly] break soon.",
+      "file": "audio/vo_40m9t4aocw.mp3",
+      "title": "Your eyes work so hard",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "voice breaking",
+        "softly"
+      ],
+      "transcript": "Your eyes work so hard... break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1e3hwygz10",
+      "text": "[angry] [sharp exhale] You snoozed me? Five minutes. Then those eyes get their break.",
+      "file": "audio/vo_1e3hwygz10.mp3",
+      "title": "You snoozed me?",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "angry",
+        "sharp exhale"
+      ],
+      "transcript": "You snoozed me? Five minutes. Then those eyes get their break.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_123jkep0rnv",
+      "text": "[scoffing] [angry] Oh, one more thing? Fine. Five minutes. I'm keeping count.",
+      "file": "audio/vo_123jkep0rnv.mp3",
+      "title": "Keeping count",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "scoffing",
+        "angry"
+      ],
+      "transcript": "Oh, one more thing? Fine. Five minutes. I'm keeping count.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1p6ofscf1pu",
+      "text": "[voice breaking] I rehearsed that whole reminder... [chuckling] Alright, five more minutes.",
+      "file": "audio/vo_1p6ofscf1pu.mp3",
+      "title": "The rehearsed reminder",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "voice breaking",
+        "chuckling"
+      ],
+      "transcript": "I rehearsed that whole reminder... Alright, five more minutes.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_24cmz68v8vs",
+      "text": "[angry] Again? [sharp exhale] That snooze button is not an eye care routine.",
+      "file": "audio/vo_24cmz68v8vs.mp3",
+      "title": "The snooze button is not a routine",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "angry",
+        "sharp exhale"
+      ],
+      "transcript": "Again? That snooze button is not an eye care routine.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_23l7pegezh3",
+      "text": "[menacing] [slowly] Another snooze. [pause] I will be back. [chuckling] In five minutes.",
+      "file": "audio/vo_23l7pegezh3.mp3",
+      "title": "Back in five minutes",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "menacing",
+        "slowly",
+        "pause",
+        "chuckling"
+      ],
+      "transcript": "Another snooze. I will be back. In five minutes.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_yrobc31edd",
+      "text": "[angry] Your five minutes are nearly up. [softly] Finish that thought. Eyes next.",
+      "file": "audio/vo_yrobc31edd.mp3",
+      "title": "Your five minutes are nearly up",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "angry",
+        "softly"
+      ],
+      "transcript": "Your five minutes are nearly up. Finish that thought. Eyes next.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1pq37x9deyr",
+      "text": "[scoffing] Remember that little snooze? [playful] The sequel is almost over. Break soon.",
+      "file": "audio/vo_1pq37x9deyr.mp3",
+      "title": "The snooze sequel",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "scoffing",
+        "playful"
+      ],
+      "transcript": "Remember that little snooze? The sequel is almost over. Break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_25uzxvqknge",
+      "text": "[humming] [softly] Screen down. Eyes up. Find a distant point.",
+      "file": "audio/vo_25uzxvqknge.mp3",
+      "title": "Screen down, eyes up",
+      "category": "Look away",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "humming",
+        "softly"
+      ],
+      "transcript": "Screen down. Eyes up. Find a distant point.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2cir4lociuq",
+      "text": "[witch voice] My little spell is simple... [softly] look far away.",
+      "file": "audio/vo_2cir4lociuq.mp3",
+      "title": "A spell for distance",
+      "category": "Look away",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "witch voice",
+        "softly"
+      ],
+      "transcript": "My little spell is simple... look far away.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_61479dgb0s",
+      "text": "[drum roll] [playful] And now... look beyond the screen.",
+      "file": "audio/vo_61479dgb0s.mp3",
+      "title": "Beyond the screen",
+      "category": "Look away",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "drum roll",
+        "playful"
+      ],
+      "transcript": "And now... look beyond the screen.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1jiyv18wjl4",
+      "text": "[crowd cheering] [excited] It's eye break time! Find your distant spot.",
+      "file": "audio/vo_1jiyv18wjl4.mp3",
+      "title": "Cheers for looking away",
+      "category": "Look away",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "crowd cheering",
+        "excited"
+      ],
+      "transcript": "It's eye break time! Find your distant spot.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_227qkts5cg2",
+      "text": "[sleepy drowsy voice] Easy now... let your eyes rest on that distant spot.",
+      "file": "audio/vo_227qkts5cg2.mp3",
+      "title": "Easy now, distant eyes",
+      "category": "Soften focus",
+      "context": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "sleepy drowsy voice"
+      ],
+      "transcript": "Easy now... let your eyes rest on that distant spot.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_okdj575zjh",
+      "text": "[sighing] [softly] Nothing to solve. Just soften your focus.",
+      "file": "audio/vo_okdj575zjh.mp3",
+      "title": "Nothing to solve",
+      "category": "Soften focus",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "sighing",
+        "softly"
+      ],
+      "transcript": "Nothing to solve. Just soften your focus.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1g0kb0p9vzr",
+      "text": "[echoing] [slowly] Far away... easy eyes... stay there.",
+      "file": "audio/vo_1g0kb0p9vzr.mp3",
+      "title": "Stay with easy eyes",
+      "category": "Soften focus",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "echoing",
+        "slowly"
+      ],
+      "transcript": "Far away... easy eyes... stay there.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_16swi49324s",
+      "text": "[applause] [softly] There we go. Keep looking far away.",
+      "file": "audio/vo_16swi49324s.mp3",
+      "title": "Applause for a distant gaze",
+      "category": "Soften focus",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "applause",
+        "softly"
+      ],
+      "transcript": "There we go. Keep looking far away.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_3gdpi2ogm5",
+      "text": "[singing] Blink... blink... [softly] slowly, all the way closed.",
+      "file": "audio/vo_3gdpi2ogm5.mp3",
+      "title": "The blink song",
+      "category": "Blink",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "singing",
+        "softly"
+      ],
+      "transcript": "Blink... blink... slowly, all the way closed.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1j6h9zmafp2",
+      "text": "[playful] Give those eyelids a proper turn. [slowly] Close... open.",
+      "file": "audio/vo_1j6h9zmafp2.mp3",
+      "title": "Give your eyelids a turn",
+      "category": "Blink",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "slowly"
+      ],
+      "transcript": "Give those eyelids a proper turn. Close... open.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1amx6s29kmk",
+      "text": "[softly] One slow blink. [pause] And another.",
+      "file": "audio/vo_1amx6s29kmk.mp3",
+      "title": "One blink, then another",
+      "category": "Blink",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "One slow blink. And another.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_ovf22nhfdh",
+      "text": "[panting] [sharp exhale] Whew. [softly] Drop those shoulders. Let your jaw relax.",
+      "file": "audio/vo_ovf22nhfdh.mp3",
+      "title": "Whew, drop those shoulders",
+      "category": "Relax",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "panting",
+        "sharp exhale",
+        "softly"
+      ],
+      "transcript": "Whew. Drop those shoulders. Let your jaw relax.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_i8i17xrwyp",
+      "text": "[humming] [softly] Shoulders low. Jaw loose. [sighing] There we go.",
+      "file": "audio/vo_i8i17xrwyp.mp3",
+      "title": "A hum for loose shoulders",
+      "category": "Relax",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "humming",
+        "softly",
+        "sighing"
+      ],
+      "transcript": "Shoulders low. Jaw loose. There we go.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_25q4edx0h8k",
+      "text": "[heartbeat] [slowly] Easy shoulders... easy breath.",
+      "file": "audio/vo_25q4edx0h8k.mp3",
+      "title": "Easy shoulders, easy breath",
+      "category": "Relax",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "heartbeat",
+        "slowly"
+      ],
+      "transcript": "Easy shoulders... easy breath.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2cztlog6vr7",
+      "text": "[crowd cheering] [excited] Yes! A whole break. Your eyes have fans now.",
+      "file": "audio/vo_2cztlog6vr7.mp3",
+      "title": "Your eyes have fans",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "crowd cheering",
+        "excited"
+      ],
+      "transcript": "Yes! A whole break. Your eyes have fans now.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_22bncje3ht",
+      "text": "[applause] [playful] A tiny standing ovation for looking away.",
+      "file": "audio/vo_22bncje3ht.mp3",
+      "title": "A tiny standing ovation",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "applause",
+        "playful"
+      ],
+      "transcript": "A tiny standing ovation for looking away.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_3g85xt1c6u",
+      "text": "[voice breaking] I'm so proud... [laughing] It was only twenty seconds, but still.",
+      "file": "audio/vo_3g85xt1c6u.mp3",
+      "title": "Proud of twenty seconds",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "voice breaking",
+        "laughing"
+      ],
+      "transcript": "I'm so proud... It was only twenty seconds, but still.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_xre6cs0efl",
+      "text": "[singing] Eyes rested, shoulders free... [chuckling] Back you go.",
+      "file": "audio/vo_xre6cs0efl.mp3",
+      "title": "Eyes rested, shoulders free",
+      "category": "Completion (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "singing",
+        "chuckling"
+      ],
+      "transcript": "Eyes rested, shoulders free... Back you go.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_27fck7nlmz9",
+      "text": "[bored] Skipped. [sighing] Your eyes noticed. Catch the next one, okay?",
+      "file": "audio/vo_27fck7nlmz9.mp3",
+      "title": "Your eyes noticed the skip",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "bored",
+        "sighing"
+      ],
+      "transcript": "Skipped. Your eyes noticed. Catch the next one, okay?",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_ur0rui5ym6",
+      "text": "[scoffing] [playful] Escaping already? Alright. We'll try again next time.",
+      "file": "audio/vo_ur0rui5ym6.mp3",
+      "title": "Escaping already?",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "scoffing",
+        "playful"
+      ],
+      "transcript": "Escaping already? Alright. We'll try again next time.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_riyaho90lx",
+      "text": "[softly] Timer paused. Take your time.",
+      "file": "audio/vo_riyaho90lx.mp3",
+      "title": "Take your time",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Timer paused. Take your time.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_vr82erzrdw",
+      "text": "[playful] There you are. Timer's running again.",
+      "file": "audio/vo_vr82erzrdw.mp3",
+      "title": "There you are",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "playful"
+      ],
+      "transcript": "There you are. Timer's running again.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1obnkqi5eem",
+      "text": "[softly] Fresh timer. A little reset for both of us.",
+      "file": "audio/vo_1obnkqi5eem.mp3",
+      "title": "A fresh timer",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Fresh timer. A little reset for both of us.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_l0sne686mr",
+      "text": "[chuckling] Welcome back. [softly] Fresh timer, rested eyes, let's go.",
+      "file": "audio/vo_l0sne686mr.mp3",
+      "title": "Welcome back",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "chuckling",
+        "softly"
+      ],
+      "transcript": "Welcome back. Fresh timer, rested eyes, let's go.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_21nh2kx7kba",
+      "text": "[whispering] I'll wait for your video. [softly] Take your eye break when it's done.",
+      "file": "audio/vo_21nh2kx7kba.mp3",
+      "title": "Waiting for your video",
+      "category": "Reactions (preview only)",
+      "context": "normal",
+      "usage": "manual-preview",
+      "tags": [
+        "whispering",
+        "softly"
+      ],
+      "transcript": "I'll wait for your video. Take your eye break when it's done.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_hjkkrnj1i3",
+      "text": "[sleepy drowsy voice] [yawning] It's late, isn't it... your eyes could use a little quiet.",
+      "file": "audio/vo_hjkkrnj1i3.mp3",
+      "title": "A little late-night quiet",
+      "category": "Alerts",
+      "context": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "sleepy drowsy voice",
+        "yawning"
+      ],
+      "transcript": "It's late, isn't it... your eyes could use a little quiet.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_11d0izutsn8",
+      "text": "[tired] [weak] Just a gentle nudge. [softly] Break soon.",
+      "file": "audio/vo_11d0izutsn8.mp3",
+      "title": "A gentle nudge",
+      "category": "Alerts",
+      "context": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "tired",
+        "weak",
+        "softly"
+      ],
+      "transcript": "Just a gentle nudge. Break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_5yk1t3iuyj",
+      "text": "[sleepy drowsy voice] [sighing] Better. Maybe let the next break be bedtime.",
+      "file": "audio/vo_5yk1t3iuyj.mp3",
+      "title": "Let the next break be bedtime",
+      "category": "Completion (preview only)",
+      "context": "sleepy",
+      "usage": "manual-preview",
+      "tags": [
+        "sleepy drowsy voice",
+        "sighing"
+      ],
+      "transcript": "Better. Maybe let the next break be bedtime.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_if3znj9745",
+      "text": "[drunken voice] It's late, isn't it... [chuckling] Even I can see those eyes need a break.",
+      "file": "audio/vo_if3znj9745.mp3",
+      "title": "A late-night reality check",
+      "category": "Alerts",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "chuckling"
+      ],
+      "transcript": "It's late, isn't it... Even I can see those eyes need a break.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_6e7s0qfzd4",
+      "text": "[drunken voice] Okay, listen... [pause] the screen will still be here. Break soon.",
+      "file": "audio/vo_6e7s0qfzd4.mp3",
+      "title": "The screen will still be here",
+      "category": "Alerts",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "pause"
+      ],
+      "transcript": "Okay, listen... the screen will still be here. Break soon.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_237up16kxvh",
+      "text": "[drunken voice] You snoozed... the snooze? [scoffing] Five minutes. I think. Yes, five.",
+      "file": "audio/vo_237up16kxvh.mp3",
+      "title": "Five minutes, I think",
+      "category": "Reactions (preview only)",
+      "context": "drunken",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "scoffing"
+      ],
+      "transcript": "You snoozed... the snooze? Five minutes. I think. Yes, five.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_47g8trxkm6",
+      "text": "[drunken voice] Eyes up... find something far away. [softly] That one. Stay there.",
+      "file": "audio/vo_47g8trxkm6.mp3",
+      "title": "That distant spot, stay there",
+      "category": "Look away",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "softly"
+      ],
+      "transcript": "Eyes up... find something far away. That one. Stay there.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2lvw0474nj",
+      "text": "[drunken voice] Hey... eyes off the screen. Find something way out there.",
+      "file": "audio/vo_2lvw0474nj.mp3",
+      "title": "Hey, eyes off the screen",
+      "category": "Look away",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice"
+      ],
+      "transcript": "Hey... eyes off the screen. Find something way out there.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_r66vkqzz3v",
+      "text": "[drunken voice] Alright, look up... distant spot. That's the one.",
+      "file": "audio/vo_r66vkqzz3v.mp3",
+      "title": "That's the distant one",
+      "category": "Look away",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice"
+      ],
+      "transcript": "Alright, look up... distant spot. That's the one.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2b5qbzfyy51",
+      "text": "[drunken voice] Easy focus... [sighing] let those eyes relax.",
+      "file": "audio/vo_2b5qbzfyy51.mp3",
+      "title": "Late-night easy focus",
+      "category": "Soften focus",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "sighing"
+      ],
+      "transcript": "Easy focus... let those eyes relax.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_24kfk4e3asi",
+      "text": "[drunken voice] No squinting... [softly] just let that focus soften.",
+      "file": "audio/vo_24kfk4e3asi.mp3",
+      "title": "No squinting tonight",
+      "category": "Soften focus",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "softly"
+      ],
+      "transcript": "No squinting... just let that focus soften.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1vdm4nopw69",
+      "text": "[drunken voice] Nothing to solve out there. [sighing] Let your eyes go easy.",
+      "file": "audio/vo_1vdm4nopw69.mp3",
+      "title": "Nothing to solve out there",
+      "category": "Soften focus",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "sighing"
+      ],
+      "transcript": "Nothing to solve out there. Let your eyes go easy.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_245tv1fp7qw",
+      "text": "[drunken voice] Blink... [slowly] slowwwly. Both eyes, please.",
+      "file": "audio/vo_245tv1fp7qw.mp3",
+      "title": "Both eyes, please",
+      "category": "Blink",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "slowly"
+      ],
+      "transcript": "Blink... slowwwly. Both eyes, please.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_28j5scluzg4",
+      "text": "[drunken voice] One slow blink... [pause] and another. Good work, eyelids.",
+      "file": "audio/vo_28j5scluzg4.mp3",
+      "title": "Good work, eyelids",
+      "category": "Blink",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "pause"
+      ],
+      "transcript": "One slow blink... and another. Good work, eyelids.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1m5llzikvq9",
+      "text": "[drunken voice] Close those eyes... open. [chuckling] Nice and slow.",
+      "file": "audio/vo_1m5llzikvq9.mp3",
+      "title": "Close, open, nice and slow",
+      "category": "Blink",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "chuckling"
+      ],
+      "transcript": "Close those eyes... open. Nice and slow.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_y91ooo2lb2",
+      "text": "[drunken voice] Shoulders down... [sighing] and breathe out. Nailed it.",
+      "file": "audio/vo_y91ooo2lb2.mp3",
+      "title": "Breathe out, nailed it",
+      "category": "Relax",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "sighing"
+      ],
+      "transcript": "Shoulders down... and breathe out. Nailed it.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_futh94t1l2",
+      "text": "[drunken voice] Unclench that jaw... shoulders low. [sighing] There you go.",
+      "file": "audio/vo_futh94t1l2.mp3",
+      "title": "Unclench that jaw",
+      "category": "Relax",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "sighing"
+      ],
+      "transcript": "Unclench that jaw... shoulders low. There you go.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_15gvydlego2",
+      "text": "[drunken voice] Let those shoulders drop. [softly] Easy breath... that's it.",
+      "file": "audio/vo_15gvydlego2.mp3",
+      "title": "Let those shoulders drop",
+      "category": "Relax",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "softly"
+      ],
+      "transcript": "Let those shoulders drop. Easy breath... that's it.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1uszwviou0x",
+      "text": "[drunken voice] [chuckling] Look at you. Responsible eyes. [softly] Now consider some sleep.",
+      "file": "audio/vo_1uszwviou0x.mp3",
+      "title": "Responsible eyes",
+      "category": "Completion (preview only)",
+      "context": "drunken",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "chuckling",
+        "softly"
+      ],
+      "transcript": "Look at you. Responsible eyes. Now consider some sleep.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_20xbzytyw52",
+      "text": "[drunken voice] We did it. [yawning] You, me, both eyes. Bedtime, maybe?",
+      "file": "audio/vo_20xbzytyw52.mp3",
+      "title": "You, me, both eyes",
+      "category": "Completion (preview only)",
+      "context": "drunken",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "yawning"
+      ],
+      "transcript": "We did it. You, me, both eyes. Bedtime, maybe?",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1j9qh7v7dbw",
+      "text": "[softly] Screens make us blink less. [slowly] Give me a full blink.",
+      "file": "audio/vo_1j9qh7v7dbw.mp3",
+      "title": "Screens and fewer blinks",
+      "category": "Eye facts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "slowly"
+      ],
+      "transcript": "Screens make us blink less. Give me a full blink.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_zkj5forj9n",
+      "text": "[softly] Blinking spreads tears across your eyes. One slow blink.",
+      "file": "audio/vo_zkj5forj9n.mp3",
+      "title": "Blinking spreads tears",
+      "category": "Eye facts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Blinking spreads tears across your eyes. One slow blink.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1r6wn4qc64o",
+      "text": "[playful] A full blink helps keep your eyes moist. [slowly] Close... open.",
+      "file": "audio/vo_1r6wn4qc64o.mp3",
+      "title": "Full blinks keep eyes moist",
+      "category": "Eye facts",
+      "context": "normal",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "slowly"
+      ],
+      "transcript": "A full blink helps keep your eyes moist. Close... open.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_em4znkntdd",
+      "text": "[drunken voice] Screens make us blink less. [slowly] Give me a full blink.",
+      "file": "audio/vo_em4znkntdd.mp3",
+      "title": "Late-night fact: screens and blinks",
+      "category": "Eye facts",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "slowly"
+      ],
+      "transcript": "Screens make us blink less. Give me a full blink.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_n8ro87klun",
+      "text": "[drunken voice] Blinking spreads tears across your eyes. One slow blink.",
+      "file": "audio/vo_n8ro87klun.mp3",
+      "title": "Late-night fact: spreading tears",
+      "category": "Eye facts",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice"
+      ],
+      "transcript": "Blinking spreads tears across your eyes. One slow blink.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1yo7d56ednb",
+      "text": "[drunken voice] A full blink keeps your eyes moist. [slowly] Close... open.",
+      "file": "audio/vo_1yo7d56ednb.mp3",
+      "title": "Late-night fact: moist eyes",
+      "category": "Eye facts",
+      "context": "drunken",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "slowly"
+      ],
+      "transcript": "A full blink keeps your eyes moist. Close... open.",
+      "gender": "neutral",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_23ckks8ip3f",
+      "text": "[playful] Daddy... that screen has had you long enough. My turn in a moment.",
+      "file": "audio/vo_23ckks8ip3f.mp3",
+      "title": "My turn in a moment",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "playful"
+      ],
+      "transcript": "Daddy... that screen has had you long enough. My turn in a moment.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1r8aw9yfa40",
+      "text": "[whispering] Hey, handsome. Wrap it up... I've got twenty seconds planned for those eyes.",
+      "file": "audio/vo_1r8aw9yfa40.mp3",
+      "title": "Twenty seconds for handsome eyes",
+      "category": "Alerts",
+      "context": "normal",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "whispering"
+      ],
+      "transcript": "Hey, handsome. Wrap it up... I've got twenty seconds planned for those eyes.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_14uffq7h2b0",
+      "text": "[whispering] Daddy, eyes up. [playful] Look far away... good.",
+      "file": "audio/vo_14uffq7h2b0.mp3",
+      "title": "Daddy, look far away",
+      "category": "Look away",
+      "context": "normal",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "whispering",
+        "playful"
+      ],
+      "transcript": "Daddy, eyes up. Look far away... good.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_2dbnez4gy5t",
+      "text": "[softly] Easy, handsome. Let that focus soften... just like that.",
+      "file": "audio/vo_2dbnez4gy5t.mp3",
+      "title": "Easy focus, handsome",
+      "category": "Soften focus",
+      "context": "normal",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Easy, handsome. Let that focus soften... just like that.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_nurwmvkyay",
+      "text": "[playful] Give me a slow blink, Daddy. [slowly] All the way closed.",
+      "file": "audio/vo_nurwmvkyay.mp3",
+      "title": "A slow blink for me",
+      "category": "Blink",
+      "context": "normal",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "playful",
+        "slowly"
+      ],
+      "transcript": "Give me a slow blink, Daddy. All the way closed.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1vtevtwk7ih",
+      "text": "[whispering] Drop those shoulders, Daddy. [sighing] That's better.",
+      "file": "audio/vo_1vtevtwk7ih.mp3",
+      "title": "Relax those shoulders, Daddy",
+      "category": "Relax",
+      "context": "normal",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "whispering",
+        "sighing"
+      ],
+      "transcript": "Drop those shoulders, Daddy. That's better.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1zjwpgr8gl4",
+      "text": "[drunken voice] Daddy... that screen has had you long enough. [chuckling] My turn in a moment.",
+      "file": "audio/vo_1zjwpgr8gl4.mp3",
+      "title": "Late-night: my turn, Daddy",
+      "category": "Alerts",
+      "context": "drunken",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "drunken voice",
+        "chuckling"
+      ],
+      "transcript": "Daddy... that screen has had you long enough. My turn in a moment.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_15hm9qlomo2",
+      "text": "[drunken voice] Hey, handsome. Wrap it up... [softly] I've got a little eye break planned.",
+      "file": "audio/vo_15hm9qlomo2.mp3",
+      "title": "Late-night: a break for handsome",
+      "category": "Alerts",
+      "context": "drunken",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "drunken voice",
+        "softly"
+      ],
+      "transcript": "Hey, handsome. Wrap it up... I've got a little eye break planned.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_fuzeu98xsd",
+      "text": "[drunken voice] Daddy, eyes up... [softly] look far away. Good.",
+      "file": "audio/vo_fuzeu98xsd.mp3",
+      "title": "Late-night: Daddy, eyes up",
+      "category": "Look away",
+      "context": "drunken",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "drunken voice",
+        "softly"
+      ],
+      "transcript": "Daddy, eyes up... look far away. Good.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_1tc77hvt4t0",
+      "text": "[drunken voice] Easy, handsome... let that focus soften. [sighing] Just like that.",
+      "file": "audio/vo_1tc77hvt4t0.mp3",
+      "title": "Late-night: easy, handsome",
+      "category": "Soften focus",
+      "context": "drunken",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "drunken voice",
+        "sighing"
+      ],
+      "transcript": "Easy, handsome... let that focus soften. Just like that.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_piie2tijja",
+      "text": "[drunken voice] One slow blink for me, Daddy. [slowly] All the way closed.",
+      "file": "audio/vo_piie2tijja.mp3",
+      "title": "Late-night: one blink for me",
+      "category": "Blink",
+      "context": "drunken",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "drunken voice",
+        "slowly"
+      ],
+      "transcript": "One slow blink for me, Daddy. All the way closed.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_xepcfp55kx",
+      "text": "[drunken voice] Drop those shoulders, Daddy... [sighing] that's better.",
+      "file": "audio/vo_xepcfp55kx.mp3",
+      "title": "Late-night: shoulders down, Daddy",
+      "category": "Relax",
+      "context": "drunken",
+      "usage": "automatic",
+      "mood": "flirty",
+      "tags": [
+        "drunken voice",
+        "sighing"
+      ],
+      "transcript": "Drop those shoulders, Daddy... that's better.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [],
+      "memberships": []
+    },
+    {
+      "key": "vo_12emk8yhoio",
+      "text": "[softly] Hey Pooh Bear... it's me. [chuckling] Can you hear me okay?",
+      "file": "audio/vo_12emk8yhoio.mp3",
+      "title": "Sweet voice check · Pooh Bear · 01",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "manual-preview",
+      "tags": [
+        "softly",
+        "chuckling"
+      ],
+      "transcript": "Hey Pooh Bear... it's me. Can you hear me okay?",
+      "gender": "male",
+      "pet": "Pooh Bear",
+      "templateIds": [
+        "male-test-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "test",
+          "pet": "Pooh Bear"
+        }
+      ]
+    },
+    {
+      "key": "vo_1kuuvur6m3y",
+      "text": "[whispering] Testing, testing... [softly] is this what you wanted in your ear, mi amor?",
+      "file": "audio/vo_1kuuvur6m3y.mp3",
+      "title": "Sweet voice check · mi amor · 02",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "manual-preview",
+      "tags": [
+        "whispering",
+        "softly"
+      ],
+      "transcript": "Testing, testing... is this what you wanted in your ear, mi amor?",
+      "gender": "male",
+      "pet": "mi amor",
+      "templateIds": [
+        "male-test-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-sweet-02",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "test",
+          "pet": "mi amor"
+        }
+      ]
+    },
+    {
+      "key": "vo_9pnxjm5zwp",
+      "text": "[playful] Mm, there you are. [chuckling] Voice check passed. Now behave, heartbreaker.",
+      "file": "audio/vo_9pnxjm5zwp.mp3",
+      "title": "Teasing voice check · heartbreaker · 01",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "manual-preview",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Mm, there you are. Voice check passed. Now behave, heartbreaker.",
+      "gender": "male",
+      "pet": "heartbreaker",
+      "templateIds": [
+        "male-test-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "test",
+          "pet": "heartbreaker"
+        }
+      ]
+    },
+    {
+      "key": "vo_c2cskcir7u",
+      "text": "[clears throat] [playful] Is this thing on? [laughing] Oh, you heard me. Good boy.",
+      "file": "audio/vo_c2cskcir7u.mp3",
+      "title": "Teasing voice check · Male · 02",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "manual-preview",
+      "tags": [
+        "clears throat",
+        "playful",
+        "laughing"
+      ],
+      "transcript": "Is this thing on? Oh, you heard me. Good boy.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-test-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-teasing-02",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "test"
+        }
+      ]
+    },
+    {
+      "key": "vo_1rwslmaiyn1",
+      "text": "[softly] Say you can hear me... [pause] I want to be the first voice you hear, hun.",
+      "file": "audio/vo_1rwslmaiyn1.mp3",
+      "title": "Needy voice check · hun · 01",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "manual-preview",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Say you can hear me... I want to be the first voice you hear, hun.",
+      "gender": "male",
+      "pet": "hun",
+      "templateIds": [
+        "male-test-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-needy-01",
+          "gender": "male",
+          "mood": "needy",
+          "event": "test",
+          "pet": "hun"
+        }
+      ]
+    },
+    {
+      "key": "vo_1nx9ya9c6wv",
+      "text": "[sleepy drowsy voice] Mmm... hi love. [yawning] Voice test... yep, still me.",
+      "file": "audio/vo_1nx9ya9c6wv.mp3",
+      "title": "Sleepy voice check · love · 01",
+      "category": "Voice test",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "manual-preview",
+      "tags": [
+        "sleepy drowsy voice",
+        "yawning"
+      ],
+      "transcript": "Mmm... hi love. Voice test... yep, still me.",
+      "gender": "both",
+      "pet": "love",
+      "templateIds": [
+        "male-test-sleepy-01",
+        "female-test-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-sleepy-01",
+          "gender": "male",
+          "mood": "sleepy",
+          "event": "test",
+          "pet": "love"
+        },
+        {
+          "templateId": "female-test-sleepy-01",
+          "gender": "female",
+          "mood": "sleepy",
+          "event": "test",
+          "pet": "love"
+        }
+      ]
+    },
+    {
+      "key": "vo_13egmnlfv8a",
+      "text": "[drunken voice] Hiiii hot shtuff... can you hear me? [laughing] I can hear me. Hic.",
+      "file": "audio/vo_13egmnlfv8a.mp3",
+      "title": "Drunk voice check · hot shtuff · 01",
+      "category": "Voice test",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Hiiii hot shtuff... can you hear me? I can hear me. Hic.",
+      "gender": "male",
+      "pet": "hot shtuff",
+      "templateIds": [
+        "male-test-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "test",
+          "pet": "hot shtuff"
+        }
+      ]
+    },
+    {
+      "key": "vo_ruzpohorvv",
+      "text": "[drunken voice] Tesht, tesht... wanna hear me shay your name? [laughing] Handshome.",
+      "file": "audio/vo_ruzpohorvv.mp3",
+      "title": "Drunk voice check · Male · 02",
+      "category": "Voice test",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Tesht, tesht... wanna hear me shay your name? Handshome.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-test-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-drunk-02",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "test"
+        }
+      ]
+    },
+    {
+      "key": "vo_1lxl44t0x0s",
+      "text": "[softly] Hey darling... break's coming up. [chuckling] Finish up, I'll wait.",
+      "file": "audio/vo_1lxl44t0x0s.mp3",
+      "title": "Sweet break reminder · darling · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "chuckling"
+      ],
+      "transcript": "Hey darling... break's coming up. Finish up, I'll wait.",
+      "gender": "male",
+      "pet": "darling",
+      "templateIds": [
+        "male-warn-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "warn",
+          "pet": "darling"
+        }
+      ]
+    },
+    {
+      "key": "vo_bo7hgq2cqc",
+      "text": "[whispering] Psst, sweetie... those handsome eyes need me in a sec.",
+      "file": "audio/vo_bo7hgq2cqc.mp3",
+      "title": "Sweet break reminder · sweetie · 02",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering"
+      ],
+      "transcript": "Psst, sweetie... those handsome eyes need me in a sec.",
+      "gender": "male",
+      "pet": "sweetie",
+      "templateIds": [
+        "male-warn-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-sweet-02",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "warn",
+          "pet": "sweetie"
+        }
+      ]
+    },
+    {
+      "key": "vo_2c9eabfb1r2",
+      "text": "[playful] Almost time, beefcake. [chuckling] Wrap it up, or I'll come get you.",
+      "file": "audio/vo_2c9eabfb1r2.mp3",
+      "title": "Teasing break reminder · beefcake · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Almost time, beefcake. Wrap it up, or I'll come get you.",
+      "gender": "male",
+      "pet": "beefcake",
+      "templateIds": [
+        "male-warn-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "warn",
+          "pet": "beefcake"
+        }
+      ]
+    },
+    {
+      "key": "vo_1uah9nrxd12",
+      "text": "[menacing] Break time is coming... [laughing] and you know I always get my way.",
+      "file": "audio/vo_1uah9nrxd12.mp3",
+      "title": "Teasing break reminder · Male · 02",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "menacing",
+        "laughing"
+      ],
+      "transcript": "Break time is coming... and you know I always get my way.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-warn-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-teasing-02",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "warn"
+        }
+      ]
+    },
+    {
+      "key": "vo_23bltrru7zl",
+      "text": "[sighing] [softly] You've stared at that screen forever... [pause] look at me soon, other half.",
+      "file": "audio/vo_23bltrru7zl.mp3",
+      "title": "Needy break reminder · other half · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "sighing",
+        "softly",
+        "pause"
+      ],
+      "transcript": "You've stared at that screen forever... look at me soon, other half.",
+      "gender": "male",
+      "pet": "other half",
+      "templateIds": [
+        "male-warn-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-needy-01",
+          "gender": "male",
+          "mood": "needy",
+          "event": "warn",
+          "pet": "other half"
+        }
+      ]
+    },
+    {
+      "key": "vo_bz563ziq4w",
+      "text": "[yawning] [sleepy drowsy voice] Mm, boo... it's late. Break first, then come to bed.",
+      "file": "audio/vo_bz563ziq4w.mp3",
+      "title": "Sleepy break reminder · boo · 01",
+      "category": "Alerts",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sleepy drowsy voice"
+      ],
+      "transcript": "Mm, boo... it's late. Break first, then come to bed.",
+      "gender": "male",
+      "pet": "boo",
+      "templateIds": [
+        "male-warn-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-sleepy-01",
+          "gender": "male",
+          "mood": "sleepy",
+          "event": "warn",
+          "pet": "boo"
+        }
+      ]
+    },
+    {
+      "key": "vo_1lhiq0d5kj5",
+      "text": "[drunken voice] Babeee, break time ish almost here... [laughing] pwease don't make me wait.",
+      "file": "audio/vo_1lhiq0d5kj5.mp3",
+      "title": "Drunk break reminder · Shared · 01",
+      "category": "Alerts",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Babeee, break time ish almost here... pwease don't make me wait.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-warn-drunk-01",
+        "female-warn-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "warn"
+        },
+        {
+          "templateId": "female-warn-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "warn"
+        }
+      ]
+    },
+    {
+      "key": "vo_i43dyw9ttm",
+      "text": "[drunken voice] Hey, hot shtuff... shtop typing. [laughing] Dat's not a request.",
+      "file": "audio/vo_i43dyw9ttm.mp3",
+      "title": "Drunk break reminder · Male · 02",
+      "category": "Alerts",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Hey, hot shtuff... shtop typing. Dat's not a request.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-warn-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-drunk-02",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "warn"
+        }
+      ]
+    },
+    {
+      "key": "vo_1wvsunztkgf",
+      "text": "[softly] Look up for me, honey... find something far away.",
+      "file": "audio/vo_1wvsunztkgf.mp3",
+      "title": "Sweet look away · honey · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Look up for me, honey... find something far away.",
+      "gender": "male",
+      "pet": "honey",
+      "templateIds": [
+        "male-step0-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 0,
+          "pet": "honey"
+        }
+      ]
+    },
+    {
+      "key": "vo_13lqfu3gmtt",
+      "text": "[whispering] Eyes up, babe... way out there. [pause] Good boy.",
+      "file": "audio/vo_13lqfu3gmtt.mp3",
+      "title": "Sweet look away · babe · 02",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering",
+        "pause"
+      ],
+      "transcript": "Eyes up, babe... way out there. Good boy.",
+      "gender": "male",
+      "pet": "babe",
+      "templateIds": [
+        "male-step0-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-sweet-02",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 0,
+          "pet": "babe"
+        }
+      ]
+    },
+    {
+      "key": "vo_1wnmlny8gn2",
+      "text": "[playful] Eyes off the screen, Mr. Sexy. [chuckling] I'm way more fun than that spreadsheet.",
+      "file": "audio/vo_1wnmlny8gn2.mp3",
+      "title": "Teasing look away · Mr. Sexy · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Eyes off the screen, Mr. Sexy. I'm way more fun than that spreadsheet.",
+      "gender": "male",
+      "pet": "Mr. Sexy",
+      "templateIds": [
+        "male-step0-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 0,
+          "pet": "Mr. Sexy"
+        }
+      ]
+    },
+    {
+      "key": "vo_9o08duhbug",
+      "text": "[playful] Look away, trouble. [pause] Somewhere far. I'll still be here.",
+      "file": "audio/vo_9o08duhbug.mp3",
+      "title": "Teasing look away · Male · 02",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "pause"
+      ],
+      "transcript": "Look away, trouble. Somewhere far. I'll still be here.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-step0-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-teasing-02",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 0
+        }
+      ]
+    },
+    {
+      "key": "vo_1ibgypjjn8p",
+      "text": "[softly] Look far away for me, darling... [pause] then look back at me later, okay?",
+      "file": "audio/vo_1ibgypjjn8p.mp3",
+      "title": "Needy look away · darling · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Look far away for me, darling... then look back at me later, okay?",
+      "gender": "male",
+      "pet": "darling",
+      "templateIds": [
+        "male-step0-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-needy-01",
+          "gender": "male",
+          "mood": "needy",
+          "event": "step",
+          "step": 0,
+          "pet": "darling"
+        }
+      ]
+    },
+    {
+      "key": "vo_j446xfm7fs",
+      "text": "[sleepy drowsy voice] Mm... look up, honey... somewhere far... nice and slow.",
+      "file": "audio/vo_j446xfm7fs.mp3",
+      "title": "Sleepy look away · honey · 01",
+      "category": "Look away",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "sleepy drowsy voice"
+      ],
+      "transcript": "Mm... look up, honey... somewhere far... nice and slow.",
+      "gender": "both",
+      "pet": "honey",
+      "templateIds": [
+        "male-step0-sleepy-01",
+        "female-step0-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-sleepy-01",
+          "gender": "male",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 0,
+          "pet": "honey"
+        },
+        {
+          "templateId": "female-step0-sleepy-01",
+          "gender": "female",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 0,
+          "pet": "honey"
+        }
+      ]
+    },
+    {
+      "key": "vo_1tcduxuf5fl",
+      "text": "[drunken voice] Lookk up, babeee... way, way over dere. [laughing] Not at me. Okay, a little at me.",
+      "file": "audio/vo_1tcduxuf5fl.mp3",
+      "title": "Drunk look away · Shared · 01",
+      "category": "Look away",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Lookk up, babeee... way, way over dere. Not at me. Okay, a little at me.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step0-drunk-01",
+        "female-step0-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "step",
+          "step": 0
+        },
+        {
+          "templateId": "female-step0-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "step",
+          "step": 0
+        }
+      ]
+    },
+    {
+      "key": "vo_3x8x836yb1",
+      "text": "[drunken voice] Pwease look far away... pwease? [laughing] I'll be good, I promish.",
+      "file": "audio/vo_3x8x836yb1.mp3",
+      "title": "Drunk look away · Shared · 02",
+      "category": "Look away",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Pwease look far away... pwease? I'll be good, I promish.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step0-drunk-02",
+        "female-step0-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-drunk-02",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "step",
+          "step": 0
+        },
+        {
+          "templateId": "female-step0-drunk-02",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "step",
+          "step": 0
+        }
+      ]
+    },
+    {
+      "key": "vo_57bxg1yvxn",
+      "text": "[softly] Let your eyes go soft, cutie-pie... easy now.",
+      "file": "audio/vo_57bxg1yvxn.mp3",
+      "title": "Sweet soften focus · cutie-pie · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let your eyes go soft, cutie-pie... easy now.",
+      "gender": "male",
+      "pet": "cutie-pie",
+      "templateIds": [
+        "male-step1-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 1,
+          "pet": "cutie-pie"
+        }
+      ]
+    },
+    {
+      "key": "vo_173kou8wtz9",
+      "text": "[whispering] Just let it blur... mm, that's it, handsome.",
+      "file": "audio/vo_173kou8wtz9.mp3",
+      "title": "Sweet soften focus · Male · 02",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering"
+      ],
+      "transcript": "Just let it blur... mm, that's it, handsome.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-step1-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-sweet-02",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "key": "vo_2ck2og7luqa",
+      "text": "[playful] Relax those eyes, rockstar. [chuckling] You stare too hard... at everything.",
+      "file": "audio/vo_2ck2og7luqa.mp3",
+      "title": "Teasing soften focus · rockstar · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Relax those eyes, rockstar. You stare too hard... at everything.",
+      "gender": "male",
+      "pet": "rockstar",
+      "templateIds": [
+        "male-step1-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 1,
+          "pet": "rockstar"
+        }
+      ]
+    },
+    {
+      "key": "vo_1v6l0re95co",
+      "text": "[slowly] Soft focus, mister... [pause] don't try so hard. For once.",
+      "file": "audio/vo_1v6l0re95co.mp3",
+      "title": "Teasing soften focus · Male · 02",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "slowly",
+        "pause"
+      ],
+      "transcript": "Soft focus, mister... don't try so hard. For once.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-step1-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-teasing-02",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "key": "vo_1c5wduyhy0p",
+      "text": "[softly] Let it go blurry for me, boo... I've got you.",
+      "file": "audio/vo_1c5wduyhy0p.mp3",
+      "title": "Needy soften focus · boo · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let it go blurry for me, boo... I've got you.",
+      "gender": "male",
+      "pet": "boo",
+      "templateIds": [
+        "male-step1-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-needy-01",
+          "gender": "male",
+          "mood": "needy",
+          "event": "step",
+          "step": 1,
+          "pet": "boo"
+        }
+      ]
+    },
+    {
+      "key": "vo_l49jw0pi1l",
+      "text": "[yawning] [sleepy drowsy voice] Mmm... soft eyes, my love... sleepy eyes...",
+      "file": "audio/vo_l49jw0pi1l.mp3",
+      "title": "Sleepy soften focus · my love · 01",
+      "category": "Soften focus",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sleepy drowsy voice"
+      ],
+      "transcript": "Mmm... soft eyes, my love... sleepy eyes...",
+      "gender": "male",
+      "pet": "my love",
+      "templateIds": [
+        "male-step1-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-sleepy-01",
+          "gender": "male",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 1,
+          "pet": "my love"
+        }
+      ]
+    },
+    {
+      "key": "vo_9srumvtz41",
+      "text": "[drunken voice] Shoft eyesh, babeee... letsh it all go blurry... [laughing] mine already ish.",
+      "file": "audio/vo_9srumvtz41.mp3",
+      "title": "Drunk soften focus · Shared · 01",
+      "category": "Soften focus",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Shoft eyesh, babeee... letsh it all go blurry... mine already ish.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step1-drunk-01",
+        "female-step1-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "step",
+          "step": 1
+        },
+        {
+          "templateId": "female-step1-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "step",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "key": "vo_wteedwrzid",
+      "text": "[drunken voice] Make it all fuzzy... ooh, I like fuzzy. [laughing] Dat's the whole room.",
+      "file": "audio/vo_wteedwrzid.mp3",
+      "title": "Drunk soften focus · Shared · 02",
+      "category": "Soften focus",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Make it all fuzzy... ooh, I like fuzzy. Dat's the whole room.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step1-drunk-02",
+        "female-step1-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-drunk-02",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "step",
+          "step": 1
+        },
+        {
+          "templateId": "female-step1-drunk-02",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "step",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "key": "vo_1dmmn7sx60p",
+      "text": "[softly] Blink for me, handsome... slow and sweet.",
+      "file": "audio/vo_1dmmn7sx60p.mp3",
+      "title": "Sweet blink · handsome · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Blink for me, handsome... slow and sweet.",
+      "gender": "male",
+      "pet": "handsome",
+      "templateIds": [
+        "male-step2-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2,
+          "pet": "handsome"
+        }
+      ]
+    },
+    {
+      "key": "vo_2c8ii4k3kv2",
+      "text": "[whispering] Slow blinks... [pause] mm, those dreamy eyes.",
+      "file": "audio/vo_2c8ii4k3kv2.mp3",
+      "title": "Sweet blink · Male · 02",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering",
+        "pause"
+      ],
+      "transcript": "Slow blinks... mm, those dreamy eyes.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-step2-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-sweet-02",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "key": "vo_bnagimqubr",
+      "text": "[playful] Blink, dragon man. [chuckling] Slowly. Don't rush, I like watching.",
+      "file": "audio/vo_bnagimqubr.mp3",
+      "title": "Teasing blink · dragon man · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Blink, dragon man. Slowly. Don't rush, I like watching.",
+      "gender": "male",
+      "pet": "dragon man",
+      "templateIds": [
+        "male-step2-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 2,
+          "pet": "dragon man"
+        }
+      ]
+    },
+    {
+      "key": "vo_xocb4dqbv",
+      "text": "[slowly] Close them... [pause] all the way. [chuckling] I won't peek. Much.",
+      "file": "audio/vo_xocb4dqbv.mp3",
+      "title": "Teasing blink · Shared · 02",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "slowly",
+        "pause",
+        "chuckling"
+      ],
+      "transcript": "Close them... all the way. I won't peek. Much.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step2-teasing-02",
+        "female-step2-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-teasing-02",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 2
+        },
+        {
+          "templateId": "female-step2-teasing-02",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "key": "vo_1fnn5uu0pp8",
+      "text": "[softly] Slow blink for me, babe... [pause] I'll wait right here.",
+      "file": "audio/vo_1fnn5uu0pp8.mp3",
+      "title": "Needy blink · babe · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Slow blink for me, babe... I'll wait right here.",
+      "gender": "male",
+      "pet": "babe",
+      "templateIds": [
+        "male-step2-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-needy-01",
+          "gender": "male",
+          "mood": "needy",
+          "event": "step",
+          "step": 2,
+          "pet": "babe"
+        }
+      ]
+    },
+    {
+      "key": "vo_1ifwi5jjbf7",
+      "text": "[sleepy drowsy voice] Blink... slow... [yawning] mm, stay closed a sec...",
+      "file": "audio/vo_1ifwi5jjbf7.mp3",
+      "title": "Sleepy blink · Shared · 01",
+      "category": "Blink",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "sleepy drowsy voice",
+        "yawning"
+      ],
+      "transcript": "Blink... slow... mm, stay closed a sec...",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step2-sleepy-01",
+        "female-step2-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-sleepy-01",
+          "gender": "male",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 2
+        },
+        {
+          "templateId": "female-step2-sleepy-01",
+          "gender": "female",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "key": "vo_rqtgsnbgtv",
+      "text": "[drunken voice] Blink, babeee... shlowly... [laughing] wait, am I blinkin'?",
+      "file": "audio/vo_rqtgsnbgtv.mp3",
+      "title": "Drunk blink · Shared · 01",
+      "category": "Blink",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Blink, babeee... shlowly... wait, am I blinkin'?",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step2-drunk-01",
+        "female-step2-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "step",
+          "step": 2
+        },
+        {
+          "templateId": "female-step2-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "step",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "key": "vo_2cfg6kjs4c5",
+      "text": "[drunken voice] Eyesh closed... ooh, dark. [laughing] Okay open. Open. Hi.",
+      "file": "audio/vo_2cfg6kjs4c5.mp3",
+      "title": "Drunk blink · Shared · 02",
+      "category": "Blink",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Eyesh closed... ooh, dark. Okay open. Open. Hi.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step2-drunk-02",
+        "female-step2-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-drunk-02",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "step",
+          "step": 2
+        },
+        {
+          "templateId": "female-step2-drunk-02",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "step",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "key": "vo_1juxk296smf",
+      "text": "[sighing] Shoulders down, true love... breathe out for me.",
+      "file": "audio/vo_1juxk296smf.mp3",
+      "title": "Sweet relax · true love · 01",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "sighing"
+      ],
+      "transcript": "Shoulders down, true love... breathe out for me.",
+      "gender": "male",
+      "pet": "true love",
+      "templateIds": [
+        "male-step3-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 3,
+          "pet": "true love"
+        }
+      ]
+    },
+    {
+      "key": "vo_2fiy9mmu8fr",
+      "text": "[softly] Unclench that jaw... [pause] there you go, handsome.",
+      "file": "audio/vo_2fiy9mmu8fr.mp3",
+      "title": "Sweet relax · Male · 02",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Unclench that jaw... there you go, handsome.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-step3-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-sweet-02",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "key": "vo_2nbrct9i63",
+      "text": "[playful] You're so tense, hot stuff. [chuckling] Drop those shoulders... I'll fix the rest later.",
+      "file": "audio/vo_2nbrct9i63.mp3",
+      "title": "Teasing relax · hot stuff · 01",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "You're so tense, hot stuff. Drop those shoulders... I'll fix the rest later.",
+      "gender": "male",
+      "pet": "hot stuff",
+      "templateIds": [
+        "male-step3-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 3,
+          "pet": "hot stuff"
+        }
+      ]
+    },
+    {
+      "key": "vo_1dakmbvx6m4",
+      "text": "[slowly] Breathe in... [pause] and out... [chuckling] good, lover boy. Real good.",
+      "file": "audio/vo_1dakmbvx6m4.mp3",
+      "title": "Teasing relax · lover boy · 02",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "slowly",
+        "pause",
+        "chuckling"
+      ],
+      "transcript": "Breathe in... and out... good, lover boy. Real good.",
+      "gender": "male",
+      "pet": "lover boy",
+      "templateIds": [
+        "male-step3-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-teasing-02",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 3,
+          "pet": "lover boy"
+        }
+      ]
+    },
+    {
+      "key": "vo_r4nmzo3x63",
+      "text": "[softly] Let it all go, my favorite person... lean back... I've got you.",
+      "file": "audio/vo_r4nmzo3x63.mp3",
+      "title": "Needy relax · my favorite person · 01",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let it all go, my favorite person... lean back... I've got you.",
+      "gender": "male",
+      "pet": "my favorite person",
+      "templateIds": [
+        "male-step3-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-needy-01",
+          "gender": "male",
+          "mood": "needy",
+          "event": "step",
+          "step": 3,
+          "pet": "my favorite person"
+        }
+      ]
+    },
+    {
+      "key": "vo_14r79rhymv9",
+      "text": "[yawning] Mmm... shoulders down, dreamy eyes... [sighing] ahh... cozy.",
+      "file": "audio/vo_14r79rhymv9.mp3",
+      "title": "Sleepy relax · dreamy eyes · 01",
+      "category": "Relax",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sighing"
+      ],
+      "transcript": "Mmm... shoulders down, dreamy eyes... ahh... cozy.",
+      "gender": "male",
+      "pet": "dreamy eyes",
+      "templateIds": [
+        "male-step3-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-sleepy-01",
+          "gender": "male",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 3,
+          "pet": "dreamy eyes"
+        }
+      ]
+    },
+    {
+      "key": "vo_2ekhg56mwlf",
+      "text": "[drunken voice] Ahhh... shoulders down, babeee... [sighing] dat's sho good.",
+      "file": "audio/vo_2ekhg56mwlf.mp3",
+      "title": "Drunk relax · Shared · 01",
+      "category": "Relax",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "sighing"
+      ],
+      "transcript": "Ahhh... shoulders down, babeee... dat's sho good.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step3-drunk-01",
+        "female-step3-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "step",
+          "step": 3
+        },
+        {
+          "templateId": "female-step3-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "step",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "key": "vo_1s4fhq0fmns",
+      "text": "[drunken voice] Relaaax... breave in... breave out... [laughing] I forgot da middle part.",
+      "file": "audio/vo_1s4fhq0fmns.mp3",
+      "title": "Drunk relax · Shared · 02",
+      "category": "Relax",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Relaaax... breave in... breave out... I forgot da middle part.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-step3-drunk-02",
+        "female-step3-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-drunk-02",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "step",
+          "step": 3
+        },
+        {
+          "templateId": "female-step3-drunk-02",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "step",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "key": "vo_un503hz9i4",
+      "text": "[softly] Fun fact, cutie... we blink way less when we stare at screens. [chuckling] So blink for me.",
+      "file": "audio/vo_un503hz9i4.mp3",
+      "title": "Sweet eye fact · cutie · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "chuckling"
+      ],
+      "transcript": "Fun fact, cutie... we blink way less when we stare at screens. So blink for me.",
+      "gender": "male",
+      "pet": "cutie",
+      "templateIds": [
+        "male-fact-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "fact",
+          "pet": "cutie"
+        }
+      ]
+    },
+    {
+      "key": "vo_6ppkivo4gd",
+      "text": "[whispering] The 20-20-20 rule... every twenty minutes, look twenty feet away, for twenty seconds. [softly] See? I take care of you.",
+      "file": "audio/vo_6ppkivo4gd.mp3",
+      "title": "Sweet eye fact · Shared · 02",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering",
+        "softly"
+      ],
+      "transcript": "The 20-20-20 rule... every twenty minutes, look twenty feet away, for twenty seconds. See? I take care of you.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-fact-sweet-02",
+        "female-fact-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-sweet-02",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "fact"
+        },
+        {
+          "templateId": "female-fact-sweet-02",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "fact"
+        }
+      ]
+    },
+    {
+      "key": "vo_1y7l7gke3e4",
+      "text": "[playful] Staring too long dries your eyes out. [chuckling] Staring is only allowed at me, Mr. Irresistible.",
+      "file": "audio/vo_1y7l7gke3e4.mp3",
+      "title": "Teasing eye fact · Mr. Irresistible · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Staring too long dries your eyes out. Staring is only allowed at me, Mr. Irresistible.",
+      "gender": "male",
+      "pet": "Mr. Irresistible",
+      "templateIds": [
+        "male-fact-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "fact",
+          "pet": "Mr. Irresistible"
+        }
+      ]
+    },
+    {
+      "key": "vo_7kcyvaaibl",
+      "text": "[chuckling] Looking far away relaxes the muscles inside your eyes. [playful] See, I'm good for you, trouble.",
+      "file": "audio/vo_7kcyvaaibl.mp3",
+      "title": "Teasing eye fact · Shared · 02",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "chuckling",
+        "playful"
+      ],
+      "transcript": "Looking far away relaxes the muscles inside your eyes. See, I'm good for you, trouble.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-fact-teasing-02",
+        "female-fact-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-teasing-02",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "fact"
+        },
+        {
+          "templateId": "female-fact-teasing-02",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "fact"
+        }
+      ]
+    },
+    {
+      "key": "vo_1opqgvzjqla",
+      "text": "[softly] Tired eyes make everything harder, mi amor... [pause] let me look after you.",
+      "file": "audio/vo_1opqgvzjqla.mp3",
+      "title": "Needy eye fact · mi amor · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Tired eyes make everything harder, mi amor... let me look after you.",
+      "gender": "male",
+      "pet": "mi amor",
+      "templateIds": [
+        "male-fact-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-needy-01",
+          "gender": "male",
+          "mood": "needy",
+          "event": "fact",
+          "pet": "mi amor"
+        }
+      ]
+    },
+    {
+      "key": "vo_12w3zsao2kx",
+      "text": "[yawning] [sleepy drowsy voice] Mm, fun fact... tired eyes get blurry at night. [softly] Rest them, then come to bed.",
+      "file": "audio/vo_12w3zsao2kx.mp3",
+      "title": "Sleepy eye fact · Male · 01",
+      "category": "Eye facts",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sleepy drowsy voice",
+        "softly"
+      ],
+      "transcript": "Mm, fun fact... tired eyes get blurry at night. Rest them, then come to bed.",
+      "gender": "male",
+      "pet": null,
+      "templateIds": [
+        "male-fact-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-sleepy-01",
+          "gender": "male",
+          "mood": "sleepy",
+          "event": "fact"
+        }
+      ]
+    },
+    {
+      "key": "vo_1do5tv4udfk",
+      "text": "[drunken voice] Fun fact, babeee... you blink less on shcreens. [laughing] I blink a lot. Mosht of it on purpose.",
+      "file": "audio/vo_1do5tv4udfk.mp3",
+      "title": "Drunk eye fact · Shared · 01",
+      "category": "Eye facts",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Fun fact, babeee... you blink less on shcreens. I blink a lot. Mosht of it on purpose.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-fact-drunk-01",
+        "female-fact-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "fact"
+        },
+        {
+          "templateId": "female-fact-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "fact"
+        }
+      ]
+    },
+    {
+      "key": "vo_24sywm1bcau",
+      "text": "[drunken voice] Twenny-twenny-twenny rule! [laughing] Dat'sh my favorite number. Three times.",
+      "file": "audio/vo_24sywm1bcau.mp3",
+      "title": "Drunk eye fact · Shared · 02",
+      "category": "Eye facts",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Twenny-twenny-twenny rule! Dat'sh my favorite number. Three times.",
+      "gender": "both",
+      "pet": null,
+      "templateIds": [
+        "male-fact-drunk-02",
+        "female-fact-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-drunk-02",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "fact"
+        },
+        {
+          "templateId": "female-fact-drunk-02",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "fact"
+        }
+      ]
+    },
+    {
+      "key": "vo_1ue2ea0ss31",
+      "text": "[softly] Hi bonita... it's me. [chuckling] Can you hear me, pretty girl?",
+      "file": "audio/vo_1ue2ea0ss31.mp3",
+      "title": "Sweet voice check · bonita · 01",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "manual-preview",
+      "tags": [
+        "softly",
+        "chuckling"
+      ],
+      "transcript": "Hi bonita... it's me. Can you hear me, pretty girl?",
+      "gender": "female",
+      "pet": "bonita",
+      "templateIds": [
+        "female-test-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "test",
+          "pet": "bonita"
+        }
+      ]
+    },
+    {
+      "key": "vo_27ccxdxql0z",
+      "text": "[whispering] Testing, testing... [softly] is this the voice you wanted next to you, dream girl?",
+      "file": "audio/vo_27ccxdxql0z.mp3",
+      "title": "Sweet voice check · dream girl · 02",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "manual-preview",
+      "tags": [
+        "whispering",
+        "softly"
+      ],
+      "transcript": "Testing, testing... is this the voice you wanted next to you, dream girl?",
+      "gender": "female",
+      "pet": "dream girl",
+      "templateIds": [
+        "female-test-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-sweet-02",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "test",
+          "pet": "dream girl"
+        }
+      ]
+    },
+    {
+      "key": "vo_2eilxb2w9h8",
+      "text": "[playful] Mm, there you are. [chuckling] Voice check passed. Now behave, trouble.",
+      "file": "audio/vo_2eilxb2w9h8.mp3",
+      "title": "Teasing voice check · trouble · 01",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "manual-preview",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Mm, there you are. Voice check passed. Now behave, trouble.",
+      "gender": "female",
+      "pet": "trouble",
+      "templateIds": [
+        "female-test-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "test",
+          "pet": "trouble"
+        }
+      ]
+    },
+    {
+      "key": "vo_22wg3saxfpx",
+      "text": "[clears throat] [playful] Is this thing on? [laughing] Oh, you heard me. Good girl.",
+      "file": "audio/vo_22wg3saxfpx.mp3",
+      "title": "Teasing voice check · Female · 02",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "manual-preview",
+      "tags": [
+        "clears throat",
+        "playful",
+        "laughing"
+      ],
+      "transcript": "Is this thing on? Oh, you heard me. Good girl.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-test-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-teasing-02",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "test"
+        }
+      ]
+    },
+    {
+      "key": "vo_4p0n7b1jco",
+      "text": "[softly] Tell me you can hear me... [pause] I want to be your favorite voice, gem.",
+      "file": "audio/vo_4p0n7b1jco.mp3",
+      "title": "Needy voice check · gem · 01",
+      "category": "Voice test",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "manual-preview",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Tell me you can hear me... I want to be your favorite voice, gem.",
+      "gender": "female",
+      "pet": "gem",
+      "templateIds": [
+        "female-test-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-needy-01",
+          "gender": "female",
+          "mood": "needy",
+          "event": "test",
+          "pet": "gem"
+        }
+      ]
+    },
+    {
+      "key": "vo_172yzirntpu",
+      "text": "[drunken voice] Hiiii trubbles... can you hear me? [laughing] I can hear me. Hic.",
+      "file": "audio/vo_172yzirntpu.mp3",
+      "title": "Drunk voice check · trubbles · 01",
+      "category": "Voice test",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Hiiii trubbles... can you hear me? I can hear me. Hic.",
+      "gender": "female",
+      "pet": "trubbles",
+      "templateIds": [
+        "female-test-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "test",
+          "pet": "trubbles"
+        }
+      ]
+    },
+    {
+      "key": "vo_1fu66vju3rl",
+      "text": "[drunken voice] Tesht, tesht... wanna hear me shay your name? [laughing] Gorgeoush.",
+      "file": "audio/vo_1fu66vju3rl.mp3",
+      "title": "Drunk voice check · Female · 02",
+      "category": "Voice test",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Tesht, tesht... wanna hear me shay your name? Gorgeoush.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-test-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-drunk-02",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "test"
+        }
+      ]
+    },
+    {
+      "key": "vo_lbs1tnpy85",
+      "text": "[softly] Hey Tinkerbell... break's coming up. [chuckling] Finish up, I'll wait.",
+      "file": "audio/vo_lbs1tnpy85.mp3",
+      "title": "Sweet break reminder · Tinkerbell · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "chuckling"
+      ],
+      "transcript": "Hey Tinkerbell... break's coming up. Finish up, I'll wait.",
+      "gender": "female",
+      "pet": "Tinkerbell",
+      "templateIds": [
+        "female-warn-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "warn",
+          "pet": "Tinkerbell"
+        }
+      ]
+    },
+    {
+      "key": "vo_t3qeto5gz2",
+      "text": "[whispering] Psst, Wonder Woman... those pretty eyes need me in a sec.",
+      "file": "audio/vo_t3qeto5gz2.mp3",
+      "title": "Sweet break reminder · Wonder Woman · 02",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering"
+      ],
+      "transcript": "Psst, Wonder Woman... those pretty eyes need me in a sec.",
+      "gender": "female",
+      "pet": "Wonder Woman",
+      "templateIds": [
+        "female-warn-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-sweet-02",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "warn",
+          "pet": "Wonder Woman"
+        }
+      ]
+    },
+    {
+      "key": "vo_27q1ov22u64",
+      "text": "[playful] Almost time, superstar. [chuckling] Wrap it up, or I'll come steal you.",
+      "file": "audio/vo_27q1ov22u64.mp3",
+      "title": "Teasing break reminder · superstar · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Almost time, superstar. Wrap it up, or I'll come steal you.",
+      "gender": "female",
+      "pet": "superstar",
+      "templateIds": [
+        "female-warn-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "warn",
+          "pet": "superstar"
+        }
+      ]
+    },
+    {
+      "key": "vo_8l369p3vuh",
+      "text": "[menacing] Break time is coming... [laughing] and you know I always win.",
+      "file": "audio/vo_8l369p3vuh.mp3",
+      "title": "Teasing break reminder · Female · 02",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "menacing",
+        "laughing"
+      ],
+      "transcript": "Break time is coming... and you know I always win.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-warn-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-teasing-02",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "warn"
+        }
+      ]
+    },
+    {
+      "key": "vo_j5pb45ifyz",
+      "text": "[sighing] [softly] You've been staring at that screen forever... [pause] come look at me soon, baby.",
+      "file": "audio/vo_j5pb45ifyz.mp3",
+      "title": "Needy break reminder · baby · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "sighing",
+        "softly",
+        "pause"
+      ],
+      "transcript": "You've been staring at that screen forever... come look at me soon, baby.",
+      "gender": "female",
+      "pet": "baby",
+      "templateIds": [
+        "female-warn-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-needy-01",
+          "gender": "female",
+          "mood": "needy",
+          "event": "warn",
+          "pet": "baby"
+        }
+      ]
+    },
+    {
+      "key": "vo_pjhyrqi1sf",
+      "text": "[yawning] [sleepy drowsy voice] Mm, beautiful... it's late. Break first, then come cuddle.",
+      "file": "audio/vo_pjhyrqi1sf.mp3",
+      "title": "Sleepy break reminder · beautiful · 01",
+      "category": "Alerts",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sleepy drowsy voice"
+      ],
+      "transcript": "Mm, beautiful... it's late. Break first, then come cuddle.",
+      "gender": "female",
+      "pet": "beautiful",
+      "templateIds": [
+        "female-warn-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-sleepy-01",
+          "gender": "female",
+          "mood": "sleepy",
+          "event": "warn",
+          "pet": "beautiful"
+        }
+      ]
+    },
+    {
+      "key": "vo_2do6kltnp2c",
+      "text": "[drunken voice] Hey hey, gorgeoush... shtop typing. [laughing] Dat's not a request.",
+      "file": "audio/vo_2do6kltnp2c.mp3",
+      "title": "Drunk break reminder · Female · 02",
+      "category": "Alerts",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "automatic",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Hey hey, gorgeoush... shtop typing. Dat's not a request.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-warn-drunk-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-drunk-02",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "warn"
+        }
+      ]
+    },
+    {
+      "key": "vo_1pvnc8c58ub",
+      "text": "[softly] Look up for me, bunny... find something far away.",
+      "file": "audio/vo_1pvnc8c58ub.mp3",
+      "title": "Sweet look away · bunny · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Look up for me, bunny... find something far away.",
+      "gender": "female",
+      "pet": "bunny",
+      "templateIds": [
+        "female-step0-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step0-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 0,
+          "pet": "bunny"
+        }
+      ]
+    },
+    {
+      "key": "vo_21utqi4pb8p",
+      "text": "[whispering] Eyes up, mi amor... way out there. [pause] Good girl.",
+      "file": "audio/vo_21utqi4pb8p.mp3",
+      "title": "Sweet look away · mi amor · 02",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering",
+        "pause"
+      ],
+      "transcript": "Eyes up, mi amor... way out there. Good girl.",
+      "gender": "female",
+      "pet": "mi amor",
+      "templateIds": [
+        "female-step0-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step0-sweet-02",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 0,
+          "pet": "mi amor"
+        }
+      ]
+    },
+    {
+      "key": "vo_cmdd23bjhg",
+      "text": "[playful] Eyes off the screen, hot lips. [chuckling] I'm way more fun than that spreadsheet.",
+      "file": "audio/vo_cmdd23bjhg.mp3",
+      "title": "Teasing look away · hot lips · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Eyes off the screen, hot lips. I'm way more fun than that spreadsheet.",
+      "gender": "female",
+      "pet": "hot lips",
+      "templateIds": [
+        "female-step0-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step0-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 0,
+          "pet": "hot lips"
+        }
+      ]
+    },
+    {
+      "key": "vo_21x0w84e62d",
+      "text": "[playful] Look away, trouble. [pause] Somewhere far. I'll still be here, looking at you.",
+      "file": "audio/vo_21x0w84e62d.mp3",
+      "title": "Teasing look away · Female · 02",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "pause"
+      ],
+      "transcript": "Look away, trouble. Somewhere far. I'll still be here, looking at you.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-step0-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step0-teasing-02",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 0
+        }
+      ]
+    },
+    {
+      "key": "vo_jhhqfyj11o",
+      "text": "[softly] Look far away for me, my queen... [pause] then come back and look at me, okay?",
+      "file": "audio/vo_jhhqfyj11o.mp3",
+      "title": "Needy look away · my queen · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Look far away for me, my queen... then come back and look at me, okay?",
+      "gender": "female",
+      "pet": "my queen",
+      "templateIds": [
+        "female-step0-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step0-needy-01",
+          "gender": "female",
+          "mood": "needy",
+          "event": "step",
+          "step": 0,
+          "pet": "my queen"
+        }
+      ]
+    },
+    {
+      "key": "vo_1zwmq5q620g",
+      "text": "[softly] Let your eyes go soft, pookie... easy now.",
+      "file": "audio/vo_1zwmq5q620g.mp3",
+      "title": "Sweet soften focus · pookie · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let your eyes go soft, pookie... easy now.",
+      "gender": "female",
+      "pet": "pookie",
+      "templateIds": [
+        "female-step1-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step1-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 1,
+          "pet": "pookie"
+        }
+      ]
+    },
+    {
+      "key": "vo_nb2lsuj3xd",
+      "text": "[whispering] Just let it blur... mm, that's it, beautiful.",
+      "file": "audio/vo_nb2lsuj3xd.mp3",
+      "title": "Sweet soften focus · Female · 02",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering"
+      ],
+      "transcript": "Just let it blur... mm, that's it, beautiful.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-step1-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step1-sweet-02",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "key": "vo_i28rzqnj2w",
+      "text": "[playful] Relax those eyes, firecracker. [chuckling] You stare too hard... at everything.",
+      "file": "audio/vo_i28rzqnj2w.mp3",
+      "title": "Teasing soften focus · firecracker · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Relax those eyes, firecracker. You stare too hard... at everything.",
+      "gender": "female",
+      "pet": "firecracker",
+      "templateIds": [
+        "female-step1-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step1-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 1,
+          "pet": "firecracker"
+        }
+      ]
+    },
+    {
+      "key": "vo_165vxq519vm",
+      "text": "[slowly] Soft focus, vixen... [pause] don't try so hard. For once.",
+      "file": "audio/vo_165vxq519vm.mp3",
+      "title": "Teasing soften focus · Female · 02",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "slowly",
+        "pause"
+      ],
+      "transcript": "Soft focus, vixen... don't try so hard. For once.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-step1-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step1-teasing-02",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "key": "vo_p7982q3fty",
+      "text": "[softly] Let it go blurry for me, bunny... I've got you.",
+      "file": "audio/vo_p7982q3fty.mp3",
+      "title": "Needy soften focus · bunny · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let it go blurry for me, bunny... I've got you.",
+      "gender": "female",
+      "pet": "bunny",
+      "templateIds": [
+        "female-step1-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step1-needy-01",
+          "gender": "female",
+          "mood": "needy",
+          "event": "step",
+          "step": 1,
+          "pet": "bunny"
+        }
+      ]
+    },
+    {
+      "key": "vo_v4su5h4f6p",
+      "text": "[yawning] [sleepy drowsy voice] Mmm... soft eyes, cutie... sleepy eyes...",
+      "file": "audio/vo_v4su5h4f6p.mp3",
+      "title": "Sleepy soften focus · cutie · 01",
+      "category": "Soften focus",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sleepy drowsy voice"
+      ],
+      "transcript": "Mmm... soft eyes, cutie... sleepy eyes...",
+      "gender": "female",
+      "pet": "cutie",
+      "templateIds": [
+        "female-step1-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step1-sleepy-01",
+          "gender": "female",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 1,
+          "pet": "cutie"
+        }
+      ]
+    },
+    {
+      "key": "vo_20cshbnyo1f",
+      "text": "[softly] Blink for me, baby girl... slow and sweet.",
+      "file": "audio/vo_20cshbnyo1f.mp3",
+      "title": "Sweet blink · baby girl · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Blink for me, baby girl... slow and sweet.",
+      "gender": "female",
+      "pet": "baby girl",
+      "templateIds": [
+        "female-step2-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step2-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2,
+          "pet": "baby girl"
+        }
+      ]
+    },
+    {
+      "key": "vo_g5qo69sgb4",
+      "text": "[whispering] Slow blinks... [pause] mm, those pretty eyes.",
+      "file": "audio/vo_g5qo69sgb4.mp3",
+      "title": "Sweet blink · Female · 02",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "whispering",
+        "pause"
+      ],
+      "transcript": "Slow blinks... mm, those pretty eyes.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-step2-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step2-sweet-02",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "key": "vo_1b8rdcu6vyl",
+      "text": "[playful] Blink, wild thing. [chuckling] Slowly. Don't rush, I like watching.",
+      "file": "audio/vo_1b8rdcu6vyl.mp3",
+      "title": "Teasing blink · wild thing · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Blink, wild thing. Slowly. Don't rush, I like watching.",
+      "gender": "female",
+      "pet": "wild thing",
+      "templateIds": [
+        "female-step2-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step2-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 2,
+          "pet": "wild thing"
+        }
+      ]
+    },
+    {
+      "key": "vo_gj94k2k9uy",
+      "text": "[softly] Slow blink for me, sweetums... [pause] I'll wait right here.",
+      "file": "audio/vo_gj94k2k9uy.mp3",
+      "title": "Needy blink · sweetums · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Slow blink for me, sweetums... I'll wait right here.",
+      "gender": "female",
+      "pet": "sweetums",
+      "templateIds": [
+        "female-step2-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step2-needy-01",
+          "gender": "female",
+          "mood": "needy",
+          "event": "step",
+          "step": 2,
+          "pet": "sweetums"
+        }
+      ]
+    },
+    {
+      "key": "vo_94k0lhdgjs",
+      "text": "[sighing] Shoulders down, sweetheart... breathe out for me.",
+      "file": "audio/vo_94k0lhdgjs.mp3",
+      "title": "Sweet relax · sweetheart · 01",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "sighing"
+      ],
+      "transcript": "Shoulders down, sweetheart... breathe out for me.",
+      "gender": "female",
+      "pet": "sweetheart",
+      "templateIds": [
+        "female-step3-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step3-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 3,
+          "pet": "sweetheart"
+        }
+      ]
+    },
+    {
+      "key": "vo_15v3qul1ehf",
+      "text": "[softly] Unclench that jaw... [pause] there you go, gorgeous.",
+      "file": "audio/vo_15v3qul1ehf.mp3",
+      "title": "Sweet relax · Female · 02",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Unclench that jaw... there you go, gorgeous.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-step3-sweet-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step3-sweet-02",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "key": "vo_1x7d4cofvji",
+      "text": "[playful] You're so tense, boss. [chuckling] Drop those shoulders... I'll take care of the rest later.",
+      "file": "audio/vo_1x7d4cofvji.mp3",
+      "title": "Teasing relax · boss · 01",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "You're so tense, boss. Drop those shoulders... I'll take care of the rest later.",
+      "gender": "female",
+      "pet": "boss",
+      "templateIds": [
+        "female-step3-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step3-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 3,
+          "pet": "boss"
+        }
+      ]
+    },
+    {
+      "key": "vo_1aapqfewbfi",
+      "text": "[slowly] Breathe in... [pause] and out... [chuckling] good, vixen. Real good.",
+      "file": "audio/vo_1aapqfewbfi.mp3",
+      "title": "Teasing relax · vixen · 02",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "slowly",
+        "pause",
+        "chuckling"
+      ],
+      "transcript": "Breathe in... and out... good, vixen. Real good.",
+      "gender": "female",
+      "pet": "vixen",
+      "templateIds": [
+        "female-step3-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step3-teasing-02",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 3,
+          "pet": "vixen"
+        }
+      ]
+    },
+    {
+      "key": "vo_146zlhxxcxz",
+      "text": "[softly] Let it all go, boo... lean back... I've got you.",
+      "file": "audio/vo_146zlhxxcxz.mp3",
+      "title": "Needy relax · boo · 01",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let it all go, boo... lean back... I've got you.",
+      "gender": "female",
+      "pet": "boo",
+      "templateIds": [
+        "female-step3-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step3-needy-01",
+          "gender": "female",
+          "mood": "needy",
+          "event": "step",
+          "step": 3,
+          "pet": "boo"
+        }
+      ]
+    },
+    {
+      "key": "vo_210wn4n02q5",
+      "text": "[yawning] Mmm... shoulders down, my love... [sighing] ahh... cozy.",
+      "file": "audio/vo_210wn4n02q5.mp3",
+      "title": "Sleepy relax · my love · 01",
+      "category": "Relax",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sighing"
+      ],
+      "transcript": "Mmm... shoulders down, my love... ahh... cozy.",
+      "gender": "female",
+      "pet": "my love",
+      "templateIds": [
+        "female-step3-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step3-sleepy-01",
+          "gender": "female",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 3,
+          "pet": "my love"
+        }
+      ]
+    },
+    {
+      "key": "vo_11wy0a7jdoz",
+      "text": "[softly] Fun fact, peaches... we blink way less when we stare at screens. [chuckling] So blink for me.",
+      "file": "audio/vo_11wy0a7jdoz.mp3",
+      "title": "Sweet eye fact · peaches · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "chuckling"
+      ],
+      "transcript": "Fun fact, peaches... we blink way less when we stare at screens. So blink for me.",
+      "gender": "female",
+      "pet": "peaches",
+      "templateIds": [
+        "female-fact-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-fact-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "fact",
+          "pet": "peaches"
+        }
+      ]
+    },
+    {
+      "key": "vo_mnfdyplnqz",
+      "text": "[playful] Staring too long dries your eyes out. [chuckling] Staring is only allowed at me, bombshell.",
+      "file": "audio/vo_mnfdyplnqz.mp3",
+      "title": "Teasing eye fact · bombshell · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Staring too long dries your eyes out. Staring is only allowed at me, bombshell.",
+      "gender": "female",
+      "pet": "bombshell",
+      "templateIds": [
+        "female-fact-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-fact-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "fact",
+          "pet": "bombshell"
+        }
+      ]
+    },
+    {
+      "key": "vo_26finzf4ufd",
+      "text": "[softly] Tired eyes make everything harder, my favorite person... [pause] let me look after you.",
+      "file": "audio/vo_26finzf4ufd.mp3",
+      "title": "Needy eye fact · my favorite person · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly",
+        "pause"
+      ],
+      "transcript": "Tired eyes make everything harder, my favorite person... let me look after you.",
+      "gender": "female",
+      "pet": "my favorite person",
+      "templateIds": [
+        "female-fact-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-fact-needy-01",
+          "gender": "female",
+          "mood": "needy",
+          "event": "fact",
+          "pet": "my favorite person"
+        }
+      ]
+    },
+    {
+      "key": "vo_o6hd63gviq",
+      "text": "[yawning] [sleepy drowsy voice] Mm, fun fact... tired eyes get blurry at night. [softly] Rest them, then come cuddle.",
+      "file": "audio/vo_o6hd63gviq.mp3",
+      "title": "Sleepy eye fact · Female · 01",
+      "category": "Eye facts",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sleepy drowsy voice",
+        "softly"
+      ],
+      "transcript": "Mm, fun fact... tired eyes get blurry at night. Rest them, then come cuddle.",
+      "gender": "female",
+      "pet": null,
+      "templateIds": [
+        "female-fact-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-fact-sleepy-01",
+          "gender": "female",
+          "mood": "sleepy",
+          "event": "fact"
+        }
+      ]
+    },
+    {
+      "key": "vo_1e2yed37xat",
+      "text": "[drunken voice] Hiiii cap’n... can you hear me? [laughing] I can hear me. Hic.",
+      "file": "audio/vo_1e2yed37xat.mp3",
+      "title": "Drunk voice check · cap’n · 01",
+      "category": "Voice test",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Hiiii cap’n... can you hear me? I can hear me. Hic.",
+      "gender": "male",
+      "pet": "cap’n",
+      "templateIds": [
+        "male-test-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "test",
+          "pet": "cap’n"
+        }
+      ]
+    },
+    {
+      "key": "vo_7y3djv1eyo",
+      "text": "[drunken voice] Hiiii gemmm... can you hear me? [laughing] I can hear me. Hic.",
+      "file": "audio/vo_7y3djv1eyo.mp3",
+      "title": "Drunk voice check · gemmm · 01",
+      "category": "Voice test",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Hiiii gemmm... can you hear me? I can hear me. Hic.",
+      "gender": "female",
+      "pet": "gemmm",
+      "templateIds": [
+        "female-test-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "test",
+          "pet": "gemmm"
+        }
+      ]
+    },
+    {
+      "key": "vo_1m3xk0tb67v",
+      "text": "[drunken voice] Hiiii shexy... can you hear me? [laughing] I can hear me. Hic.",
+      "file": "audio/vo_1m3xk0tb67v.mp3",
+      "title": "Drunk voice check · shexy · 01",
+      "category": "Voice test",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Hiiii shexy... can you hear me? I can hear me. Hic.",
+      "gender": "male",
+      "pet": "shexy",
+      "templateIds": [
+        "male-test-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-test-drunk-01",
+          "gender": "male",
+          "mood": "drunk",
+          "event": "test",
+          "pet": "shexy"
+        }
+      ]
+    },
+    {
+      "key": "vo_taido2alyi",
+      "text": "[drunken voice] Hiiii my wuv... can you hear me? [laughing] I can hear me. Hic.",
+      "file": "audio/vo_taido2alyi.mp3",
+      "title": "Drunk voice check · my wuv · 01",
+      "category": "Voice test",
+      "context": "drunken",
+      "mood": "drunk",
+      "usage": "manual-preview",
+      "tags": [
+        "drunken voice",
+        "laughing"
+      ],
+      "transcript": "Hiiii my wuv... can you hear me? I can hear me. Hic.",
+      "gender": "female",
+      "pet": "my wuv",
+      "templateIds": [
+        "female-test-drunk-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-test-drunk-01",
+          "gender": "female",
+          "mood": "drunk",
+          "event": "test",
+          "pet": "my wuv"
+        }
+      ]
+    },
+    {
+      "key": "vo_sy3vugl2cy",
+      "text": "[softly] Blink for me, doll... slow and sweet.",
+      "file": "audio/vo_sy3vugl2cy.mp3",
+      "title": "Sweet blink · doll · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Blink for me, doll... slow and sweet.",
+      "gender": "female",
+      "pet": "doll",
+      "templateIds": [
+        "female-step2-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step2-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2,
+          "pet": "doll"
+        }
+      ]
+    },
+    {
+      "key": "vo_1fymjdsqo5p",
+      "text": "[softly] Let your eyes go soft, Romeo... easy now.",
+      "file": "audio/vo_1fymjdsqo5p.mp3",
+      "title": "Sweet soften focus · Romeo · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let your eyes go soft, Romeo... easy now.",
+      "gender": "male",
+      "pet": "Romeo",
+      "templateIds": [
+        "male-step1-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 1,
+          "pet": "Romeo"
+        }
+      ]
+    },
+    {
+      "key": "vo_2acnbdts8r3",
+      "text": "[softly] Let it all go, my hero... lean back... I've got you.",
+      "file": "audio/vo_2acnbdts8r3.mp3",
+      "title": "Needy relax · my hero · 01",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let it all go, my hero... lean back... I've got you.",
+      "gender": "male",
+      "pet": "my hero",
+      "templateIds": [
+        "male-step3-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-needy-01",
+          "gender": "male",
+          "mood": "needy",
+          "event": "step",
+          "step": 3,
+          "pet": "my hero"
+        }
+      ]
+    },
+    {
+      "key": "vo_1kusrykh2g9",
+      "text": "[playful] Almost time, doctor. [chuckling] Wrap it up, or I'll come steal you.",
+      "file": "audio/vo_1kusrykh2g9.mp3",
+      "title": "Teasing break reminder · doctor · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Almost time, doctor. Wrap it up, or I'll come steal you.",
+      "gender": "female",
+      "pet": "doctor",
+      "templateIds": [
+        "female-warn-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "warn",
+          "pet": "doctor"
+        }
+      ]
+    },
+    {
+      "key": "vo_sm28cpgh3o",
+      "text": "[sleepy drowsy voice] Mm... look up, dimples... somewhere far... nice and slow.",
+      "file": "audio/vo_sm28cpgh3o.mp3",
+      "title": "Sleepy look away · dimples · 01",
+      "category": "Look away",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "sleepy drowsy voice"
+      ],
+      "transcript": "Mm... look up, dimples... somewhere far... nice and slow.",
+      "gender": "female",
+      "pet": "dimples",
+      "templateIds": [
+        "female-step0-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step0-sleepy-01",
+          "gender": "female",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 0,
+          "pet": "dimples"
+        }
+      ]
+    },
+    {
+      "key": "vo_1lk9vf591wo",
+      "text": "[playful] Staring too long dries your eyes out. [chuckling] Staring is only allowed at me, 007.",
+      "file": "audio/vo_1lk9vf591wo.mp3",
+      "title": "Teasing eye fact · 007 · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Staring too long dries your eyes out. Staring is only allowed at me, 007.",
+      "gender": "male",
+      "pet": "007",
+      "templateIds": [
+        "male-fact-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-fact-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "fact",
+          "pet": "007"
+        }
+      ]
+    },
+    {
+      "key": "vo_xkpqe6avfv",
+      "text": "[softly] Let it go blurry for me, soul mate... I've got you.",
+      "file": "audio/vo_xkpqe6avfv.mp3",
+      "title": "Needy soften focus · soul mate · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "needy",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let it go blurry for me, soul mate... I've got you.",
+      "gender": "female",
+      "pet": "soul mate",
+      "templateIds": [
+        "female-step1-needy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step1-needy-01",
+          "gender": "female",
+          "mood": "needy",
+          "event": "step",
+          "step": 1,
+          "pet": "soul mate"
+        }
+      ]
+    },
+    {
+      "key": "vo_1qz30lrzur5",
+      "text": "[yawning] Mmm... shoulders down, sweet pea... [sighing] ahh... cozy.",
+      "file": "audio/vo_1qz30lrzur5.mp3",
+      "title": "Sleepy relax · sweet pea · 01",
+      "category": "Relax",
+      "context": "sleepy",
+      "mood": "sleepy",
+      "usage": "automatic",
+      "tags": [
+        "yawning",
+        "sighing"
+      ],
+      "transcript": "Mmm... shoulders down, sweet pea... ahh... cozy.",
+      "gender": "male",
+      "pet": "sweet pea",
+      "templateIds": [
+        "male-step3-sleepy-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step3-sleepy-01",
+          "gender": "male",
+          "mood": "sleepy",
+          "event": "step",
+          "step": 3,
+          "pet": "sweet pea"
+        }
+      ]
+    },
+    {
+      "key": "vo_1neodvszuzs",
+      "text": "[softly] Blink for me, Mr. GQ... slow and sweet.",
+      "file": "audio/vo_1neodvszuzs.mp3",
+      "title": "Sweet blink · Mr. GQ · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Blink for me, Mr. GQ... slow and sweet.",
+      "gender": "male",
+      "pet": "Mr. GQ",
+      "templateIds": [
+        "male-step2-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2,
+          "pet": "Mr. GQ"
+        }
+      ]
+    },
+    {
+      "key": "vo_1sfsevmmyj3",
+      "text": "[softly] Look up for me, sugarplum... find something far away.",
+      "file": "audio/vo_1sfsevmmyj3.mp3",
+      "title": "Sweet look away · sugarplum · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Look up for me, sugarplum... find something far away.",
+      "gender": "female",
+      "pet": "sugarplum",
+      "templateIds": [
+        "female-step0-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step0-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 0,
+          "pet": "sugarplum"
+        }
+      ]
+    },
+    {
+      "key": "vo_1o1s2rlw92h",
+      "text": "[playful] Almost time, sir. [chuckling] Wrap it up, or I'll come get you.",
+      "file": "audio/vo_1o1s2rlw92h.mp3",
+      "title": "Teasing break reminder · sir · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Almost time, sir. Wrap it up, or I'll come get you.",
+      "gender": "male",
+      "pet": "sir",
+      "templateIds": [
+        "male-warn-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "warn",
+          "pet": "sir"
+        }
+      ]
+    },
+    {
+      "key": "vo_25dcup0b5ov",
+      "text": "[playful] Staring too long dries your eyes out. [chuckling] Staring is only allowed at me, hottie.",
+      "file": "audio/vo_25dcup0b5ov.mp3",
+      "title": "Teasing eye fact · hottie · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Staring too long dries your eyes out. Staring is only allowed at me, hottie.",
+      "gender": "female",
+      "pet": "hottie",
+      "templateIds": [
+        "female-fact-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-fact-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "fact",
+          "pet": "hottie"
+        }
+      ]
+    },
+    {
+      "key": "vo_1mv4c1ea8yb",
+      "text": "[softly] Blink for me, Superman... slow and sweet.",
+      "file": "audio/vo_1mv4c1ea8yb.mp3",
+      "title": "Sweet blink · Superman · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Blink for me, Superman... slow and sweet.",
+      "gender": "male",
+      "pet": "Superman",
+      "templateIds": [
+        "male-step2-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2,
+          "pet": "Superman"
+        }
+      ]
+    },
+    {
+      "key": "vo_np0x6mm1oq",
+      "text": "[softly] Let your eyes go soft, babycakes... easy now.",
+      "file": "audio/vo_np0x6mm1oq.mp3",
+      "title": "Sweet soften focus · babycakes · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let your eyes go soft, babycakes... easy now.",
+      "gender": "female",
+      "pet": "babycakes",
+      "templateIds": [
+        "female-step1-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step1-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 1,
+          "pet": "babycakes"
+        }
+      ]
+    },
+    {
+      "key": "vo_vywid9dime",
+      "text": "[playful] Almost time, hunk. [chuckling] Wrap it up, or I'll come get you.",
+      "file": "audio/vo_vywid9dime.mp3",
+      "title": "Teasing break reminder · hunk · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Almost time, hunk. Wrap it up, or I'll come get you.",
+      "gender": "male",
+      "pet": "hunk",
+      "templateIds": [
+        "male-warn-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "warn",
+          "pet": "hunk"
+        }
+      ]
+    },
+    {
+      "key": "vo_2c98ts98qsy",
+      "text": "[slowly] Breathe in... [pause] and out... [chuckling] good, captain. Real good.",
+      "file": "audio/vo_2c98ts98qsy.mp3",
+      "title": "Teasing relax · captain · 02",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "slowly",
+        "pause",
+        "chuckling"
+      ],
+      "transcript": "Breathe in... and out... good, captain. Real good.",
+      "gender": "female",
+      "pet": "captain",
+      "templateIds": [
+        "female-step3-teasing-02"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step3-teasing-02",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "step",
+          "step": 3,
+          "pet": "captain"
+        }
+      ]
+    },
+    {
+      "key": "vo_bbhs0x3jj9",
+      "text": "[softly] Look up for me, McDreamy... find something far away.",
+      "file": "audio/vo_bbhs0x3jj9.mp3",
+      "title": "Sweet look away · McDreamy · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Look up for me, McDreamy... find something far away.",
+      "gender": "male",
+      "pet": "McDreamy",
+      "templateIds": [
+        "male-step0-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 0,
+          "pet": "McDreamy"
+        }
+      ]
+    },
+    {
+      "key": "vo_m89xuqlogj",
+      "text": "[playful] Staring too long dries your eyes out. [chuckling] Staring is only allowed at me, hot mama.",
+      "file": "audio/vo_m89xuqlogj.mp3",
+      "title": "Teasing eye fact · hot mama · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Staring too long dries your eyes out. Staring is only allowed at me, hot mama.",
+      "gender": "female",
+      "pet": "hot mama",
+      "templateIds": [
+        "female-fact-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-fact-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "fact",
+          "pet": "hot mama"
+        }
+      ]
+    },
+    {
+      "key": "vo_1uemufhgx54",
+      "text": "[softly] Blink for me, sweet stuff... slow and sweet.",
+      "file": "audio/vo_1uemufhgx54.mp3",
+      "title": "Sweet blink · sweet stuff · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Blink for me, sweet stuff... slow and sweet.",
+      "gender": "female",
+      "pet": "sweet stuff",
+      "templateIds": [
+        "female-step2-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step2-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2,
+          "pet": "sweet stuff"
+        }
+      ]
+    },
+    {
+      "key": "vo_1hzlttw5km7",
+      "text": "[playful] Almost time, tiger. [chuckling] Wrap it up, or I'll come get you.",
+      "file": "audio/vo_1hzlttw5km7.mp3",
+      "title": "Teasing break reminder · tiger · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Almost time, tiger. Wrap it up, or I'll come get you.",
+      "gender": "male",
+      "pet": "tiger",
+      "templateIds": [
+        "male-warn-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-warn-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "warn",
+          "pet": "tiger"
+        }
+      ]
+    },
+    {
+      "key": "vo_1i7zovirdb1",
+      "text": "[softly] Let your eyes go soft, dreamboat... easy now.",
+      "file": "audio/vo_1i7zovirdb1.mp3",
+      "title": "Sweet soften focus · dreamboat · 01",
+      "category": "Soften focus",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Let your eyes go soft, dreamboat... easy now.",
+      "gender": "male",
+      "pet": "dreamboat",
+      "templateIds": [
+        "male-step1-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step1-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 1,
+          "pet": "dreamboat"
+        }
+      ]
+    },
+    {
+      "key": "vo_d6plhqknds",
+      "text": "[sighing] Shoulders down, sweet thang... breathe out for me.",
+      "file": "audio/vo_d6plhqknds.mp3",
+      "title": "Sweet relax · sweet thang · 01",
+      "category": "Relax",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "sighing"
+      ],
+      "transcript": "Shoulders down, sweet thang... breathe out for me.",
+      "gender": "female",
+      "pet": "sweet thang",
+      "templateIds": [
+        "female-step3-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-step3-sweet-01",
+          "gender": "female",
+          "mood": "sweet",
+          "event": "step",
+          "step": 3,
+          "pet": "sweet thang"
+        }
+      ]
+    },
+    {
+      "key": "vo_1l3k2wvgufq",
+      "text": "[playful] Eyes off the screen, cowboy. [chuckling] I'm way more fun than that spreadsheet.",
+      "file": "audio/vo_1l3k2wvgufq.mp3",
+      "title": "Teasing look away · cowboy · 01",
+      "category": "Look away",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Eyes off the screen, cowboy. I'm way more fun than that spreadsheet.",
+      "gender": "male",
+      "pet": "cowboy",
+      "templateIds": [
+        "male-step0-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step0-teasing-01",
+          "gender": "male",
+          "mood": "teasing",
+          "event": "step",
+          "step": 0,
+          "pet": "cowboy"
+        }
+      ]
+    },
+    {
+      "key": "vo_vqri7nxo07",
+      "text": "[playful] Staring too long dries your eyes out. [chuckling] Staring is only allowed at me, bad girl.",
+      "file": "audio/vo_vqri7nxo07.mp3",
+      "title": "Teasing eye fact · bad girl · 01",
+      "category": "Eye facts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Staring too long dries your eyes out. Staring is only allowed at me, bad girl.",
+      "gender": "female",
+      "pet": "bad girl",
+      "templateIds": [
+        "female-fact-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-fact-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "fact",
+          "pet": "bad girl"
+        }
+      ]
+    },
+    {
+      "key": "vo_1frxgbr2n18",
+      "text": "[softly] Blink for me, wonderboy... slow and sweet.",
+      "file": "audio/vo_1frxgbr2n18.mp3",
+      "title": "Sweet blink · wonderboy · 01",
+      "category": "Blink",
+      "context": "normal",
+      "mood": "sweet",
+      "usage": "automatic",
+      "tags": [
+        "softly"
+      ],
+      "transcript": "Blink for me, wonderboy... slow and sweet.",
+      "gender": "male",
+      "pet": "wonderboy",
+      "templateIds": [
+        "male-step2-sweet-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "male-step2-sweet-01",
+          "gender": "male",
+          "mood": "sweet",
+          "event": "step",
+          "step": 2,
+          "pet": "wonderboy"
+        }
+      ]
+    },
+    {
+      "key": "vo_2gnhg8tfyxe",
+      "text": "[playful] Almost time, knockout. [chuckling] Wrap it up, or I'll come steal you.",
+      "file": "audio/vo_2gnhg8tfyxe.mp3",
+      "title": "Teasing break reminder · knockout · 01",
+      "category": "Alerts",
+      "context": "normal",
+      "mood": "teasing",
+      "usage": "automatic",
+      "tags": [
+        "playful",
+        "chuckling"
+      ],
+      "transcript": "Almost time, knockout. Wrap it up, or I'll come steal you.",
+      "gender": "female",
+      "pet": "knockout",
+      "templateIds": [
+        "female-warn-teasing-01"
+      ],
+      "memberships": [
+        {
+          "templateId": "female-warn-teasing-01",
+          "gender": "female",
+          "mood": "teasing",
+          "event": "warn",
+          "pet": "knockout"
+        }
+      ]
+    }
+  ],
+  "petTemplateSchema": 1
+}

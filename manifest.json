@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Blinkly: 20-20-20 eye care",
+  "version": "2.6.0",
+  "description": "Every 20 minutes, look 20 feet away for 20 seconds. Toolbar countdown and bundled offline spoken guidance.",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Blinkly",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "sleep-schedule.js",
+        "reminder-preferences.js",
+        "voice-data/pet-clips.js",
+        "voice-lines.js",
+        "blinkly-scenes.js",
+        "widget-placement.js",
+        "voice-cadence.js",
+        "blinkly.user.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

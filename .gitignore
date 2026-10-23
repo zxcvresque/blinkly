@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*.part
+node_modules/
+blinkly-chromium/
+blinkly-firefox/
+blinkly-helium/
+blinkly-helium.zip
+unused-interval-recordings/
+original-source.zip
+assets/*
+!assets/blinkly-logo.png
+!assets/blinkly-logo-prompt.txt
+design/*.md

@@ -1,0 +1,46 @@
+  const mins = n => (n === 1 ? '1 minute' : `${n} minutes`);
+  const VO = () => {
+    const n = mins(cfg.workMin);
+    return {
+      test: "[whispering] Hey... [chuckling] it's me. [softly] Time to rest those eyes.",
+      warn: [
+        "[clears throat] [softly] Hey... break's coming up in just a moment. [chuckling] Finish your thought. I'll wait.",
+        "[keyboard typing] [playful] Still typing, huh? [chuckling] Wrap it up... break's almost here.",
+        "[knocking on door] [whispering] Knock knock... your eyes would like a little break soon.",
+        "[phone ringing] [chuckling] Oh, that's just me. [softly] Break's almost here.",
+        "[menacing] Your break is coming... [laughing] kidding. Just a moment, okay?",
+        "[witch voice] Heh heh heh... time for your break, my pretty."
+      ],
+      warnNight: "[yawning] [tired] It's late... [weak] but your eyes still need this. Break soon.",
+      steps: [
+        [ // look 20 feet away
+          "[softly] Alright... look up from the screen. [pause] Find something far away.",
+          "[bell ringing] [softly] Break time. Eyes up... pick a spot way out there.",
+          "[echoing] [whispering] Look up... find something far, far away."
+        ],
+        [ // let your eyes go soft
+          "[slowly] Let your eyes go soft... no need to strain.",
+          "[rain falling] [softly] Just rest on it... like watching the rain.",
+          "[whispering] Let it go a little blurry... that's okay."
+        ],
+        [ // blink slowly
+          "[slowly] Now blink... slowly... [pause] all the way closed.",
+          "[playful] Blinking time! [pause] Nice... and slow.",
+          "[whispering] Blink... [pause] nice and slow."
+        ],
+        [ // drop your shoulders
+          "[yawning] Ahh... shoulders down, jaw loose. [sighing] Breathe out.",
+          "[heartbeat] [slowly] Shoulders down... [pause] unclench your jaw... [sighing] breathe out.",
+          "[softly] Drop your shoulders... [sighing] and let it all go."
+        ]
+      ],
+      done: [
+        `[laughing] Rested! [softly] See you in ${n}.`,
+        `[excited] Nice! Eyes happy. [laughing] See you in ${n}.`,
+        `[sighing] Ahh. That's better. [chuckling] Back in ${n}.`,
+        `[dog barking] [laughing] Even the dog says nice job. Rested! See you in ${n}.`,
+        `[engine starting] [excited] Eyes recharged! See you in ${n}.`
+      ],
+      doneNight: `[sleepy drowsy voice] Rested... [yawning] see you in ${n}. Or maybe... get some sleep.`
+    };
+  };

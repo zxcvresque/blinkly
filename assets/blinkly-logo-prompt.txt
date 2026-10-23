@@ -1,0 +1,12 @@
+Generated using built-in image_gen, October 23, 2026.
+Edit target preserved at assets/blinkly-logo-mint.png.
+Supporting palette reference: user ElevenLabs screenshot.
+Transparent output requested and preserved.
+
+Use case: precise-object-edit / lighting-weather
+Asset type: Blinkly premium browser extension app icon recolor
+Input image 1: EDIT TARGET. Existing Blinkly sculptural ribbon eye icon. Preserve exactly its composition, silhouette, eye opening, round central pearl pupil, folded-ribbon geometry, tile size, viewpoint, depth, bevels, negative space, shadows and premium dimensional render quality.
+Input image 2: supporting COLOR PALETTE reference only. Ignore every piece of text, browser chrome and UI. Its soft luminous pastel gradient is the sole inspiration.
+Primary request: Change ONLY the color palette of image 1. Replace the dominant saturated mint/teal illumination and ribbon material with an elegant iridescent pastel spectrum like the soft colors in image 2: blush pink, pearly lilac, sky cyan, pale buttery yellow, a whisper of pistachio and creamy white. Blend these softly across the existing sculptural ribbon surfaces so the eye looks made of luminous pearlescent satin/metal. The upper curve can move from warm pale butter/peach to pink/lilac, with cyan/lilac on the lower sweep, but maintain coherent realistic dimensional highlights. The pearl pupil should be a near-white iridescent sphere reflecting pink/lilac/cyan. Preserve strong specular whites and clear contrast.
+Keep the tile deep dark obsidian, with subtle pastel edge reflections instead of teal, so the luminous multicolor eye stays readable. Preserve genuine transparency outside the rounded tile. Do not recolor the tile to white.
+Constraints: precise recolor, NOT a redesign. Keep every major shape identical. No text, no wordmark, no ElevenLabs bars or logo, no new objects, no extra stars or sparkles, no other icons, no mockup. One final square app icon only with transparent outer corners.

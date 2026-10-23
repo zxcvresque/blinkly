@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blinkly</title>
+<style>
+:root{--ac:#ef5b78;--ink:#1d1d1d;--line:rgba(255,255,255,.09);--mute:#b8b8b8;--ease:cubic-bezier(.2,.8,.2,1);color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{width:340px;background:var(--ink);border:0;outline:0;border-radius:0;overflow:hidden;box-shadow:none}
+body{position:relative;width:340px;padding:18px;border:0;outline:0;border-radius:0;overflow:hidden;background:var(--ink);color:#f2f2f2;font:13px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+body::after{content:"";position:absolute;inset:0;padding:2px;border-radius:0;background:linear-gradient(135deg,#e9bad8 0%,#bfb6ea 30%,#a4dfe2 60%,#f0dfa8 84%,#e5b3d6 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:2}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.brand{display:flex;align-items:center;gap:9px;min-height:30px;padding:0 2px;font-size:15px;font-weight:550;letter-spacing:-.02em}
+.brand img{display:block;width:30px;height:30px}
+.hero{position:relative;aspect-ratio:332/330;margin:12px 0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#292027}
+.hero canvas{display:block;width:100%;height:100%;aspect-ratio:332/330}
+body:has(#settings-status:not([hidden])) .hero{width:246px;margin-left:auto;margin-right:auto}
+.c{position:absolute;left:18px;bottom:64px;display:flex;align-items:baseline;gap:10px;pointer-events:none}
+.c b{font:450 43px/1.1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.045em;font-variant-numeric:tabular-nums;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.c span{width:83px;color:rgba(255,255,255,.7);font-size:11px;line-height:1.45;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.row button{min-height:38px;padding:8px 5px;border:1px solid var(--line);border-radius:999px;background:#272727;font-size:12px;white-space:nowrap;transition:background .18s,border-color .18s,transform .18s}
+.row button:first-child{background:#ededed;border-color:#ededed;color:#222;font-weight:550}
+.row button:hover{background:#323232;border-color:rgba(255,255,255,.18)}
+.row button:first-child:hover{background:#fff;border-color:#fff}
+button:active{transform:scale(.98)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px 0}
+.stat{min-width:0;padding:12px 9px 11px;border:1px solid rgba(255,255,255,.055);border-radius:12px;background:#242424}
+.stat b{display:block;margin-bottom:5px;font:450 23px/1.1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.stat span{color:var(--mute);font-size:11px;white-space:nowrap}
+.foot{padding:0}
+.set{width:100%;min-height:40px;display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#272727;transition:background .18s,border-color .18s,transform .18s}
+.set:hover{background:#303030;border-color:rgba(255,255,255,.18)}
+.set small{color:var(--mute);font-size:11px}
+.settings-status{padding:10px 3px 0;color:var(--mute);font-size:11px;line-height:1.5}
+@media(prefers-reduced-motion:reduce){*,*::before{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="brand"><img src="icons/icon128.png" alt="" width="30" height="30"><span>Blinkly</span></div>
+<div class="hero" id="hero">
+  <canvas id="window-scene" aria-label="Window light crossing a plaster wall as your work timer advances"></canvas>
+  <div class="c"><b id="t">20:00</b><span id="l">until your next break</span></div>
+</div>
+<div class="row"><button id="b-now">Break now</button><button id="b-pause">Pause</button><button id="b-snooze">Snooze 5 min</button></div>
+<div class="stats"><div class="stat"><b id="s-d">0</b><span>breaks taken</span></div><div class="stat"><b id="s-s">0</b><span>skipped</span></div><div class="stat"><b id="s-a">0m</b><span>on screen</span></div></div>
+<div class="foot"><button class="set" id="b-set">Settings <small>Alt+Shift+E</small></button></div>
+<p class="settings-status" id="settings-status" role="status" hidden></p>
+<script src="sleep-schedule.js"></script>
+<script src="reminder-preferences.js"></script>
+<script src="blinkly-scenes.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

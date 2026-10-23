@@ -1,0 +1,1422 @@
+{
+  "schema": 1,
+  "source": "User-provided Pasted text.txt",
+  "sourceSha256": "76d0931171bc42429f8c56574b02c713e145c3df1c0263d9e64cbaf8e81f2919",
+  "sourceCharacters": 14870,
+  "templateCount": 168,
+  "notes": [
+    "The attachment has no gender headings; its two consecutive 84-row halves are male then female.",
+    "The eight rows after the four Good streak rows in each half are eye facts.",
+    "Templates preserve the attachment verbatim, including spellings and punctuation."
+  ],
+  "templates": [
+    {
+      "id": "male-test-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "test",
+      "template": "[softly] Hey {pet}... it's me. [chuckling] Can you hear me okay?",
+      "sourceLine": 1
+    },
+    {
+      "id": "male-test-sweet-02",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "test",
+      "template": "[whispering] Testing, testing... [softly] is this what you wanted in your ear, {pet}?",
+      "sourceLine": 2
+    },
+    {
+      "id": "male-test-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "test",
+      "template": "[playful] Mm, there you are. [chuckling] Voice check passed. Now behave, {pet}.",
+      "sourceLine": 3
+    },
+    {
+      "id": "male-test-teasing-02",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "test",
+      "template": "[clears throat] [playful] Is this thing on? [laughing] Oh, you heard me. Good boy.",
+      "sourceLine": 4
+    },
+    {
+      "id": "male-test-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "test",
+      "template": "[softly] Say you can hear me... [pause] I want to be the first voice you hear, {pet}.",
+      "sourceLine": 5
+    },
+    {
+      "id": "male-test-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "test",
+      "template": "[sleepy drowsy voice] Mmm... hi {pet}. [yawning] Voice test... yep, still me.",
+      "sourceLine": 6
+    },
+    {
+      "id": "male-test-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "test",
+      "template": "[drunken voice] Hiiii {pet}... can you hear me? [laughing] I can hear me. Hic.",
+      "sourceLine": 7
+    },
+    {
+      "id": "male-test-drunk-02",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "test",
+      "template": "[drunken voice] Tesht, tesht... wanna hear me shay your name? [laughing] Handshome.",
+      "sourceLine": 8
+    },
+    {
+      "id": "male-warn-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "warn",
+      "template": "[softly] Hey {pet}... break's coming up. [chuckling] Finish up, I'll wait.",
+      "sourceLine": 9
+    },
+    {
+      "id": "male-warn-sweet-02",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "warn",
+      "template": "[whispering] Psst, {pet}... those handsome eyes need me in a sec.",
+      "sourceLine": 10
+    },
+    {
+      "id": "male-warn-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "warn",
+      "template": "[playful] Almost time, {pet}. [chuckling] Wrap it up, or I'll come get you.",
+      "sourceLine": 11
+    },
+    {
+      "id": "male-warn-teasing-02",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "warn",
+      "template": "[menacing] Break time is coming... [laughing] and you know I always get my way.",
+      "sourceLine": 12
+    },
+    {
+      "id": "male-warn-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "warn",
+      "template": "[sighing] [softly] You've stared at that screen forever... [pause] look at me soon, {pet}.",
+      "sourceLine": 13
+    },
+    {
+      "id": "male-warn-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "warn",
+      "template": "[yawning] [sleepy drowsy voice] Mm, {pet}... it's late. Break first, then come to bed.",
+      "sourceLine": 14
+    },
+    {
+      "id": "male-warn-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "warn",
+      "template": "[drunken voice] Babeee, break time ish almost here... [laughing] pwease don't make me wait.",
+      "sourceLine": 15
+    },
+    {
+      "id": "male-warn-drunk-02",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "warn",
+      "template": "[drunken voice] Hey, hot shtuff... shtop typing. [laughing] Dat's not a request.",
+      "sourceLine": 16
+    },
+    {
+      "id": "male-step0-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "step",
+      "step": 0,
+      "template": "[softly] Look up for me, {pet}... find something far away.",
+      "sourceLine": 17
+    },
+    {
+      "id": "male-step0-sweet-02",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "step",
+      "step": 0,
+      "template": "[whispering] Eyes up, {pet}... way out there. [pause] Good boy.",
+      "sourceLine": 18
+    },
+    {
+      "id": "male-step0-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "step",
+      "step": 0,
+      "template": "[playful] Eyes off the screen, {pet}. [chuckling] I'm way more fun than that spreadsheet.",
+      "sourceLine": 19
+    },
+    {
+      "id": "male-step0-teasing-02",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "step",
+      "step": 0,
+      "template": "[playful] Look away, trouble. [pause] Somewhere far. I'll still be here.",
+      "sourceLine": 20
+    },
+    {
+      "id": "male-step0-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "step",
+      "step": 0,
+      "template": "[softly] Look far away for me, {pet}... [pause] then look back at me later, okay?",
+      "sourceLine": 21
+    },
+    {
+      "id": "male-step0-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "step",
+      "step": 0,
+      "template": "[sleepy drowsy voice] Mm... look up, {pet}... somewhere far... nice and slow.",
+      "sourceLine": 22
+    },
+    {
+      "id": "male-step0-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "step",
+      "step": 0,
+      "template": "[drunken voice] Lookk up, babeee... way, way over dere. [laughing] Not at me. Okay, a little at me.",
+      "sourceLine": 23
+    },
+    {
+      "id": "male-step0-drunk-02",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "step",
+      "step": 0,
+      "template": "[drunken voice] Pwease look far away... pwease? [laughing] I'll be good, I promish.",
+      "sourceLine": 24
+    },
+    {
+      "id": "male-step1-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "step",
+      "step": 1,
+      "template": "[softly] Let your eyes go soft, {pet}... easy now.",
+      "sourceLine": 25
+    },
+    {
+      "id": "male-step1-sweet-02",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "step",
+      "step": 1,
+      "template": "[whispering] Just let it blur... mm, that's it, handsome.",
+      "sourceLine": 26
+    },
+    {
+      "id": "male-step1-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "step",
+      "step": 1,
+      "template": "[playful] Relax those eyes, {pet}. [chuckling] You stare too hard... at everything.",
+      "sourceLine": 27
+    },
+    {
+      "id": "male-step1-teasing-02",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "step",
+      "step": 1,
+      "template": "[slowly] Soft focus, mister... [pause] don't try so hard. For once.",
+      "sourceLine": 28
+    },
+    {
+      "id": "male-step1-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "step",
+      "step": 1,
+      "template": "[softly] Let it go blurry for me, {pet}... I've got you.",
+      "sourceLine": 29
+    },
+    {
+      "id": "male-step1-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "step",
+      "step": 1,
+      "template": "[yawning] [sleepy drowsy voice] Mmm... soft eyes, {pet}... sleepy eyes...",
+      "sourceLine": 30
+    },
+    {
+      "id": "male-step1-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "step",
+      "step": 1,
+      "template": "[drunken voice] Shoft eyesh, babeee... letsh it all go blurry... [laughing] mine already ish.",
+      "sourceLine": 31
+    },
+    {
+      "id": "male-step1-drunk-02",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "step",
+      "step": 1,
+      "template": "[drunken voice] Make it all fuzzy... ooh, I like fuzzy. [laughing] Dat's the whole room.",
+      "sourceLine": 32
+    },
+    {
+      "id": "male-step2-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "step",
+      "step": 2,
+      "template": "[softly] Blink for me, {pet}... slow and sweet.",
+      "sourceLine": 33
+    },
+    {
+      "id": "male-step2-sweet-02",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "step",
+      "step": 2,
+      "template": "[whispering] Slow blinks... [pause] mm, those dreamy eyes.",
+      "sourceLine": 34
+    },
+    {
+      "id": "male-step2-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "step",
+      "step": 2,
+      "template": "[playful] Blink, {pet}. [chuckling] Slowly. Don't rush, I like watching.",
+      "sourceLine": 35
+    },
+    {
+      "id": "male-step2-teasing-02",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "step",
+      "step": 2,
+      "template": "[slowly] Close them... [pause] all the way. [chuckling] I won't peek. Much.",
+      "sourceLine": 36
+    },
+    {
+      "id": "male-step2-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "step",
+      "step": 2,
+      "template": "[softly] Slow blink for me, {pet}... [pause] I'll wait right here.",
+      "sourceLine": 37
+    },
+    {
+      "id": "male-step2-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "step",
+      "step": 2,
+      "template": "[sleepy drowsy voice] Blink... slow... [yawning] mm, stay closed a sec...",
+      "sourceLine": 38
+    },
+    {
+      "id": "male-step2-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "step",
+      "step": 2,
+      "template": "[drunken voice] Blink, babeee... shlowly... [laughing] wait, am I blinkin'?",
+      "sourceLine": 39
+    },
+    {
+      "id": "male-step2-drunk-02",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "step",
+      "step": 2,
+      "template": "[drunken voice] Eyesh closed... ooh, dark. [laughing] Okay open. Open. Hi.",
+      "sourceLine": 40
+    },
+    {
+      "id": "male-step3-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "step",
+      "step": 3,
+      "template": "[sighing] Shoulders down, {pet}... breathe out for me.",
+      "sourceLine": 41
+    },
+    {
+      "id": "male-step3-sweet-02",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "step",
+      "step": 3,
+      "template": "[softly] Unclench that jaw... [pause] there you go, handsome.",
+      "sourceLine": 42
+    },
+    {
+      "id": "male-step3-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "step",
+      "step": 3,
+      "template": "[playful] You're so tense, {pet}. [chuckling] Drop those shoulders... I'll fix the rest later.",
+      "sourceLine": 43
+    },
+    {
+      "id": "male-step3-teasing-02",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "step",
+      "step": 3,
+      "template": "[slowly] Breathe in... [pause] and out... [chuckling] good, {pet}. Real good.",
+      "sourceLine": 44
+    },
+    {
+      "id": "male-step3-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "step",
+      "step": 3,
+      "template": "[softly] Let it all go, {pet}... lean back... I've got you.",
+      "sourceLine": 45
+    },
+    {
+      "id": "male-step3-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "step",
+      "step": 3,
+      "template": "[yawning] Mmm... shoulders down, {pet}... [sighing] ahh... cozy.",
+      "sourceLine": 46
+    },
+    {
+      "id": "male-step3-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "step",
+      "step": 3,
+      "template": "[drunken voice] Ahhh... shoulders down, babeee... [sighing] dat's sho good.",
+      "sourceLine": 47
+    },
+    {
+      "id": "male-step3-drunk-02",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "step",
+      "step": 3,
+      "template": "[drunken voice] Relaaax... breave in... breave out... [laughing] I forgot da middle part.",
+      "sourceLine": 48
+    },
+    {
+      "id": "male-done-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "done",
+      "template": "[laughing] Rested! [softly] See you in {mins}, {pet}.",
+      "sourceLine": 49
+    },
+    {
+      "id": "male-done-sweet-02",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "done",
+      "template": "[softly] That's my good boy... eyes all happy. Back in {mins}.",
+      "sourceLine": 50
+    },
+    {
+      "id": "male-done-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "done",
+      "template": "[playful] Done, trouble. [chuckling] Miss me while you work... see you in {mins}.",
+      "sourceLine": 51
+    },
+    {
+      "id": "male-done-teasing-02",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "done",
+      "template": "[chuckling] Mm, look at you, all rested. [whispering] I'll be thinking about you for the next {mins}.",
+      "sourceLine": 52
+    },
+    {
+      "id": "male-done-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "done",
+      "template": "[sighing] Already? [pause] Okay, go... but come back in {mins}, {pet}. Promise?",
+      "sourceLine": 53
+    },
+    {
+      "id": "male-done-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "done",
+      "template": "[sleepy drowsy voice] Mmm... rested. [yawning] See you in {mins}, {pet}... don't be long.",
+      "sourceLine": 54
+    },
+    {
+      "id": "male-done-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "done",
+      "template": "[drunken voice] Resshted! [laughing] Shee you in {mins}, babeee. Hic.",
+      "sourceLine": 55
+    },
+    {
+      "id": "male-done-drunk-02",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "done",
+      "template": "[drunken voice] Dat wash nice... go on, go be productive. [laughing] Come back in {mins}... pwease.",
+      "sourceLine": 56
+    },
+    {
+      "id": "male-skip-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "skip",
+      "template": "[sighing] [softly] You skipped... [pause] okay, {pet}, but your eyes will tell on you.",
+      "sourceLine": 58
+    },
+    {
+      "id": "male-skip-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "skip",
+      "template": "[scoffing] [playful] Skipping me? [chuckling] Bold. I'll let it slide... once.",
+      "sourceLine": 59
+    },
+    {
+      "id": "male-skip-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "skip",
+      "template": "[sighing] You skipped me... [softly] I'll forgive you, {pet}. Maybe.",
+      "sourceLine": 60
+    },
+    {
+      "id": "male-skip-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "skip",
+      "template": "[drunken voice] You shkipped?! [laughing] Naughty, naughty babeee.",
+      "sourceLine": 61
+    },
+    {
+      "id": "male-snooze-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "snooze",
+      "template": "[softly] A few more minutes? Okay, {pet}... but I'm watching.",
+      "sourceLine": 63
+    },
+    {
+      "id": "male-snooze-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "snooze",
+      "template": "[playful] Snoozing already, {pet}? [chuckling] I'll just wait... impatiently.",
+      "sourceLine": 64
+    },
+    {
+      "id": "male-snooze-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "snooze",
+      "template": "[yawning] [sleepy drowsy voice] Five more minutes... mm, me too, {pet}.",
+      "sourceLine": 65
+    },
+    {
+      "id": "male-snooze-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "snooze",
+      "template": "[drunken voice] Shnooze... shure, babeee, I love shnooze. [laughing]",
+      "sourceLine": 66
+    },
+    {
+      "id": "male-pause-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "pause",
+      "template": "[softly] Paused. [pause] Take your time, {pet}... I'm not going anywhere.",
+      "sourceLine": 68
+    },
+    {
+      "id": "male-pause-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "pause",
+      "template": "[playful] Pausing me? [chuckling] Fine... I'll be right here, {pet}.",
+      "sourceLine": 69
+    },
+    {
+      "id": "male-pause-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "pause",
+      "template": "[yawning] [sleepy drowsy voice] Paused... mm, good... I needed a minute too.",
+      "sourceLine": 70
+    },
+    {
+      "id": "male-pause-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "pause",
+      "template": "[drunken voice] Paushed... okay... I'll jusht... shit here. [laughing]",
+      "sourceLine": 71
+    },
+    {
+      "id": "male-welcome-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "welcome",
+      "template": "[softly] Welcome back, {pet}. [chuckling] I missed you.",
+      "sourceLine": 73
+    },
+    {
+      "id": "male-welcome-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "welcome",
+      "template": "[gasping] There you are! [laughing] I was getting lonely, {pet}.",
+      "sourceLine": 74
+    },
+    {
+      "id": "male-welcome-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "welcome",
+      "template": "[sighing] Finally... [softly] don't leave me that long again, {pet}.",
+      "sourceLine": 75
+    },
+    {
+      "id": "male-welcome-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "welcome",
+      "template": "[drunken voice] Babeeee, you came back! [laughing] I knew you would.",
+      "sourceLine": 76
+    },
+    {
+      "id": "male-streak-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "streak",
+      "template": "[excited] Look at you, {pet}! [laughing] Every break today. Such a good boy.",
+      "sourceLine": 78
+    },
+    {
+      "id": "male-streak-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "streak",
+      "template": "[playful] Perfect day so far, mister. [chuckling] You deserve a reward... later.",
+      "sourceLine": 79
+    },
+    {
+      "id": "male-streak-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "streak",
+      "template": "[softly] You take such good care of yourself, {pet}... [pause] and of me.",
+      "sourceLine": 80
+    },
+    {
+      "id": "male-streak-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "streak",
+      "template": "[drunken voice] Sho proud of you, babeee... [laughing] you're my favorite.",
+      "sourceLine": 81
+    },
+    {
+      "id": "male-fact-sweet-01",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "fact",
+      "template": "[softly] Fun fact, {pet}... we blink way less when we stare at screens. [chuckling] So blink for me.",
+      "sourceLine": 82
+    },
+    {
+      "id": "male-fact-sweet-02",
+      "gender": "male",
+      "mood": "sweet",
+      "event": "fact",
+      "template": "[whispering] The 20-20-20 rule... every twenty minutes, look twenty feet away, for twenty seconds. [softly] See? I take care of you.",
+      "sourceLine": 83
+    },
+    {
+      "id": "male-fact-teasing-01",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "fact",
+      "template": "[playful] Staring too long dries your eyes out. [chuckling] Staring is only allowed at me, {pet}.",
+      "sourceLine": 84
+    },
+    {
+      "id": "male-fact-teasing-02",
+      "gender": "male",
+      "mood": "teasing",
+      "event": "fact",
+      "template": "[chuckling] Looking far away relaxes the muscles inside your eyes. [playful] See, I'm good for you, trouble.",
+      "sourceLine": 85
+    },
+    {
+      "id": "male-fact-needy-01",
+      "gender": "male",
+      "mood": "needy",
+      "event": "fact",
+      "template": "[softly] Tired eyes make everything harder, {pet}... [pause] let me look after you.",
+      "sourceLine": 86
+    },
+    {
+      "id": "male-fact-sleepy-01",
+      "gender": "male",
+      "mood": "sleepy",
+      "event": "fact",
+      "template": "[yawning] [sleepy drowsy voice] Mm, fun fact... tired eyes get blurry at night. [softly] Rest them, then come to bed.",
+      "sourceLine": 87
+    },
+    {
+      "id": "male-fact-drunk-01",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "fact",
+      "template": "[drunken voice] Fun fact, babeee... you blink less on shcreens. [laughing] I blink a lot. Mosht of it on purpose.",
+      "sourceLine": 88
+    },
+    {
+      "id": "male-fact-drunk-02",
+      "gender": "male",
+      "mood": "drunk",
+      "event": "fact",
+      "template": "[drunken voice] Twenny-twenny-twenny rule! [laughing] Dat'sh my favorite number. Three times.",
+      "sourceLine": 89
+    },
+    {
+      "id": "female-test-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "test",
+      "template": "[softly] Hi {pet}... it's me. [chuckling] Can you hear me, pretty girl?",
+      "sourceLine": 90
+    },
+    {
+      "id": "female-test-sweet-02",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "test",
+      "template": "[whispering] Testing, testing... [softly] is this the voice you wanted next to you, {pet}?",
+      "sourceLine": 91
+    },
+    {
+      "id": "female-test-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "test",
+      "template": "[playful] Mm, there you are. [chuckling] Voice check passed. Now behave, {pet}.",
+      "sourceLine": 92
+    },
+    {
+      "id": "female-test-teasing-02",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "test",
+      "template": "[clears throat] [playful] Is this thing on? [laughing] Oh, you heard me. Good girl.",
+      "sourceLine": 93
+    },
+    {
+      "id": "female-test-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "test",
+      "template": "[softly] Tell me you can hear me... [pause] I want to be your favorite voice, {pet}.",
+      "sourceLine": 94
+    },
+    {
+      "id": "female-test-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "test",
+      "template": "[sleepy drowsy voice] Mmm... hi {pet}. [yawning] Voice test... yep, still me.",
+      "sourceLine": 95
+    },
+    {
+      "id": "female-test-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "test",
+      "template": "[drunken voice] Hiiii {pet}... can you hear me? [laughing] I can hear me. Hic.",
+      "sourceLine": 96
+    },
+    {
+      "id": "female-test-drunk-02",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "test",
+      "template": "[drunken voice] Tesht, tesht... wanna hear me shay your name? [laughing] Gorgeoush.",
+      "sourceLine": 97
+    },
+    {
+      "id": "female-warn-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "warn",
+      "template": "[softly] Hey {pet}... break's coming up. [chuckling] Finish up, I'll wait.",
+      "sourceLine": 98
+    },
+    {
+      "id": "female-warn-sweet-02",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "warn",
+      "template": "[whispering] Psst, {pet}... those pretty eyes need me in a sec.",
+      "sourceLine": 99
+    },
+    {
+      "id": "female-warn-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "warn",
+      "template": "[playful] Almost time, {pet}. [chuckling] Wrap it up, or I'll come steal you.",
+      "sourceLine": 100
+    },
+    {
+      "id": "female-warn-teasing-02",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "warn",
+      "template": "[menacing] Break time is coming... [laughing] and you know I always win.",
+      "sourceLine": 101
+    },
+    {
+      "id": "female-warn-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "warn",
+      "template": "[sighing] [softly] You've been staring at that screen forever... [pause] come look at me soon, {pet}.",
+      "sourceLine": 102
+    },
+    {
+      "id": "female-warn-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "warn",
+      "template": "[yawning] [sleepy drowsy voice] Mm, {pet}... it's late. Break first, then come cuddle.",
+      "sourceLine": 103
+    },
+    {
+      "id": "female-warn-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "warn",
+      "template": "[drunken voice] Babeee, break time ish almost here... [laughing] pwease don't make me wait.",
+      "sourceLine": 104
+    },
+    {
+      "id": "female-warn-drunk-02",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "warn",
+      "template": "[drunken voice] Hey hey, gorgeoush... shtop typing. [laughing] Dat's not a request.",
+      "sourceLine": 105
+    },
+    {
+      "id": "female-step0-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "step",
+      "step": 0,
+      "template": "[softly] Look up for me, {pet}... find something far away.",
+      "sourceLine": 106
+    },
+    {
+      "id": "female-step0-sweet-02",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "step",
+      "step": 0,
+      "template": "[whispering] Eyes up, {pet}... way out there. [pause] Good girl.",
+      "sourceLine": 107
+    },
+    {
+      "id": "female-step0-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "step",
+      "step": 0,
+      "template": "[playful] Eyes off the screen, {pet}. [chuckling] I'm way more fun than that spreadsheet.",
+      "sourceLine": 108
+    },
+    {
+      "id": "female-step0-teasing-02",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "step",
+      "step": 0,
+      "template": "[playful] Look away, trouble. [pause] Somewhere far. I'll still be here, looking at you.",
+      "sourceLine": 109
+    },
+    {
+      "id": "female-step0-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "step",
+      "step": 0,
+      "template": "[softly] Look far away for me, {pet}... [pause] then come back and look at me, okay?",
+      "sourceLine": 110
+    },
+    {
+      "id": "female-step0-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "step",
+      "step": 0,
+      "template": "[sleepy drowsy voice] Mm... look up, {pet}... somewhere far... nice and slow.",
+      "sourceLine": 111
+    },
+    {
+      "id": "female-step0-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "step",
+      "step": 0,
+      "template": "[drunken voice] Lookk up, babeee... way, way over dere. [laughing] Not at me. Okay, a little at me.",
+      "sourceLine": 112
+    },
+    {
+      "id": "female-step0-drunk-02",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "step",
+      "step": 0,
+      "template": "[drunken voice] Pwease look far away... pwease? [laughing] I'll be good, I promish.",
+      "sourceLine": 113
+    },
+    {
+      "id": "female-step1-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "step",
+      "step": 1,
+      "template": "[softly] Let your eyes go soft, {pet}... easy now.",
+      "sourceLine": 114
+    },
+    {
+      "id": "female-step1-sweet-02",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "step",
+      "step": 1,
+      "template": "[whispering] Just let it blur... mm, that's it, beautiful.",
+      "sourceLine": 115
+    },
+    {
+      "id": "female-step1-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "step",
+      "step": 1,
+      "template": "[playful] Relax those eyes, {pet}. [chuckling] You stare too hard... at everything.",
+      "sourceLine": 116
+    },
+    {
+      "id": "female-step1-teasing-02",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "step",
+      "step": 1,
+      "template": "[slowly] Soft focus, vixen... [pause] don't try so hard. For once.",
+      "sourceLine": 117
+    },
+    {
+      "id": "female-step1-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "step",
+      "step": 1,
+      "template": "[softly] Let it go blurry for me, {pet}... I've got you.",
+      "sourceLine": 118
+    },
+    {
+      "id": "female-step1-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "step",
+      "step": 1,
+      "template": "[yawning] [sleepy drowsy voice] Mmm... soft eyes, {pet}... sleepy eyes...",
+      "sourceLine": 119
+    },
+    {
+      "id": "female-step1-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "step",
+      "step": 1,
+      "template": "[drunken voice] Shoft eyesh, babeee... letsh it all go blurry... [laughing] mine already ish.",
+      "sourceLine": 120
+    },
+    {
+      "id": "female-step1-drunk-02",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "step",
+      "step": 1,
+      "template": "[drunken voice] Make it all fuzzy... ooh, I like fuzzy. [laughing] Dat's the whole room.",
+      "sourceLine": 121
+    },
+    {
+      "id": "female-step2-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "step",
+      "step": 2,
+      "template": "[softly] Blink for me, {pet}... slow and sweet.",
+      "sourceLine": 122
+    },
+    {
+      "id": "female-step2-sweet-02",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "step",
+      "step": 2,
+      "template": "[whispering] Slow blinks... [pause] mm, those pretty eyes.",
+      "sourceLine": 123
+    },
+    {
+      "id": "female-step2-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "step",
+      "step": 2,
+      "template": "[playful] Blink, {pet}. [chuckling] Slowly. Don't rush, I like watching.",
+      "sourceLine": 124
+    },
+    {
+      "id": "female-step2-teasing-02",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "step",
+      "step": 2,
+      "template": "[slowly] Close them... [pause] all the way. [chuckling] I won't peek. Much.",
+      "sourceLine": 125
+    },
+    {
+      "id": "female-step2-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "step",
+      "step": 2,
+      "template": "[softly] Slow blink for me, {pet}... [pause] I'll wait right here.",
+      "sourceLine": 126
+    },
+    {
+      "id": "female-step2-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "step",
+      "step": 2,
+      "template": "[sleepy drowsy voice] Blink... slow... [yawning] mm, stay closed a sec...",
+      "sourceLine": 127
+    },
+    {
+      "id": "female-step2-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "step",
+      "step": 2,
+      "template": "[drunken voice] Blink, babeee... shlowly... [laughing] wait, am I blinkin'?",
+      "sourceLine": 128
+    },
+    {
+      "id": "female-step2-drunk-02",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "step",
+      "step": 2,
+      "template": "[drunken voice] Eyesh closed... ooh, dark. [laughing] Okay open. Open. Hi.",
+      "sourceLine": 129
+    },
+    {
+      "id": "female-step3-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "step",
+      "step": 3,
+      "template": "[sighing] Shoulders down, {pet}... breathe out for me.",
+      "sourceLine": 130
+    },
+    {
+      "id": "female-step3-sweet-02",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "step",
+      "step": 3,
+      "template": "[softly] Unclench that jaw... [pause] there you go, gorgeous.",
+      "sourceLine": 131
+    },
+    {
+      "id": "female-step3-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "step",
+      "step": 3,
+      "template": "[playful] You're so tense, {pet}. [chuckling] Drop those shoulders... I'll take care of the rest later.",
+      "sourceLine": 132
+    },
+    {
+      "id": "female-step3-teasing-02",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "step",
+      "step": 3,
+      "template": "[slowly] Breathe in... [pause] and out... [chuckling] good, {pet}. Real good.",
+      "sourceLine": 133
+    },
+    {
+      "id": "female-step3-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "step",
+      "step": 3,
+      "template": "[softly] Let it all go, {pet}... lean back... I've got you.",
+      "sourceLine": 134
+    },
+    {
+      "id": "female-step3-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "step",
+      "step": 3,
+      "template": "[yawning] Mmm... shoulders down, {pet}... [sighing] ahh... cozy.",
+      "sourceLine": 135
+    },
+    {
+      "id": "female-step3-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "step",
+      "step": 3,
+      "template": "[drunken voice] Ahhh... shoulders down, babeee... [sighing] dat's sho good.",
+      "sourceLine": 136
+    },
+    {
+      "id": "female-step3-drunk-02",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "step",
+      "step": 3,
+      "template": "[drunken voice] Relaaax... breave in... breave out... [laughing] I forgot da middle part.",
+      "sourceLine": 137
+    },
+    {
+      "id": "female-done-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "done",
+      "template": "[laughing] Rested! [softly] See you in {mins}, {pet}.",
+      "sourceLine": 138
+    },
+    {
+      "id": "female-done-sweet-02",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "done",
+      "template": "[softly] That's my good girl... eyes all happy. Back in {mins}.",
+      "sourceLine": 139
+    },
+    {
+      "id": "female-done-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "done",
+      "template": "[playful] Done, trouble. [chuckling] Miss me while you work... see you in {mins}.",
+      "sourceLine": 140
+    },
+    {
+      "id": "female-done-teasing-02",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "done",
+      "template": "[chuckling] Mm, look at you, all rested. [whispering] I'll be thinking about you for the next {mins}.",
+      "sourceLine": 141
+    },
+    {
+      "id": "female-done-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "done",
+      "template": "[sighing] Already? [pause] Okay, go... but come back in {mins}, {pet}. Promise?",
+      "sourceLine": 142
+    },
+    {
+      "id": "female-done-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "done",
+      "template": "[sleepy drowsy voice] Mmm... rested. [yawning] See you in {mins}, {pet}... don't be long.",
+      "sourceLine": 143
+    },
+    {
+      "id": "female-done-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "done",
+      "template": "[drunken voice] Resshted! [laughing] Shee you in {mins}, babeee. Hic.",
+      "sourceLine": 144
+    },
+    {
+      "id": "female-done-drunk-02",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "done",
+      "template": "[drunken voice] Dat wash nice... go on, go be productive. [laughing] Come back in {mins}... pwease.",
+      "sourceLine": 145
+    },
+    {
+      "id": "female-skip-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "skip",
+      "template": "[sighing] [softly] You skipped... [pause] okay, {pet}, but your eyes will tell on you.",
+      "sourceLine": 147
+    },
+    {
+      "id": "female-skip-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "skip",
+      "template": "[scoffing] [playful] Skipping me? [chuckling] Bold. I'll let it slide... once.",
+      "sourceLine": 148
+    },
+    {
+      "id": "female-skip-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "skip",
+      "template": "[sighing] You skipped me... [softly] I'll forgive you, {pet}. Maybe.",
+      "sourceLine": 149
+    },
+    {
+      "id": "female-skip-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "skip",
+      "template": "[drunken voice] You shkipped?! [laughing] Naughty, naughty babeee.",
+      "sourceLine": 150
+    },
+    {
+      "id": "female-snooze-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "snooze",
+      "template": "[softly] A few more minutes? Okay, {pet}... but I'm watching.",
+      "sourceLine": 152
+    },
+    {
+      "id": "female-snooze-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "snooze",
+      "template": "[playful] Snoozing already, {pet}? [chuckling] I'll just wait... impatiently.",
+      "sourceLine": 153
+    },
+    {
+      "id": "female-snooze-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "snooze",
+      "template": "[yawning] [sleepy drowsy voice] Five more minutes... mm, me too, {pet}.",
+      "sourceLine": 154
+    },
+    {
+      "id": "female-snooze-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "snooze",
+      "template": "[drunken voice] Shnooze... shure, babeee, I love shnooze. [laughing]",
+      "sourceLine": 155
+    },
+    {
+      "id": "female-pause-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "pause",
+      "template": "[softly] Paused. [pause] Take your time, {pet}... I'm not going anywhere.",
+      "sourceLine": 157
+    },
+    {
+      "id": "female-pause-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "pause",
+      "template": "[playful] Pausing me? [chuckling] Fine... I'll be right here, {pet}.",
+      "sourceLine": 158
+    },
+    {
+      "id": "female-pause-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "pause",
+      "template": "[yawning] [sleepy drowsy voice] Paused... mm, good... I needed a minute too.",
+      "sourceLine": 159
+    },
+    {
+      "id": "female-pause-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "pause",
+      "template": "[drunken voice] Paushed... okay... I'll jusht... shit here. [laughing]",
+      "sourceLine": 160
+    },
+    {
+      "id": "female-welcome-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "welcome",
+      "template": "[softly] Welcome back, {pet}. [chuckling] I missed you.",
+      "sourceLine": 162
+    },
+    {
+      "id": "female-welcome-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "welcome",
+      "template": "[gasping] There you are! [laughing] I was getting lonely, {pet}.",
+      "sourceLine": 163
+    },
+    {
+      "id": "female-welcome-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "welcome",
+      "template": "[sighing] Finally... [softly] don't leave me that long again, {pet}.",
+      "sourceLine": 164
+    },
+    {
+      "id": "female-welcome-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "welcome",
+      "template": "[drunken voice] Babeeee, you came back! [laughing] I knew you would.",
+      "sourceLine": 165
+    },
+    {
+      "id": "female-streak-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "streak",
+      "template": "[excited] Look at you, {pet}! [laughing] Every break today. Such a good girl.",
+      "sourceLine": 167
+    },
+    {
+      "id": "female-streak-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "streak",
+      "template": "[playful] Perfect day so far, vixen. [chuckling] You deserve a reward... later.",
+      "sourceLine": 168
+    },
+    {
+      "id": "female-streak-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "streak",
+      "template": "[softly] You take such good care of yourself, {pet}... [pause] and of me.",
+      "sourceLine": 169
+    },
+    {
+      "id": "female-streak-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "streak",
+      "template": "[drunken voice] Sho proud of you, babeee... [laughing] you're my favorite.",
+      "sourceLine": 170
+    },
+    {
+      "id": "female-fact-sweet-01",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "fact",
+      "template": "[softly] Fun fact, {pet}... we blink way less when we stare at screens. [chuckling] So blink for me.",
+      "sourceLine": 171
+    },
+    {
+      "id": "female-fact-sweet-02",
+      "gender": "female",
+      "mood": "sweet",
+      "event": "fact",
+      "template": "[whispering] The 20-20-20 rule... every twenty minutes, look twenty feet away, for twenty seconds. [softly] See? I take care of you.",
+      "sourceLine": 172
+    },
+    {
+      "id": "female-fact-teasing-01",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "fact",
+      "template": "[playful] Staring too long dries your eyes out. [chuckling] Staring is only allowed at me, {pet}.",
+      "sourceLine": 173
+    },
+    {
+      "id": "female-fact-teasing-02",
+      "gender": "female",
+      "mood": "teasing",
+      "event": "fact",
+      "template": "[chuckling] Looking far away relaxes the muscles inside your eyes. [playful] See, I'm good for you, trouble.",
+      "sourceLine": 174
+    },
+    {
+      "id": "female-fact-needy-01",
+      "gender": "female",
+      "mood": "needy",
+      "event": "fact",
+      "template": "[softly] Tired eyes make everything harder, {pet}... [pause] let me look after you.",
+      "sourceLine": 175
+    },
+    {
+      "id": "female-fact-sleepy-01",
+      "gender": "female",
+      "mood": "sleepy",
+      "event": "fact",
+      "template": "[yawning] [sleepy drowsy voice] Mm, fun fact... tired eyes get blurry at night. [softly] Rest them, then come cuddle.",
+      "sourceLine": 176
+    },
+    {
+      "id": "female-fact-drunk-01",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "fact",
+      "template": "[drunken voice] Fun fact, babeee... you blink less on shcreens. [laughing] I blink a lot. Mosht of it on purpose.",
+      "sourceLine": 177
+    },
+    {
+      "id": "female-fact-drunk-02",
+      "gender": "female",
+      "mood": "drunk",
+      "event": "fact",
+      "template": "[drunken voice] Twenny-twenny-twenny rule! [laughing] Dat'sh my favorite number. Three times.",
+      "sourceLine": 178
+    }
+  ]
+}
