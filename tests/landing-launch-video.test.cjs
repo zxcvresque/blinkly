@@ -35,6 +35,16 @@ test('visible video autoplays muted and pauses when it leaves the screen', () =>
   assert.equal(f.video.plays, 1); assert.equal(f.video.muted, true); assert.equal(f.playButton.textContent, 'Pause');
   assert.equal(f.stoppedSamples(), 1); f.view(false); assert.equal(f.video.paused, true);
 });
+test('pressing Play turns sound on by default, while an explicit mute choice is respected', () => {
+  const f = fixture(); f.metadata(); f.view(true);
+  assert.equal(f.video.muted, true, 'Autoplay stays silent');
+  f.playButton.events.click(); f.playButton.events.click();
+  assert.equal(f.video.muted, false, 'A manual Play enables sound');
+  assert.equal(f.soundButton.textContent, 'Sound off');
+  f.soundButton.events.click();
+  f.playButton.events.click(); f.playButton.events.click();
+  assert.equal(f.video.muted, true, 'An explicit mute choice persists across pause and play');
+});
 test('switching device sizes preserves playback position, sound choice and manual pause', () => {
   const f = fixture(); f.metadata(); f.view(true); f.soundButton.events.click();
   f.playButton.events.click(); f.video.currentTime = 27.5;

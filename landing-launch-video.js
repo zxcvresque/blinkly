@@ -3,7 +3,7 @@
   'use strict';
   function create({ video, frame, section, playButton, soundButton, media, reducedMotion = false,
     Observer = scope.IntersectionObserver, onPlay = () => {} }) {
-    let manuallyPaused = false, inView = false, switching = false, resumeAt = 0;
+    let manuallyPaused = false, inView = false, switching = false, resumeAt = 0, soundChosen = false;
     const attemptPlay = () => { void Promise.resolve(video.play()).catch(() => {}); };
     function updateControls() {
       playButton.textContent = video.paused ? 'Play' : 'Pause';
@@ -42,10 +42,10 @@
       updateControls();
     });
     playButton.addEventListener('click', () => {
-      if (video.paused) { manuallyPaused = false; attemptPlay(); }
+      if (video.paused) { manuallyPaused = false; if (!soundChosen) video.muted = false; updateControls(); attemptPlay(); }
       else { manuallyPaused = true; video.pause(); }
     });
-    soundButton.addEventListener('click', () => { video.muted = !video.muted; updateControls(); });
+    soundButton.addEventListener('click', () => { soundChosen = true; video.muted = !video.muted; updateControls(); });
     if (media.addEventListener) media.addEventListener('change', selectSource);
     else media.addListener(selectSource);
     selectSource(); updateControls();

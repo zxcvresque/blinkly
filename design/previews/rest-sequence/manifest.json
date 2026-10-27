@@ -1,0 +1,172 @@
+{
+  "width": 1440,
+  "height": 900,
+  "duration": 20,
+  "step": 0.5,
+  "frames": [
+    {
+      "time": 0,
+      "src": "design/previews/rest-sequence/frame-000.webp"
+    },
+    {
+      "time": 0.5,
+      "src": "design/previews/rest-sequence/frame-001.webp"
+    },
+    {
+      "time": 1,
+      "src": "design/previews/rest-sequence/frame-002.webp"
+    },
+    {
+      "time": 1.5,
+      "src": "design/previews/rest-sequence/frame-003.webp"
+    },
+    {
+      "time": 2,
+      "src": "design/previews/rest-sequence/frame-004.webp"
+    },
+    {
+      "time": 2.5,
+      "src": "design/previews/rest-sequence/frame-005.webp"
+    },
+    {
+      "time": 3,
+      "src": "design/previews/rest-sequence/frame-006.webp"
+    },
+    {
+      "time": 3.5,
+      "src": "design/previews/rest-sequence/frame-007.webp"
+    },
+    {
+      "time": 4,
+      "src": "design/previews/rest-sequence/frame-008.webp"
+    },
+    {
+      "time": 4.5,
+      "src": "design/previews/rest-sequence/frame-009.webp"
+    },
+    {
+      "time": 5,
+      "src": "design/previews/rest-sequence/frame-010.webp"
+    },
+    {
+      "time": 5.5,
+      "src": "design/previews/rest-sequence/frame-011.webp"
+    },
+    {
+      "time": 6,
+      "src": "design/previews/rest-sequence/frame-012.webp"
+    },
+    {
+      "time": 6.5,
+      "src": "design/previews/rest-sequence/frame-013.webp"
+    },
+    {
+      "time": 7,
+      "src": "design/previews/rest-sequence/frame-014.webp"
+    },
+    {
+      "time": 7.5,
+      "src": "design/previews/rest-sequence/frame-015.webp"
+    },
+    {
+      "time": 8,
+      "src": "design/previews/rest-sequence/frame-016.webp"
+    },
+    {
+      "time": 8.5,
+      "src": "design/previews/rest-sequence/frame-017.webp"
+    },
+    {
+      "time": 9,
+      "src": "design/previews/rest-sequence/frame-018.webp"
+    },
+    {
+      "time": 9.5,
+      "src": "design/previews/rest-sequence/frame-019.webp"
+    },
+    {
+      "time": 10,
+      "src": "design/previews/rest-sequence/frame-020.webp"
+    },
+    {
+      "time": 10.5,
+      "src": "design/previews/rest-sequence/frame-021.webp"
+    },
+    {
+      "time": 11,
+      "src": "design/previews/rest-sequence/frame-022.webp"
+    },
+    {
+      "time": 11.5,
+      "src": "design/previews/rest-sequence/frame-023.webp"
+    },
+    {
+      "time": 12,
+      "src": "design/previews/rest-sequence/frame-024.webp"
+    },
+    {
+      "time": 12.5,
+      "src": "design/previews/rest-sequence/frame-025.webp"
+    },
+    {
+      "time": 13,
+      "src": "design/previews/rest-sequence/frame-026.webp"
+    },
+    {
+      "time": 13.5,
+      "src": "design/previews/rest-sequence/frame-027.webp"
+    },
+    {
+      "time": 14,
+      "src": "design/previews/rest-sequence/frame-028.webp"
+    },
+    {
+      "time": 14.5,
+      "src": "design/previews/rest-sequence/frame-029.webp"
+    },
+    {
+      "time": 15,
+      "src": "design/previews/rest-sequence/frame-030.webp"
+    },
+    {
+      "time": 15.5,
+      "src": "design/previews/rest-sequence/frame-031.webp"
+    },
+    {
+      "time": 16,
+      "src": "design/previews/rest-sequence/frame-032.webp"
+    },
+    {
+      "time": 16.5,
+      "src": "design/previews/rest-sequence/frame-033.webp"
+    },
+    {
+      "time": 17,
+      "src": "design/previews/rest-sequence/frame-034.webp"
+    },
+    {
+      "time": 17.5,
+      "src": "design/previews/rest-sequence/frame-035.webp"
+    },
+    {
+      "time": 18,
+      "src": "design/previews/rest-sequence/frame-036.webp"
+    },
+    {
+      "time": 18.5,
+      "src": "design/previews/rest-sequence/frame-037.webp"
+    },
+    {
+      "time": 19,
+      "src": "design/previews/rest-sequence/frame-038.webp"
+    },
+    {
+      "time": 19.5,
+      "src": "design/previews/rest-sequence/frame-039.webp"
+    },
+    {
+      "time": 20,
+      "src": "design/previews/rest-sequence/frame-040.webp"
+    }
+  ]
+}

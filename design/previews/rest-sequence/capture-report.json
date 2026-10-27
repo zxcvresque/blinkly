@@ -1,0 +1,378 @@
+{
+  "width": 1440,
+  "height": 900,
+  "count": 41,
+  "bytes": 1730342,
+  "states": [
+    {
+      "time": 0,
+      "number": "20",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 27100
+    },
+    {
+      "time": 0.5,
+      "number": "20",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 26828
+    },
+    {
+      "time": 1,
+      "number": "19",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 27228
+    },
+    {
+      "time": 1.5,
+      "number": "19",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 27768
+    },
+    {
+      "time": 2,
+      "number": "18",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 28994
+    },
+    {
+      "time": 2.5,
+      "number": "18",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 29202
+    },
+    {
+      "time": 3,
+      "number": "17",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 31014
+    },
+    {
+      "time": 3.5,
+      "number": "17",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 30740
+    },
+    {
+      "time": 4,
+      "number": "16",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 31830
+    },
+    {
+      "time": 4.5,
+      "number": "16",
+      "title": "Look at something 20 feet away",
+      "subtitle": "Pick a distant point: a building, a tree, the sky.",
+      "active": true,
+      "done": false,
+      "bytes": 32028
+    },
+    {
+      "time": 5,
+      "number": "15",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 32176
+    },
+    {
+      "time": 5.5,
+      "number": "15",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 33270
+    },
+    {
+      "time": 6,
+      "number": "14",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 33554
+    },
+    {
+      "time": 6.5,
+      "number": "14",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 34784
+    },
+    {
+      "time": 7,
+      "number": "13",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 35832
+    },
+    {
+      "time": 7.5,
+      "number": "13",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 38146
+    },
+    {
+      "time": 8,
+      "number": "12",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 37904
+    },
+    {
+      "time": 8.5,
+      "number": "12",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 37698
+    },
+    {
+      "time": 9,
+      "number": "11",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 39778
+    },
+    {
+      "time": 9.5,
+      "number": "11",
+      "title": "Let your eyes go soft",
+      "subtitle": "Rest on it. No need to strain for focus.",
+      "active": true,
+      "done": false,
+      "bytes": 42688
+    },
+    {
+      "time": 10,
+      "number": "10",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 41386
+    },
+    {
+      "time": 10.5,
+      "number": "10",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 46240
+    },
+    {
+      "time": 11,
+      "number": "9",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 45632
+    },
+    {
+      "time": 11.5,
+      "number": "9",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 45258
+    },
+    {
+      "time": 12,
+      "number": "8",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 45112
+    },
+    {
+      "time": 12.5,
+      "number": "8",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 44994
+    },
+    {
+      "time": 13,
+      "number": "7",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 48926
+    },
+    {
+      "time": 13.5,
+      "number": "7",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 48178
+    },
+    {
+      "time": 14,
+      "number": "6",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 49714
+    },
+    {
+      "time": 14.5,
+      "number": "6",
+      "title": "Blink slowly",
+      "subtitle": "Close fully each time. It re-wets the surface of your eyes.",
+      "active": true,
+      "done": false,
+      "bytes": 47500
+    },
+    {
+      "time": 15,
+      "number": "5",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 55022
+    },
+    {
+      "time": 15.5,
+      "number": "5",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 53076
+    },
+    {
+      "time": 16,
+      "number": "4",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 50388
+    },
+    {
+      "time": 16.5,
+      "number": "4",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 51454
+    },
+    {
+      "time": 17,
+      "number": "3",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 51760
+    },
+    {
+      "time": 17.5,
+      "number": "3",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 57888
+    },
+    {
+      "time": 18,
+      "number": "2",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 51298
+    },
+    {
+      "time": 18.5,
+      "number": "2",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 61688
+    },
+    {
+      "time": 19,
+      "number": "1",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 63878
+    },
+    {
+      "time": 19.5,
+      "number": "1",
+      "title": "Drop your shoulders",
+      "subtitle": "Unclench your jaw and breathe out.",
+      "active": true,
+      "done": false,
+      "bytes": 54364
+    },
+    {
+      "time": 20,
+      "number": "Rested",
+      "title": "Your eyes thank you.",
+      "subtitle": "Next break in 20 minutes.",
+      "active": true,
+      "done": true,
+      "bytes": 58024
+    }
+  ],
+  "errors": []
+}
